@@ -131,6 +131,7 @@ return [
     'status' => 'Status',
     'amount' => 'Amount',
     'view' => 'View',
+    'total' => 'Total Amount',
     'category_types' => [
         'article' => 'Article',
         'ticket' => 'Ticket',

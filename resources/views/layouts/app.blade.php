@@ -121,5 +121,8 @@
     </div>
 
     @include('layouts.global.foot-js')
+    @if(isset($js))
+        {{ $js }}
+    @endif
     </body>
 </html>

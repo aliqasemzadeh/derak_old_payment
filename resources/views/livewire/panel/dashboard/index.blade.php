@@ -4,6 +4,8 @@
     </x-slot>
 
     <x-slot name="js">
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
         <script>
             const ctx = document.getElementById('month_chart').getContext('2d');
             axios.get('{{ route('panel.dashboard.chart') }}').then(function (response) {
@@ -33,7 +35,7 @@
             <div class="card">
                 <div class="card-body">
                     <h3 class="card-title">{{ __('bap.payment_statistics') }}</h3>
-                    <canvas id="month_chart" width="400" height="140"></canvas>
+                    <canvas id="month_chart" width="400" height="115"></canvas>
                 </div>
             </div>
         </div>
@@ -65,7 +67,7 @@
                     </div>
                 </div>
             </div>
-            <div class="card card-sm">
+            <div class="card mt-1 card-sm">
                 <div class="card-body">
                     <div class="row align-items-center">
                         <div class="col-auto">
@@ -87,10 +89,11 @@
                                 32 $
                             </div>
                         </div>
+
                     </div>
                 </div>
             </div>
-            <div class="card card-sm">
+            <div class="card mt-1 card-sm">
                 <div class="card-body">
                     <div class="row align-items-center">
                         <div class="col-auto">
@@ -110,6 +113,31 @@
                             </div>
                             <div class="text-muted">
                                 100 $
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card mt-1 card-sm">
+                <div class="card-body">
+                    <div class="row align-items-center">
+                        <div class="col-auto">
+                            <span class="bg-primary text-white avatar">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                     class="bi bi-calendar3" viewBox="0 0 16 16">
+                                  <path
+                                      d="M14 0H2a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zM1 3.857C1 3.384 1.448 3 2 3h12c.552 0 1 .384 1 .857v10.286c0 .473-.448.857-1 .857H2c-.552 0-1-.384-1-.857V3.857z"/>
+                                  <path
+                                      d="M6.5 7a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm-9 3a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm-9 3a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
+                                </svg>
+                            </span>
+                        </div>
+                        <div class="col">
+                            <div class="font-weight-medium">
+                                {{ __('bap.total') }}
+                            </div>
+                            <div class="text-muted">
+                                595 $
                             </div>
                         </div>
                     </div>
