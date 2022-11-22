@@ -47,7 +47,7 @@
                         </a>
                     </li>
 
-                    <li class="nav-item @if(\Illuminate\Support\Facades\Route::is('panel.terminal..index')) active @endif">
+                    <li class="nav-item @if(\Illuminate\Support\Facades\Route::is('panel.terminal.index')) active @endif">
                         <a class="nav-link" href="{{ route('panel.terminal.index') }}" >
                                     <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/home -->
                                         <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-terminal-2" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -59,6 +59,36 @@
                                     </span>
                             <span class="nav-link-title">
                                       {{ __('bap.terminal') }}
+                            </span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item @if(\Illuminate\Support\Facades\Route::is('panel.wallet.index')) active @endif">
+                        <a class="nav-link" href="{{ route('panel.wallet.index') }}" >
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-file-invoice" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                <path d="M14 3v4a1 1 0 0 0 1 1h4"></path>
+                                <path d="M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2z"></path>
+                                <line x1="9" y1="7" x2="10" y2="7"></line>
+                                <line x1="9" y1="13" x2="15" y2="13"></line>
+                                <line x1="13" y1="17" x2="15" y2="17"></line>
+                            </svg>
+                            <span class="nav-link-title">
+                                {{ __('bap.invoice') }}
+                            </span>
+                        </a>
+
+                    </li>
+
+                    <li class="nav-item @if(\Illuminate\Support\Facades\Route::is('panel.wallet.index')) active @endif">
+                        <a class="nav-link" href="{{ route('panel.wallet.index') }}" >
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-wallet" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                <path d="M17 8v-3a1 1 0 0 0 -1 -1h-10a2 2 0 0 0 0 4h12a1 1 0 0 1 1 1v3m0 4v3a1 1 0 0 1 -1 1h-12a2 2 0 0 1 -2 -2v-12"></path>
+                                <path d="M20 12v4h-4a2 2 0 0 1 0 -4h4"></path>
+                            </svg>
+                            <span class="nav-link-title">
+                                {{ __('bap.wallet') }}
                             </span>
                         </a>
 

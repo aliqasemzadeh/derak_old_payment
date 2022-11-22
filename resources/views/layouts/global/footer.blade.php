@@ -11,7 +11,7 @@
                 <ul class="list-inline list-inline-dots mb-0">
                     <li class="list-inline-item">
                         Copyright © 2021
-                        <a href="https://github.com/alighasemzadeh/bap" class="link-secondary">Base Admin Panel</a>.
+                        <a href="https://derak.io" class="link-secondary">{{ config('bap.name') }}</a>.
                     </li>
                     <li class="list-inline-item">
                         <!-- Download SVG icon from http://tabler-icons.io/i/clock -->
