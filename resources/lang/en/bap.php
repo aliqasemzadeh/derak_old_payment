@@ -116,6 +116,9 @@ return [
     'uploaded' => 'Uploaded',
     'request_sent' => 'Request sent.',
     'terminal' => 'Terminal',
+    'create_terminal' => 'Create Terminal',
+    'edit_terminal' => 'Edit Terminal',
+    'callback_url' => 'Callback URL',
     'category_types' => [
         'article' => 'Article',
         'ticket' => 'Ticket',

@@ -43,6 +43,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['re
             Route::get('/support/ticket/view/{ticket}', \App\Http\Livewire\Panel\Support\Ticket\View::class)->name('panel.support.ticket.view');
 
             Route::get('/support/terminal/index', \App\Http\Livewire\Panel\Terminal\Index::class)->name('panel.terminal.index');
+            Route::get('/support/terminal/view/{terminal}', \App\Http\Livewire\Panel\Terminal\View::class)->name('panel.terminal.view');
 
         });
 
