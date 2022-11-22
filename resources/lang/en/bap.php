@@ -115,6 +115,7 @@ return [
     'edit_team' => 'Edit Team',
     'uploaded' => 'Uploaded',
     'request_sent' => 'Request sent.',
+    'terminal' => 'Terminal',
     'category_types' => [
         'article' => 'Article',
         'ticket' => 'Ticket',

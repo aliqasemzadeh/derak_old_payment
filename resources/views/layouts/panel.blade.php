@@ -47,6 +47,23 @@
                         </a>
                     </li>
 
+                    <li class="nav-item @if(\Illuminate\Support\Facades\Route::is('panel.terminal..index')) active @endif">
+                        <a class="nav-link" href="{{ route('panel.terminal.index') }}" >
+                                    <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/home -->
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-terminal-2" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                           <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                           <path d="M8 9l3 3l-3 3"></path>
+                                           <line x1="13" y1="15" x2="16" y2="15"></line>
+                                           <rect x="3" y="4" width="18" height="16" rx="2"></rect>
+                                        </svg>
+                                    </span>
+                            <span class="nav-link-title">
+                                      {{ __('bap.terminal') }}
+                            </span>
+                        </a>
+
+                    </li>
+
                         <li class="nav-item dropdown @if(\Illuminate\Support\Facades\Route::is('admin.support.*')) show @endif">
                             <a class="nav-link dropdown-toggle" href="#navbar-user" data-bs-toggle="dropdown" data-bs-auto-close="false" role="button" aria-expanded="true">
                                   <span class="nav-link-icon d-md-none d-lg-inline-block">
