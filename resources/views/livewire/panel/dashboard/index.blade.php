@@ -3,12 +3,37 @@
         {{ __('bap.dashboard') }}
     </x-slot>
 
+    <x-slot name="js">
+        <script>
+            const ctx = document.getElementById('month_chart').getContext('2d');
+            axios.get('{{ route('panel.dashboard.chart') }}').then(function (response) {
+                new Chart(ctx, {
+                    type: 'line',
+                    data: {
+                        labels: response.data.labels,
+                        datasets: [
+                            {
+                                label: "Payments",
+                                data: response.data.payments,
+                                borderColor: '#469408',
+                                backgroundColor: '#469408',
+                                fill: false
+                            },
+                        ]
+                    }
+                });
+            }).catch(function (error) {
+                console.log(error);
+            });
+        </script>
+    </x-slot>
+
     <div class="row">
         <div class="col-lg-9">
             <div class="card">
                 <div class="card-body">
                     <h3 class="card-title">{{ __('bap.payment_statistics') }}</h3>
-
+                    <canvas id="month_chart" width="400" height="140"></canvas>
                 </div>
             </div>
         </div>
