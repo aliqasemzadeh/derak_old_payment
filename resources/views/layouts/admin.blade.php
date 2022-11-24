@@ -167,14 +167,14 @@
                                   </span>
                                 </a>
                                 <div class="dropdown-menu @if(\Illuminate\Support\Facades\Route::is('admin.support.*')) show @endif " data-bs-popper="none">
-                                    @can('admin_ticket_index')
-                                        <a class="dropdown-item @if(\Illuminate\Support\Facades\Route::is('admin.support.ticket.index')) active @endif" href="{{ route('admin.support.ticket.index') }}">
-                                            {{ __('bap.tickets') }}
+                                    @can('admin_address_index')
+                                        <a class="dropdown-item @if(\Illuminate\Support\Facades\Route::is('admin.payment.address.index')) active @endif" href="{{ route('admin.payment.address.index') }}">
+                                            {{ __('bap.addresses') }}
                                         </a>
                                     @endcan
-                                    @can('admin_ticket_archive')
-                                        <a class="dropdown-item @if(\Illuminate\Support\Facades\Route::is('admin.support.ticket.archive')) active @endif" href="{{ route('admin.support.ticket.archive') }}">
-                                            {{ __('bap.archive') }}
+                                    @can('admin_address_import')
+                                        <a class="dropdown-item @if(\Illuminate\Support\Facades\Route::is('admin.support.address.import')) active @endif" href="{{ route('admin.payment.address.import') }}">
+                                            {{ __('bap.import') }}
                                         </a>
                                     @endcan
                                 </div>

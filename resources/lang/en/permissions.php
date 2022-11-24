@@ -56,5 +56,7 @@ return [
 
 
     'admin_payment_management' => 'Manage Payment System',
+    'admin_address_index' => 'Manage Payment Addresses',
+    'admin_address_import' => 'Import Payment Addresses',
 
 ];
