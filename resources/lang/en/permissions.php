@@ -54,4 +54,7 @@ return [
     'admin_team_create' => 'Create Team',
     'admin_team_users' => 'Manage Team Users',
 
+
+    'admin_payment_management' => 'Manage Payment System',
+
 ];
