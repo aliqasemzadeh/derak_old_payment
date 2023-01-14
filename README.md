@@ -8,7 +8,6 @@
 - Composer
 - Node.js
 
-
 ## 🧰 Built with
 
 - Laravel 9
