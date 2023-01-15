@@ -64,48 +64,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                @foreach($terminals as $terminal)
-                    <tr>
-                        <td>
-                            <div class="d-flex py-1 align-items-center">
-                                <div class="flex-fill">
-                                    <div class="font-weight-medium">{{ $terminal->title }}</div>
-                                    <div class="text-muted"  x-data="{ uuid: '{{ $terminal->uuid }}' }">
-                                        {{ $terminal->uuid }}
-                                        <button class="btn btn-action" type="button" @click="$clipboard(uuid)">
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copy" width="12" height="12" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                                <rect x="8" y="8" width="12" height="12" rx="2"></rect>
-                                                <path d="M16 8v-2a2 2 0 0 0 -2 -2h-8a2 2 0 0 0 -2 2v8a2 2 0 0 0 2 2h2"></path>
-                                            </svg>
-                                        </button>
-                                    </div>
-                                    <div class="text-muted">{{ $terminal->callback_url }}</div>
-                                </div>
-                            </div>
-                        </td>
-                        <td class="text-end">
-                            <button onclick="Livewire.emit('showModal', 'panel.terminal.edit', '{{ json_encode($terminal->id) }}')" class="btn btn-primary btn-icon btn-sm">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 7h-3a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-3" /><path d="M9 15h3l8.5 -8.5a1.5 1.5 0 0 0 -3 -3l-8.5 8.5v3" /><line x1="16" y1="5" x2="19" y2="8" /></svg>
-                            </button>
 
-                            <a href="{{ route('panel.terminal.view', [$terminal->id]) }}" class="btn btn-warning btn-icon btn-sm">
-                                <!-- Download SVG icon from http://tabler-icons.io/i/eye -->
-                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-list-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                    <circle cx="15" cy="15" r="4"></circle>
-                                    <path d="M18.5 18.5l2.5 2.5"></path>
-                                    <path d="M4 6h16"></path>
-                                    <path d="M4 12h4"></path>
-                                    <path d="M4 18h4"></path>
-                                </svg>
-                            </a>
-                            <button wire:click="delete({{ $terminal->id }})" class="btn btn-danger btn-icon btn-sm">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><line x1="4" y1="7" x2="20" y2="7" /><line x1="10" y1="11" x2="10" y2="17" /><line x1="14" y1="11" x2="14" y2="17" /><path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12" /><path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3" /></svg>
-                            </button>
-                        </td>
-                    </tr>
-                @endforeach
                 </tbody>
             </table>
         </div>
