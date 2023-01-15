@@ -2,10 +2,13 @@
 
 namespace App\Http\Livewire\Panel\Wallet;
 
+use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Component;
+use Livewire\WithPagination;
 
 class Index extends Component
 {
+
     use WithPagination;
     use LivewireAlert;
 
