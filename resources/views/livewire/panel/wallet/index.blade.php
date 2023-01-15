@@ -69,7 +69,7 @@
             </table>
         </div>
         <div class="card-footer d-flex justify-content-between">
-            {{ $terminals->links() }}
+
         </div>
     </div>
 </div>
