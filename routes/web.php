@@ -47,6 +47,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['re
             Route::get('/terminal/view/{terminal}', \App\Http\Livewire\Panel\Terminal\View::class)->name('panel.terminal.view');
 
             Route::get('/wallet/index', \App\Http\Livewire\Panel\Wallet\Index::class)->name('panel.wallet.index');
+            Route::get('/invoice/index', \App\Http\Livewire\Panel\Invoice\Index::class)->name('panel.invoice.index');
 
         });
 
