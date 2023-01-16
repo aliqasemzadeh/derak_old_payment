@@ -24,6 +24,13 @@ class Index extends Component
     protected $paginationTheme = 'bootstrap';
     public function render()
     {
-        return view('livewire.panel.wallet.index')->layout('layouts.panel');
+        $wallets = [];
+        foreach (config('wallet.networks') as $symbol) {
+            $wallet = Wallet::firstOrCreate(['user_id' => $this->user->id, 'symbol' => $symbol]);
+            $wallets[] = $wallet;
+        }
+        $wallets = collect($wallets);
+
+        return view('livewire.panel.wallet.index', compact('wallets'))->layout('layouts.panel');
     }
 }
