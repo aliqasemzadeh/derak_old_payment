@@ -25,7 +25,7 @@ class Index extends Component
     public function render()
     {
         $wallets = [];
-        foreach (config('wallet.networks') as $symbol) {
+        foreach (config('wallet') as $symbol => $config) {
             $wallet = Wallet::firstOrCreate(['user_id' => $this->user->id, 'symbol' => $symbol]);
             $wallets[] = $wallet;
         }
