@@ -132,7 +132,7 @@ return [
     'amount' => 'Amount',
     'view' => 'View',
     'total' => 'Total Amount',
-    'Payment Management' => 'Payment Management',
+    'payment_management' => 'Payment Management',
     'addresses' => 'Addresses',
     'import' => 'Import',
     'category_types' => [
