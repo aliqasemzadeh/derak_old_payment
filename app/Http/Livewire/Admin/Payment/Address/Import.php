@@ -8,6 +8,6 @@ class Import extends Component
 {
     public function render()
     {
-        return view('livewire.admin.payment.address.import');
+        return view('livewire.admin.payment.address.import')->layout('layouts.admin');
     }
 }
