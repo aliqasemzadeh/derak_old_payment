@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('addresses', function (Blueprint $table) {
             $table->id();
-            $table->string('status')->index();
+            $table->string('status')->index()->default('unused');
             $table->string('address')->index();
             $table->string('network')->index();
             $table->string('symbol')->nullable();
