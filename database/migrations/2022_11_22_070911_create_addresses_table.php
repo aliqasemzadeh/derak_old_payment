@@ -19,6 +19,8 @@ return new class extends Migration
             $table->string('address')->index();
             $table->string('network')->index();
             $table->string('symbol')->nullable();
+            $table->string('private_key')->index()->nullable();
+            $table->string('public_key')->index()->nullable();
             $table->bigInteger('user_id')->index();
             $table->bigInteger('terminal_id')->index();
             $table->bigInteger('invoice_id')->index();
