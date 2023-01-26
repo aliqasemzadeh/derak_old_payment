@@ -10,7 +10,7 @@ class Index extends Component
 {
     public function export()
     {
-        return Excel::download(new AddressesExport, 'addresses-'.date('Y-m-d').'.xlsx');
+        return Excel::download(new AddressesExport(3), 'addresses-'.date('Y-m-d').'.xlsx');
     }
 
     public function render()
