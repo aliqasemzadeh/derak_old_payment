@@ -8,9 +8,11 @@ use Maatwebsite\Excel\Facades\Excel;
 
 class Index extends Component
 {
+    public $count = 100;
+    public $network = 'BEP20';
     public function export()
     {
-        return Excel::download(new AddressesExport(3), 'addresses-'.date('Y-m-d').'-'.time().'.xlsx');
+        return Excel::download(new AddressesExport($this->count, $this->network), 'addresses-'.$this->network.'-'.date('Y-m-d').'-'.time().'.xlsx');
     }
 
     public function render()
