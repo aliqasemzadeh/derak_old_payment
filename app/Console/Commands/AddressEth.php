@@ -29,16 +29,24 @@ class AddressEth extends Command
     {
 
 
-        $address = new Address();
+        try {
+            $tron = new \IEXBase\TronAPI\Tron();
 
-// get address
-        echo $address->get() . "\n";
-// 4e1c45599f667b4dc3604d69e43722d4ace6b770
+            $generateAddress = $tron->generateAddress(); // or createAddress()
+            $isValid = $tron->isAddress($generateAddress->getAddress());
 
-        echo $address->getPrivateKey() . "\n";
-// 33eb576d927573cff6ae50a9e09fc60b672a8dafdfbe3045c7f62955fc55ccb4
 
-        echo $address->getPublicKey() . "\n";
+            echo 'Address hex: '. $generateAddress->getAddress(). "\n";
+            echo 'Address base58: '. $generateAddress->getAddress(true). "\n";
+            echo 'Private key: '. $generateAddress->getPrivateKey(). "\n";
+            echo 'Public key: '. $generateAddress->getPublicKey(). "\n";
+            echo 'Is Validate: '. $isValid;
+
+            //echo 'Raw data: '.$generateAddress->getRawData();
+
+        } catch (\IEXBase\TronAPI\Exception\TronException $e) {
+            echo $e->getMessage();
+        }
         return Command::SUCCESS;
     }
 }

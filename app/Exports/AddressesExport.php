@@ -2,6 +2,7 @@
 
 namespace App\Exports;
 
+use Illuminate\Support\Facades\Log;
 use kornrunner\Ethereum\Address;
 use Maatwebsite\Excel\Concerns\FromArray;
 class AddressesExport implements FromArray
@@ -19,13 +20,30 @@ class AddressesExport implements FromArray
     public function array(): array
     {
         $addresses = [];
-        for($i =0; $i < $this->count; $i++) {
-            $address = new Address();
-            $addresses[$i]['address'] = "0x" . $address->get();
-            $addresses[$i]['network'] = $this->network;
-            $addresses[$i]['private_key'] = "0x" . $address->getPrivateKey();
-            $addresses[$i]['public_key'] = "0x" . $address->getPublicKey();
+        if($this->network != 'TRC20') {
+            for($i =0; $i < $this->count; $i++) {
+                try {
+                    $tron = new \IEXBase\TronAPI\Tron();
+                    $generateAddress = $tron->generateAddress(); // or createAddress()
+                    $addresses[$i]['address'] = $generateAddress->getAddress(true);
+                    $addresses[$i]['network'] = $this->network;
+                    $addresses[$i]['private_key'] = $generateAddress->getPrivateKey();
+                    $addresses[$i]['public_key'] = $generateAddress->getPublicKey();
+
+                } catch (\IEXBase\TronAPI\Exception\TronException $e) {
+                    Log::error($e->getMessage());
+                }
+            }
+        } else {
+            for($i =0; $i < $this->count; $i++) {
+                $address = new Address();
+                $addresses[$i]['address'] = "0x" . $address->get();
+                $addresses[$i]['network'] = $this->network;
+                $addresses[$i]['private_key'] = "0x" . $address->getPrivateKey();
+                $addresses[$i]['public_key'] = "0x" . $address->getPublicKey();
+            }
         }
+
         \App\Models\Address::insert($addresses);
         return $addresses;
     }
