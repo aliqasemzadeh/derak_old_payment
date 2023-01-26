@@ -21,9 +21,9 @@ return new class extends Migration
             $table->string('symbol')->nullable();
             $table->string('private_key')->index()->nullable();
             $table->string('public_key')->index()->nullable();
-            $table->bigInteger('user_id')->index();
-            $table->bigInteger('terminal_id')->index();
-            $table->bigInteger('invoice_id')->index();
+            $table->bigInteger('user_id')->index()->nullable();
+            $table->bigInteger('terminal_id')->index()->nullable();
+            $table->bigInteger('invoice_id')->index()->nullable();
             $table->longText('description')->nullable();
             $table->timestamps();
             $table->softDeletes();
