@@ -14,9 +14,9 @@ class AddressesExport implements FromArray
         $addresses = [];
         for($i =0; $i <= 100; $i++) {
             $address = new Address();
-            $addresses['Address'] = $address->get();
-            $addresses['PrivateKey'] = $address->getPrivateKey();
-            $addresses['PublicKey'] = $address->getPublicKey();
+            $addresses[$i]['Address'] = "0x" . $address->get();
+            $addresses[$i]['PrivateKey'] = "0x" . $address->getPrivateKey();
+            $addresses[$i]['PublicKey'] = "0x" . $address->getPublicKey();
         }
         return $addresses;
     }

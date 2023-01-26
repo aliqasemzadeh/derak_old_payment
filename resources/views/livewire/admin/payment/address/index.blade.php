@@ -1,3 +1,3 @@
 <div>
-    {{-- Nothing in the world is as soft and yielding as water. --}}
+    <button class="btn btn-primary btn-sm" type="button" wire:click="export">Export Address</button>
 </div>
