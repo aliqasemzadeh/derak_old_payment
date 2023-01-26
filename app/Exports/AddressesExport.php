@@ -20,7 +20,7 @@ class AddressesExport implements FromArray
     public function array(): array
     {
         $addresses = [];
-        if($this->network != 'TRC20') {
+        if($this->network == "TRC20") {
             for($i =0; $i < $this->count; $i++) {
                 try {
                     $tron = new \IEXBase\TronAPI\Tron();

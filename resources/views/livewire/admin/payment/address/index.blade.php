@@ -21,7 +21,7 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="row">
-                                        <div class="col-md-6 col-xl-12">
+                                        <div class="col-md-12">
                                             <div class="mb-3">
                                                 <label class="form-label" for="count">{{ __('bap.count') }}</label>
                                                 <input type="number" wire:model="count" class="form-control" name="count" placeholder="{{ __('bap.count') }}">
