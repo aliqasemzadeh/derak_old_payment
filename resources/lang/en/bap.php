@@ -133,7 +133,7 @@ return [
     'view' => 'View',
     'total' => 'Total Amount',
     'payment_management' => 'Payment Management',
-    'chain_address_generator' => 'Chain Address Generator',
+    'address_generator' => 'Address Generator',
     'chain' => 'Chain',
     'count' => 'Count',
     'addresses' => 'Addresses',

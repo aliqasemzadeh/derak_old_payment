@@ -170,7 +170,12 @@
                                     {{ __('bap.payment_management') }}
                                   </span>
                                 </a>
-                                <div class="dropdown-menu @if(\Illuminate\Support\Facades\Route::is('admin.payment.address.index')) show @endif " data-bs-popper="none">
+                                <div class="dropdown-menu @if(\Illuminate\Support\Facades\Route::is('admin.payment.*')) show @endif " data-bs-popper="none">
+                                    @can('admin_address_generator')
+                                        <a class="dropdown-item @if(\Illuminate\Support\Facades\Route::is('admin.payment.address.generator')) active @endif" href="{{ route('admin.payment.address.index') }}">
+                                            {{ __('bap.address_generator') }}
+                                        </a>
+                                    @endcan
                                     @can('admin_address_index')
                                         <a class="dropdown-item @if(\Illuminate\Support\Facades\Route::is('admin.payment.address.index')) active @endif" href="{{ route('admin.payment.address.index') }}">
                                             {{ __('bap.addresses') }}
