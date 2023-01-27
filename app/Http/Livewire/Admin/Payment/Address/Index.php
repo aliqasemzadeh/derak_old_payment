@@ -12,7 +12,6 @@ class Index extends Component
     public $network = 'BEP20';
     public function export()
     {
-        dd($this->network);
         return Excel::download(new AddressesExport($this->count, $this->network), 'addresses-'.$this->network.'-'.date('Y-m-d').'-'.time().'.xlsx');
     }
 
