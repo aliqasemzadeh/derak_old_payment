@@ -3,6 +3,7 @@
 namespace App\Exports;
 
 use App\Models\Address;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Log;
 use kornrunner\Ethereum\Address as ChainAddress;
 use Maatwebsite\Excel\Concerns\FromArray;
@@ -33,6 +34,8 @@ class AddressesExport implements FromArray
                     $addresses[$i]['network'] = $this->network;
                     $addresses[$i]['private_key'] = $generateAddress->getPrivateKey();
                     $addresses[$i]['public_key'] = $generateAddress->getPublicKey();
+                    $addresses[$i]['created_at'] = Carbon::now();
+                    $addresses[$i]['updated_at'] = Carbon::now();
                 } catch (\IEXBase\TronAPI\Exception\TronException $e) {
                     Log::error($e->getMessage());
                 }
@@ -44,6 +47,8 @@ class AddressesExport implements FromArray
                 $addresses[$i]['network'] = $this->network;
                 $addresses[$i]['private_key'] = "0x" . $address->getPrivateKey();
                 $addresses[$i]['public_key'] = "0x" . $address->getPublicKey();
+                $addresses[$i]['created_at'] = Carbon::now();
+                $addresses[$i]['updated_at'] = Carbon::now();
             }
         }
 

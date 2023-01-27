@@ -16,6 +16,7 @@ class AddressFilter extends ModelFilter
 
     public function search($query)
     {
-        return $this->orWhere('address', 'LIKE', '%' . $query . '%');
+        return $this->orWhere('address', 'LIKE', '%' . $query . '%')
+                    ->orWhere('network', 'LIKE', '%' . $query . '%');
     }
 }

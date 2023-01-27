@@ -6,8 +6,12 @@
     "license": "MIT",
     "require": {
         "php": "^8.0|^8.1",
+        "akaunting/laravel-firewall": "^2.0",
+        "alajusticia/laravel-expirable": "^1.6",
         "aliqasemzadeh/livewire-bootstrap-modal": "dev-master",
         "arcanedev/log-viewer": "^9.0",
+        "beyondcode/laravel-websockets": "^1.13",
+        "codenix-sv/coingecko-api": "^1.0",
         "creativeorange/gravatar": "^1.0",
         "cybercog/laravel-ban": "^4.7",
         "ffsoft-foss/tron-sdk": "4.0.1.6",
