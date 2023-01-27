@@ -25,6 +25,7 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         $schedule->command('update:rates')->everyMinute();
+        $schedule->command('tron:address_checker')->everyMinute();
     }
 
     /**

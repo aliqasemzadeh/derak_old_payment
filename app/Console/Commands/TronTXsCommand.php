@@ -61,12 +61,13 @@ class TronTXsCommand extends Command
                     [
                         'address_id' => $addressItem->id,
                         'txid' => $transactionId,
-                        'contract' => $tokenInfo['address'],
                         'to' => $to,
                         'from' => $from,
                     ]
                 );
                 $transaction->value = $value;
+                $transaction->contract = $tokenInfo['address'];
+                $transaction->symbol = $tokenInfo['symbol'];
                 $transaction->save();
             }
         }

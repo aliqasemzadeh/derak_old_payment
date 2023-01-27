@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('address_transactions', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('address_id')->index();
+            $table->string('symbol')->index()->nullable();
             $table->string('contract')->index()->nullable();
             $table->string('txid')->index();
             $table->string('from')->index();

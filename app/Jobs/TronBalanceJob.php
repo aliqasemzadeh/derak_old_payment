@@ -1,37 +1,44 @@
 <?php
 
-namespace App\Console\Commands;
+namespace App\Jobs;
 
 use App\Models\Address;
-use Illuminate\Console\Command;
-use Illuminate\Support\Facades\Log;
 use App\Utils\TronUtil;
+use Illuminate\Bus\Queueable;
+use Illuminate\Contracts\Queue\ShouldBeUnique;
+use Illuminate\Contracts\Queue\ShouldQueue;
+use Illuminate\Foundation\Bus\Dispatchable;
+use Illuminate\Queue\InteractsWithQueue;
+use Illuminate\Queue\SerializesModels;
+use Illuminate\Support\Facades\Log;
 
-class TronBalanceCommand extends Command
+class TronBalanceJob implements ShouldQueue
 {
-    /**
-     * The name and signature of the console command.
-     *
-     * @var string
-     */
-    protected $signature = 'tron:balance {address=TAc6YQnPVuvMmiS6DpS6CX6M8zCaLHmpPs} {contract=TR7NHqjeKQxGTCi8q8ZY4pL8otSzgjLj6t}';
+    use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
+
+    public $address;
+    public $symbol;
 
     /**
-     * The console command description.
+     * Create a new job instance.
      *
-     * @var string
+     * @return void
      */
-    protected $description = 'This will check TRC20 balance.';
+    public function __construct($address, $symbol)
+    {
+        $this->address = $address;
+        $this->symbol = $symbol;
+    }
 
     /**
-     * Execute the console command.
+     * Execute the job.
      *
-     * @return int
+     * @return void
      */
     public function handle()
     {
-        $address = $this->argument('address');
-        $contract = $this->argument('contract');
+        $address = $this->address;
+        $contract = $this->contract;
 
         $fullNode = new \IEXBase\TronAPI\Provider\HttpProvider('https://api.trongrid.io');
         $solidityNode = new \IEXBase\TronAPI\Provider\HttpProvider('https://api.trongrid.io');
@@ -71,11 +78,8 @@ class TronBalanceCommand extends Command
 
         $balance = bcdiv($balance, bcpow("10", $decimals), $decimals);
 
-
         $addressItem = Address::where('address', $address)->first();
         $addressItem->balnace = $balance;
         $addressItem->save();
-
-        return Command::SUCCESS;
     }
 }

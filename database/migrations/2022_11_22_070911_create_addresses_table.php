@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('address')->index();
             $table->string('network')->index();
             $table->string('symbol')->nullable();
+            $table->double('balance')->default(0);
             $table->string('private_key')->index()->nullable();
             $table->string('public_key')->index()->nullable();
             $table->bigInteger('user_id')->index()->nullable();
