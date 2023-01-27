@@ -2,6 +2,8 @@
 
 namespace App\Console\Commands;
 
+use App\Models\Rate;
+use App\Models\Symbol;
 use Codenixsv\CoinGeckoApi\CoinGeckoClient;
 use Illuminate\Console\Command;
 
@@ -28,9 +30,14 @@ class UpdateRatesCommand extends Command
      */
     public function handle()
     {
-        $client = new CoinGeckoClient();
-        $data = $client->simple()->getPrice('bitcoin', 'usd');
-        dd($data);
+        foreach (Symbol::all() as $symbol) {
+            $client = new CoinGeckoClient();
+            $priceInfo = $client->simple()->getPrice($symbol->coingecko_id, 'usd');
+            $rate = new Rate();
+            $rate->symbol = $symbol->symbol;
+            $rate->price = $priceInfo[$symbol->coingecko_id]['usd'];
+            $rate->save();
+        }
         return Command::SUCCESS;
     }
 }

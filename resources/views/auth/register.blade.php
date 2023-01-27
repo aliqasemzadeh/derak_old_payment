@@ -4,11 +4,8 @@
             <x-jet-authentication-card-logo />
         </x-slot>
 
-
-        <div class="card-header">
-            <h4 class="card-title">{{ __('Register') }}</h4>
-        </div>
         <div class="card-body">
+            <h2 class="h2 text-center mb-4">{{ __('Register') }}</h2>
             <x-jet-validation-errors class="mb-3" />
             <form method="POST" action="{{ route('register') }}">
                 @csrf

@@ -3,11 +3,9 @@
         <x-slot name="logo">
             <x-jet-authentication-card-logo />
         </x-slot>
-        <div class="card-header">
-            <h4 class="card-title">{{ __('Login') }}</h4>
-        </div>
-        <div class="card-body">
 
+        <div class="card-body">
+            <h2 class="h2 text-center mb-4">{{ __('Login') }}</h2>
 
 
             @if (session('status'))
@@ -27,7 +25,15 @@
                 </div>
 
                 <div class="mb-3">
-                    <x-jet-label value="{{ __('Password') }}" />
+                    <label class="form-label">
+                        {{ __('Password') }}
+                        @if (Route::has('password.request'))
+                            <span class="form-label-description">
+                            <a href="{{ route('password.request') }}">{{ __('Forgot your password?') }}</a>
+                        </span>
+                        @endif
+
+                    </label>
 
                     <x-jet-input class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" type="password"
                                  name="password" required autocomplete="current-password" />
@@ -45,12 +51,6 @@
 
                 <div class="mb-0">
                     <div class="d-flex justify-content-end align-items-baseline">
-                        @if (Route::has('password.request'))
-                            <a class="text-muted me-3" href="{{ route('password.request') }}">
-                                {{ __('Forgot your password?') }}
-                            </a>
-                        @endif
-
                         <x-jet-button>
                             {{ __('Log in') }}
                         </x-jet-button>
