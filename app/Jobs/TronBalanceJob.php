@@ -17,17 +17,17 @@ class TronBalanceJob implements ShouldQueue
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
     public $address;
-    public $symbol;
+    public $contract;
 
     /**
      * Create a new job instance.
      *
      * @return void
      */
-    public function __construct($address, $symbol)
+    public function __construct($address, $contract)
     {
         $this->address = $address;
-        $this->symbol = $symbol;
+        $this->contract = $contract;
     }
 
     /**
@@ -76,10 +76,8 @@ class TronBalanceJob implements ShouldQueue
             throw new Exception("Token balance not found");
         }
 
-        $balance = bcdiv($balance, bcpow("10", $decimals), $decimals);
-
         $addressItem = Address::where('address', $address)->first();
-        $addressItem->balnace = $balance;
+        $addressItem->balance = $balance;
         $addressItem->save();
     }
 }

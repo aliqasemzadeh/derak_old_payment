@@ -136,6 +136,8 @@ return [
     'address_generator' => 'Address Generator',
     'chain' => 'Chain',
     'count' => 'Count',
+    'balance' => 'Balance',
+    'txs' => 'TXs',
     'addresses' => 'Addresses',
     'address_management_system' => 'Address Management System',
     'import' => 'Import',

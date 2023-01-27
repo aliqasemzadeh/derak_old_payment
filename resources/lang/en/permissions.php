@@ -59,5 +59,7 @@ return [
     'admin_address_index' => 'Manage Payment Addresses',
     'admin_address_import' => 'Import Payment Addresses',
     'admin_address_generator' => 'Payment Address Generator',
+    'admin_address_txs' => 'View Address TXs',
+    'admin_address_check' => 'Check Address Balance',
 
 ];

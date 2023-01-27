@@ -62,9 +62,48 @@
                             @endif
                         @endif
                     </th>
-                    <th wire:click="sortByColumn('email')">{{ __('bap.email') }}
+                    <th wire:click="sortByColumn('address')">{{ __('bap.address') }}
 
-                        @if ($sortColumn == 'email')
+                        @if ($sortColumn == 'address')
+                            @if($sortDirection == 'asc')
+                                <!-- Download SVG icon from http://tabler-icons.io/i/chevron-up -->
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-sm text-dark icon-thick" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><polyline points="6 15 12 9 18 15" /></svg>
+                            @else
+                                <!-- Download SVG icon from http://tabler-icons.io/i/chevron-down -->
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-sm text-dark icon-thick" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><polyline points="6 9 12 15 18 9" /></svg>
+
+                            @endif
+                        @endif
+                    </th>
+                    <th wire:click="sortByColumn('symbol')">{{ __('bap.symbol') }}
+
+                        @if ($sortColumn == 'symbol')
+                            @if($sortDirection == 'asc')
+                                <!-- Download SVG icon from http://tabler-icons.io/i/chevron-up -->
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-sm text-dark icon-thick" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><polyline points="6 15 12 9 18 15" /></svg>
+                            @else
+                                <!-- Download SVG icon from http://tabler-icons.io/i/chevron-down -->
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-sm text-dark icon-thick" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><polyline points="6 9 12 15 18 9" /></svg>
+
+                            @endif
+                        @endif
+                    </th>
+                    <th wire:click="sortByColumn('status')">{{ __('bap.status') }}
+
+                        @if ($sortColumn == 'status')
+                            @if($sortDirection == 'asc')
+                                <!-- Download SVG icon from http://tabler-icons.io/i/chevron-up -->
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-sm text-dark icon-thick" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><polyline points="6 15 12 9 18 15" /></svg>
+                            @else
+                                <!-- Download SVG icon from http://tabler-icons.io/i/chevron-down -->
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-sm text-dark icon-thick" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><polyline points="6 9 12 15 18 9" /></svg>
+
+                            @endif
+                        @endif
+                    </th>
+                    <th wire:click="sortByColumn('balance')">{{ __('bap.balance') }}
+
+                        @if ($sortColumn == 'balance')
                             @if($sortDirection == 'asc')
                                 <!-- Download SVG icon from http://tabler-icons.io/i/chevron-up -->
                                 <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-sm text-dark icon-thick" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><polyline points="6 15 12 9 18 15" /></svg>
@@ -105,43 +144,25 @@
                                 </div>
                             </div>
                         </td>
+                        <td>{{ $address->symbol }}</td>
+                        <td>{{ $address->status }}</td>
+                        <td>{{ $address->balance }}</td>
                         <td>{{ $address->created_at }}</td>
                         <td class="text-end">
-                            @can('admin_user_roles')
-                                <button onclick="Livewire.emit('showModal', 'admin.user.roles', '{{ json_encode($address->id) }}')" class="btn btn-secondary btn-icon btn-sm">
-                                    <!-- Download SVG icon from http://tabler-icons.io/i/users -->
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><circle cx="9" cy="7" r="4" /><path d="M3 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" /><path d="M16 3.13a4 4 0 0 1 0 7.75" /><path d="M21 21v-2a4 4 0 0 0 -3 -3.85" /></svg>
-                                </button>
-                            @endcan
-                            @can('admin_user_permissions')
-                                <button onclick="Livewire.emit('showModal', 'admin.user.permissions', '{{ json_encode($address->id) }}')" class="btn btn-warning btn-icon btn-sm">
-                                    <!-- Download SVG icon from http://tabler-icons.io/i/lock-access -->
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 8v-2a2 2 0 0 1 2 -2h2" /><path d="M4 16v2a2 2 0 0 0 2 2h2" /><path d="M16 4h2a2 2 0 0 1 2 2v2" /><path d="M16 20h2a2 2 0 0 0 2 -2v-2" /><rect x="8" y="11" width="8" height="5" rx="1" /><path d="M10 11v-2a2 2 0 1 1 4 0v2" /></svg>
-                                </button>
-                            @endcan
-                            @can('admin_user_edit')
-                                <button onclick="Livewire.emit('showModal', 'admin.user.edit', '{{ json_encode($address->id) }}')" class="btn btn-primary btn-icon btn-sm">
-                                    <!-- Download SVG icon from http://tabler-icons.io/i/edit -->
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 7h-3a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-3" /><path d="M9 15h3l8.5 -8.5a1.5 1.5 0 0 0 -3 -3l-8.5 8.5v3" /><line x1="16" y1="5" x2="19" y2="8" /></svg>
-                                </button>
-                            @endcan
-                            @can('admin_user_delete')
-                                <button wire:click="delete({{ $address->id }})" class="btn btn-danger btn-icon btn-sm">
-                                    <!-- Download SVG icon from http://tabler-icons.io/i/trash -->
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><line x1="4" y1="7" x2="20" y2="7" /><line x1="10" y1="11" x2="10" y2="17" /><line x1="14" y1="11" x2="14" y2="17" /><path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12" /><path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3" /></svg>
-                                </button>
-                            @endcan
-                            @can('admin_user_ban')
-                                <button onclick="Livewire.emit('showModal', 'admin.user.ban', '{{ json_encode($address->id) }}')" class="btn btn-danger btn-icon btn-sm">
-                                    <!-- Download SVG icon from http://tabler-icons.io/i/edit -->
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-ban" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                        <desc>Download more icon variants from https://tabler-icons.io/i/ban</desc>
+                            @can('admin_address_txs')
+                                <button onclick="Livewire.emit('showModal', 'admin.payment.address.txs', '{{ json_encode($address->id) }}')" class="btn btn-secondary btn-icon btn-sm">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrows-transfer-down" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                         <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                        <circle cx="12" cy="12" r="9"></circle>
-                                        <line x1="5.7" y1="5.7" x2="18.3" y2="18.3"></line>
+                                        <path d="M17 3v6"></path>
+                                        <path d="M10 18l-3 3l-3 -3"></path>
+                                        <path d="M7 21v-18"></path>
+                                        <path d="M20 6l-3 -3l-3 3"></path>
+                                        <path d="M17 21v-2"></path>
+                                        <path d="M17 15v-2"></path>
                                     </svg>
                                 </button>
                             @endcan
+
                         </td>
                     </tr>
                 @endforeach
