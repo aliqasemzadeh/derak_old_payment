@@ -104,7 +104,6 @@ class Index extends Component
         } else {
             $this->selectedUsers = [];
         }
-
     }
 
     public function updatedSelectedUsers($value)
