@@ -172,7 +172,7 @@
                                 </a>
                                 <div class="dropdown-menu @if(\Illuminate\Support\Facades\Route::is('admin.payment.*')) show @endif " data-bs-popper="none">
                                     @can('admin_address_generator')
-                                        <a class="dropdown-item @if(\Illuminate\Support\Facades\Route::is('admin.payment.address.generator')) active @endif" href="{{ route('admin.payment.address.index') }}">
+                                        <a class="dropdown-item @if(\Illuminate\Support\Facades\Route::is('admin.payment.address.generator')) active @endif" href="{{ route('admin.payment.address.generator') }}">
                                             {{ __('bap.address_generator') }}
                                         </a>
                                     @endcan
