@@ -13,12 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('symbols', function (Blueprint $table) {
+        Schema::create('symbol_contracts', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->string('symbol')->index();
-            $table->string('coingecko_id')->nullable();
-            $table->bigInteger('sort_order')->default(1);
+            $table->bigInteger('symbol_id')->index();
+            $table->string('network')->index();
+            $table->string('contract')->nullable();
+            $table->double('fee')->default(0);
             $table->longText('options')->nullable();
             $table->timestamps();
             $table->softDeletes();
@@ -32,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('symbols');
+        Schema::dropIfExists('symbol_contracts');
     }
 };

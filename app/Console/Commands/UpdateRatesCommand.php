@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use Codenixsv\CoinGeckoApi\CoinGeckoClient;
 use Illuminate\Console\Command;
 
 class UpdateRatesCommand extends Command
@@ -18,7 +19,7 @@ class UpdateRatesCommand extends Command
      *
      * @var string
      */
-    protected $description = 'Update rates.';
+    protected $description = 'Update symbol rates.';
 
     /**
      * Execute the console command.
@@ -27,6 +28,9 @@ class UpdateRatesCommand extends Command
      */
     public function handle()
     {
+        $client = new CoinGeckoClient();
+        $data = $client->simple()->getPrice('bitcoin', 'usd');
+        dd($data);
         return Command::SUCCESS;
     }
 }
