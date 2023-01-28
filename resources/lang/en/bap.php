@@ -138,6 +138,7 @@ return [
     'count' => 'Count',
     'balance' => 'Balance',
     'txs' => 'TXs',
+    'address' => 'Address',
     'addresses' => 'Addresses',
     'address_management_system' => 'Address Management System',
     'import' => 'Import',

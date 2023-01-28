@@ -58,7 +58,6 @@ class TronBalanceJob implements ShouldQueue
         } else {
 
             $contract = config("symbol.".$symbol.".TRC20");
-            Log::error($symbol);
             $fullNode = new \IEXBase\TronAPI\Provider\HttpProvider('https://api.trongrid.io');
             $solidityNode = new \IEXBase\TronAPI\Provider\HttpProvider('https://api.trongrid.io');
             $eventServer = new \IEXBase\TronAPI\Provider\HttpProvider('https://api.trongrid.io');
