@@ -31,6 +31,7 @@ class CreateUsersTable extends Migration
             $table->foreignId('user_verify_id')->nullable();
             $table->string('profile_photo_path', 2048)->nullable();
             $table->longText('note')->nullable();
+            $table->longText('options')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });
