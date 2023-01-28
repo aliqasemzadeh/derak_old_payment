@@ -49,5 +49,26 @@ class SymbolSeeder extends Seeder
         $symbol->coingecko_id = 'dai';
         $symbol->sort_order = 5;
         $symbol->save();
+
+        $symbol = new Symbol();
+        $symbol->title = 'TRON';
+        $symbol->symbol = 'TRX';
+        $symbol->coingecko_id = 'tron';
+        $symbol->sort_order = 6;
+        $symbol->save();
+
+        $symbol = new Symbol();
+        $symbol->title = 'BNB';
+        $symbol->symbol = 'BNB';
+        $symbol->coingecko_id = 'binancecoin';
+        $symbol->sort_order = 6;
+        $symbol->save();
+
+        $symbol = new Symbol();
+        $symbol->title = 'Ethereum';
+        $symbol->symbol = 'ETH';
+        $symbol->coingecko_id = 'ethereum';
+        $symbol->sort_order = 7;
+        $symbol->save();
     }
 }

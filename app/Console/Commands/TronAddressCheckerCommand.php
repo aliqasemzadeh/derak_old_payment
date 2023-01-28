@@ -32,8 +32,8 @@ class TronAddressCheckerCommand extends Command
     {
         $addresses = Address::where('status', 'check')->get();
         foreach ($addresses as $address) {
-            TronBalanceJob::dispatch($address->address, config("symbol.".$address->symbol.".TRC20"));
-            TronTXsJob::dispatch($address->address, config("symbol.".$address->symbol.".TRC20"));
+            TronBalanceJob::dispatch($address->address, $address->symbol);
+            TronTXsJob::dispatch($address->address, $address->symbol);
         }
         return Command::SUCCESS;
     }
