@@ -74,7 +74,7 @@
                                 <line x1="13" y1="17" x2="15" y2="17"></line>
                             </svg>
                             <span class="nav-link-title">
-                                {{ __('bap.invoice') }}
+                                {{ __('bap.invoices') }}
                             </span>
                         </a>
 

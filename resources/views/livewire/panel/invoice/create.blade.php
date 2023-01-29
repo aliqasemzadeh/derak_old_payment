@@ -2,14 +2,14 @@
     <form wire:submit.prevent="create">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">{{ __('bap.create_terminal') }}</h5>
+                <h5 class="modal-title">{{ __('bap.create_invoice') }}</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="{{ __('bap.close') }}"></button>
             </div>
             <div class="modal-body">
                 <div class="mb-3">
                     <label class="form-label" for="title">{{ __('bap.title') }}</label>
                     <input type="text" wire:model="title" class="form-control @error('title') is-invalid @enderror" name="title" placeholder="{{ __('bap.title') }}">
-                    @error('title')
+                    @error('name')
                     <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
                 </div>

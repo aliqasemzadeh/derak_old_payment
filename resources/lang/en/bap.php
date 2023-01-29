@@ -137,6 +137,8 @@ return [
     'chain' => 'Chain',
     'count' => 'Count',
     'balance' => 'Balance',
+    'create_invoice' => 'Create Invoice',
+    'invoices' => 'Invoices',
     'txs' => 'TXs',
     'address' => 'Address',
     'addresses' => 'Addresses',
