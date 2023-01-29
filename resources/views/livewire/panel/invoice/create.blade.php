@@ -7,28 +7,20 @@
             </div>
             <div class="modal-body">
                 <div class="mb-3">
-                    <label class="form-label" for="title">{{ __('bap.title') }}</label>
-                    <input type="text" wire:model="title" class="form-control @error('title') is-invalid @enderror" name="title" placeholder="{{ __('bap.title') }}">
-                    @error('name')
+                    <label class="form-label" for="total">{{ __('bap.total') }}</label>
+                    <input type="text" wire:model="total" class="form-control @error('total') is-invalid @enderror" name="total" placeholder="{{ __('bap.total') }}">
+                    @error('total')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="description">{{ __('bap.description') }}</label>
+                    <textarea wire:model="description" class="form-control @error('description') is-invalid @enderror" name="total" placeholder="{{ __('bap.description') }}"></textarea>
+                    @error('description')
                     <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
                 </div>
 
-                <div class="mb-3">
-                    <label class="form-label" for="callback_url">{{ __('bap.callback_url') }}</label>
-                    <input type="text" wire:model="callback_url" class="form-control @error('callback_url') is-invalid @enderror" name="callback_url" placeholder="{{ __('bap.callback_url') }}">
-                    @error('callback_url')
-                    <div class="invalid-feedback">{{ $message }}</div>
-                    @enderror
-                </div>
-
-                <div class="mb-3">
-                    <label class="form-label" for="password">{{ __('bap.password') }}</label>
-                    <input type="password" wire:model="password" class="form-control @error('password') is-invalid @enderror" name="password" placeholder="{{ __('bap.password') }}">
-                    @error('password')
-                    <div class="invalid-feedback">{{ $message }}</div>
-                    @enderror
-                </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ __('bap.close') }}</button>
