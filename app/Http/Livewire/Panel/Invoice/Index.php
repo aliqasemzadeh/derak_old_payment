@@ -103,6 +103,6 @@ class Index extends Component
     public function render()
     {
         $invoices = Invoice::filter(['search' => $this->search])->where('user_id', auth()->user()->id)->paginate($this->perPage);
-        return view('livewire.panel.invoice.index')->layout('layouts.panel');
+        return view('livewire.panel.invoice.index', compact('invoices'))->layout('layouts.panel');
     }
 }
