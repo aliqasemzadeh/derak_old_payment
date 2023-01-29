@@ -15,7 +15,7 @@ class Index extends Component
     public $selectedItems = [];
     public $selectAll = false;
 
-    public $ticket;
+    public $invoice;
     public $search;
     public $perPage = 15;
     public $sortColumn = 'updated_at';
@@ -77,7 +77,7 @@ class Index extends Component
 
     public function deleteSelectedQuery()
     {
-        Ticket::query()
+        Invoice::query()
             ->where('user_id', auth()->user()->id)
             ->whereIn('id', $this->selectedItems)
             ->delete();
