@@ -10,6 +10,10 @@ class Create extends Component
 {
     use LivewireAlert;
 
+    protected $listeners = [
+        'updateList' => 'render'
+    ];
+
     public float $total;
     public string $description;
 
@@ -23,6 +27,11 @@ class Create extends Component
         $invoice = new Invoice();
 
         $invoice->save();
+
+        $this->emitTo(\App\Http\Livewire\Panel\Invoice\Create::getName(), 'updateList');
+        $this->emit('hideModal');
+
+        $this->alert('success', __('bap.created'));
     }
 
     public function render()
