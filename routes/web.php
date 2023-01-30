@@ -18,8 +18,6 @@ use Laravel\Fortify\Http\Controllers\AuthenticatedSessionController;
 Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['referral']], function() {
 
 
-
-
     Route::get('/', \App\Http\Livewire\App\Main\Index::class)->name('home');
     Route::get('/article/index', \App\Http\Livewire\App\Article\Index::class)->name('article.index');
     Route::get('/article/view/{article}', \App\Http\Livewire\App\Article\View::class)->name('article.view');
@@ -47,6 +45,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['re
 
             Route::get('/wallet/index', \App\Http\Livewire\Panel\Wallet\Index::class)->name('panel.wallet.index');
             Route::get('/invoice/index', \App\Http\Livewire\Panel\Invoice\Index::class)->name('panel.invoice.index');
+            Route::get('/invoice/view/{invoice}', \App\Http\Livewire\Panel\Invoice\View::class)->name('panel.invoice.view');
 
         });
 
