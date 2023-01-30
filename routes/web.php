@@ -22,6 +22,8 @@ Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['re
     Route::get('/article/index', \App\Http\Livewire\App\Article\Index::class)->name('article.index');
     Route::get('/article/view/{article}', \App\Http\Livewire\App\Article\View::class)->name('article.view');
 
+    Route::get('/invoice/view/{invoice}', \App\Http\Livewire\App\Invoice\View::class)->name('invoice.view');
+
     Route::group(['middleware' => ['auth:sanctum', 'verified']], function() {
 
         Route::any('/logout', [AuthenticatedSessionController::class, 'destroy'])->name('logout');
