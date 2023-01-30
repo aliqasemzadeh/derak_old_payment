@@ -26,10 +26,11 @@ class Create extends Component
 
         $invoice = new Invoice();
         $invoice->description = $this->description;
+        $invoice->user_id = auth()->user()->id;
         $invoice->total = $this->total;
         $invoice->save();
 
-        $this->emitTo(\App\Http\Livewire\Panel\Invoice\Create::getName(), 'updateList');
+        $this->emitTo(\App\Http\Livewire\Panel\Invoice\Index::getName(), 'updateList');
         $this->emit('hideModal');
 
         $this->alert('success', __('bap.created'));
