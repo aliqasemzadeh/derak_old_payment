@@ -25,7 +25,8 @@ class Create extends Component
         ]);
 
         $invoice = new Invoice();
-
+        $invoice->description = $this->description;
+        $invoice->total = $this->total;
         $invoice->save();
 
         $this->emitTo(\App\Http\Livewire\Panel\Invoice\Create::getName(), 'updateList');
