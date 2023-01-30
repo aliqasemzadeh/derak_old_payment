@@ -8,7 +8,6 @@ use Livewire\Component;
 class View extends Component
 {
     public Invoice $invoice;
-
     public function mount(Invoice $invoice)
     {
         $this->invoice = $invoice;
