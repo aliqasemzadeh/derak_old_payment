@@ -17,7 +17,12 @@ return new class extends Migration
             $table->id();
             $table->bigInteger('user_id')->index();
             $table->bigInteger('address_id')->index()->nullable();
+            $table->bigInteger('store_id')->index()->nullable();
             $table->double('total');
+            $table->string('email')->nullable();
+            $table->string('name')->nullable();
+            $table->string('address')->nullable();
+            $table->string('phone')->nullable();
             $table->longText('description')->nullable();
             $table->longText('options')->nullable();
             $table->expirable();

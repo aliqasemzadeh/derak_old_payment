@@ -17,6 +17,9 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->string('logo');
+            $table->string('email')->nullable();
+            $table->string('address')->nullable();
+            $table->string('phone')->nullable();
             $table->longText('description')->nullable();
             $table->string('store_id')->index()->unique()->nullable();
             $table->bigInteger('user_id')->index();
