@@ -14,6 +14,13 @@
                     @enderror
                 </div>
                 <div class="mb-3">
+                    <label class="form-label" for="email">{{ __('bap.email') }}</label>
+                    <input type="email" wire:model="email" class="form-control @error('email') is-invalid @enderror" name="email" placeholder="{{ __('bap.email') }}">
+                    @error('email')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
+                </div>
+                <div class="mb-3">
                     <label class="form-label" for="description">{{ __('bap.description') }}</label>
                     <textarea wire:model="description" class="form-control @error('description') is-invalid @enderror" name="total" placeholder="{{ __('bap.description') }}"></textarea>
                     @error('description')
