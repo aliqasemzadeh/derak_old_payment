@@ -14,6 +14,6 @@ class View extends Component
     }
     public function render()
     {
-        return view('livewire.app.invoice.view');
+        return view('livewire.app.invoice.view')->layout('layouts.invoice');
     }
 }

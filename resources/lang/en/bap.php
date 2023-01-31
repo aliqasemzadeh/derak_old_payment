@@ -142,7 +142,10 @@ return [
     'txs' => 'TXs',
     'address' => 'Address',
     'addresses' => 'Addresses',
+    'payment_currency' => 'Payment Currency',
+    'invoice_information' => 'Invoice Information',
     'address_management_system' => 'Address Management System',
+    'help_currency' => 'Select currency that you want to pay with it.You will get address on that network and payment will ',
     'import' => 'Import',
     'category_types' => [
         'article' => 'Article',
