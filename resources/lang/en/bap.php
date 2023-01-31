@@ -142,6 +142,7 @@ return [
     'txs' => 'TXs',
     'address' => 'Address',
     'addresses' => 'Addresses',
+    'stores' => 'Stores',
     'payment_currency' => 'Payment Currency',
     'invoice_information' => 'Invoice Information',
     'address_management_system' => 'Address Management System',
