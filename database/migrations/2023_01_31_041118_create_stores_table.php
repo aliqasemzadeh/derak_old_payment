@@ -15,7 +15,13 @@ return new class extends Migration
     {
         Schema::create('stores', function (Blueprint $table) {
             $table->id();
+            $table->string('title');
+            $table->string('logo');
+            $table->longText('description')->nullable();
+            $table->string('store_id')->index()->unique()->nullable();
+            $table->bigInteger('user_id')->index();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
