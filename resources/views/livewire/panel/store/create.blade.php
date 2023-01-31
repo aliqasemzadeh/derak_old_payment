@@ -18,7 +18,6 @@
                         </div>
                     </div>
                     <div class="col-6">
-
                         <div class="mb-3">
                             <label class="form-label" for="store_id">{{ __('bap.store_id') }}</label>
                             <input type="text" wire:model="store_id" class="form-control @error('store_id') is-invalid @enderror" name="store_id" placeholder="{{ __('bap.store_id') }}">
@@ -26,7 +25,6 @@
                             <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
                         </div>
-
                         <div class="mb-3">
                             <div class="form-label">{{ __('bap.logo') }}</div>
                             <input type="file" wire:model="logo" class="form-control @error('logo') is-invalid @enderror" name="logo">
@@ -34,8 +32,6 @@
                             <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
                         </div>
-
-
                     </div>
                     <div class="col-6">
                         <div class="mb-3">

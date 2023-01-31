@@ -26,7 +26,7 @@ class Create extends Component
             'title' => 'required|string',
             'store_id' => 'string|unique:stores|nullable',
             'email' => 'nullable|email',
-            'logo' => 'nullable|image',
+            'logo' => 'required|image',
             'address' => 'nullable|string',
             'phone' => 'nullable|string',
             'description' => 'nullable|string',

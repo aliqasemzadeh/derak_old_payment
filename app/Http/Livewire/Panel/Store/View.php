@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Panel\Store;
 
 use App\Models\Store;
+use App\Models\StoreToken;
 use Livewire\Component;
 
 class View extends Component
@@ -14,6 +15,7 @@ class View extends Component
     }
     public function render()
     {
-        return view('livewire.panel.store.view');
+        $tokens = StoreToken::where('store_id', $this->store->id)->get();
+        return view('livewire.panel.store.view')->layout('layouts.panel');
     }
 }
