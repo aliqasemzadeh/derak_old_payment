@@ -23,6 +23,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['re
     Route::get('/article/view/{article}', \App\Http\Livewire\App\Article\View::class)->name('article.view');
 
     Route::get('/invoice/view/{invoice}', \App\Http\Livewire\App\Invoice\View::class)->name('invoice.view');
+    Route::get('/store/view/{store}', \App\Http\Livewire\App\Store\View::class)->name('store.view');
 
     Route::group(['middleware' => ['auth:sanctum', 'verified']], function() {
 
