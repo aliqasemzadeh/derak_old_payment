@@ -63,6 +63,42 @@ class Index extends Component
             $this->selectAll = false;
         }
     }
+    public function delete(Store $store)
+    {
+        if(auth()->user()->id != $store->user_id) {
+            return abort(403);
+        }
+        $this->confirm(__('bap.are_you_sure'), [
+            'toast' => false,
+            'position' => 'center',
+            'showConfirmButton' => true,
+            'cancelButtonText' => __('bap.cancel'),
+            'onConfirmed' => 'confirmedDeleteItem',
+            'onCancelled' => 'cancelledDeleteItem'
+        ]);
+        $this->store = $store;
+    }
+
+    public function confirmedDeleteItem()
+    {
+        if(!auth()->user()->can('admin_user_delete')) {
+            return abort(403);
+        }
+        $this->store->delete();
+        $this->emit('updateList');
+        $this->alert(
+            'success',
+            __('bap.removed')
+        );
+    }
+
+    public function cancelledDeleteItem()
+    {
+        $this->alert(
+            'success',
+            __('bap.cancelled')
+        );
+    }
 
     public function archiveSelected()
     {
