@@ -23,6 +23,7 @@ return new class extends Migration
             $table->string('document')->nullable();
             $table->string('address')->nullable();
             $table->string('website')->nullable();
+            $table->string('email')->nullable();
             $table->string('logo')->nullable();
             $table->string('phone')->nullable();
             $table->string('status')->default('enable');

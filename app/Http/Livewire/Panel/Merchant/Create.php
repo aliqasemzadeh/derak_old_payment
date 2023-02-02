@@ -26,6 +26,7 @@ class Create extends Component
         $this->validate([
            'title' => 'required',
            'phone' => 'required',
+           'email' => 'required|email',
            'address' => 'required',
            'description' => 'nullable',
            'website' => 'nullable|url',
@@ -36,19 +37,31 @@ class Create extends Component
         $merchant = new Merchant();
         $merchant->title = $this->title;
         $merchant->phone = $this->phone;
+        $merchant->email = $this->email;
         $merchant->address = $this->address;
         $merchant->description = $this->description;
         $merchant->website = $this->website;
         $merchant->logo = $this->logo->store('merchant_logos');
         $merchant->user_id = auth()->user()->id;
 
+
         foreach ($this->payment_type as $key => $payment_type) {
-            if($key == 'crypto' && $payment_type) {
-                $this->crypto = 'enable';
+            if($key == 'crypto') {
+                if($payment_type) {
+                    $this->crypto = 'enable';
+                } else {
+                    $this->crypto = 'disable';
+                }
             }
-            if($key == 'fiat' && $payment_type) {
-                $this->crypto = 'verify';
+
+            if($key == 'fiat') {
+                if($payment_type) {
+                    $this->crypto = 'enable';
+                } else {
+                    $this->crypto = 'disable';
+                }
             }
+
         }
         $merchant->save();
 
