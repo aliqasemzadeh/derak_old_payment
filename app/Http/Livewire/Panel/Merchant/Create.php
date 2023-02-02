@@ -56,9 +56,9 @@ class Create extends Component
 
             if($key == 'fiat') {
                 if($payment_type) {
-                    $this->crypto = 'enable';
+                    $this->fiat = 'verify';
                 } else {
-                    $this->crypto = 'disable';
+                    $this->fiat = 'disable';
                 }
             }
 

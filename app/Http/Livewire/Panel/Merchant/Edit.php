@@ -82,7 +82,7 @@ class Edit extends Component
                         $this->fiat = 'verify';
                     }
                 } else {
-                    $this->crypto = 'disable';
+                    $this->fiat = 'disable';
                 }
             }
 
