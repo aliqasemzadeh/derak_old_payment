@@ -140,6 +140,7 @@ class Index extends Component
 
     public function render()
     {
-        return view('livewire.panel.merchant.index');
+        $merchants = Merchant::filter(['search' => $this->search])->where('user_id', auth()->user()->id)->paginate($this->perPage);
+        return view('livewire.panel.merchant.index', compact('merchants'))->layout('layouts.panel');
     }
 }

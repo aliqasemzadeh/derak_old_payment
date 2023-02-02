@@ -23,7 +23,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['re
     Route::get('/article/view/{article}', \App\Http\Livewire\App\Article\View::class)->name('article.view');
 
     Route::get('/invoice/view/{invoice}', \App\Http\Livewire\App\Invoice\View::class)->name('invoice.view');
-    Route::get('/store/view/{store}', \App\Http\Livewire\App\Store\View::class)->name('store.view');
+    Route::get('/file/merchant/logo/{merchant}', [\App\Http\Controllers\FileController::class, 'merchantLogo'])->name('file.merchant.logo');
 
     Route::group(['middleware' => ['auth:sanctum', 'verified']], function() {
 
@@ -48,9 +48,10 @@ Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['re
 
             Route::get('/wallet/index', \App\Http\Livewire\Panel\Wallet\Index::class)->name('panel.wallet.index');
             Route::get('/store/index', \App\Http\Livewire\Panel\Store\Index::class)->name('panel.store.index');
+            Route::get('/merchant/index', \App\Http\Livewire\Panel\Merchant\Index::class)->name('panel.merchant.index');
             Route::get('/invoice/index', \App\Http\Livewire\Panel\Invoice\Index::class)->name('panel.invoice.index');
             Route::get('/invoice/view/{invoice}', \App\Http\Livewire\Panel\Invoice\View::class)->name('panel.invoice.view');
-            Route::get('/store/view/{store}', \App\Http\Livewire\Panel\Store\View::class)->name('panel.store.view');
+            Route::get('/merchant/view/{merchant}', \App\Http\Livewire\Panel\Merchant\View::class)->name('panel.merchant.view');
 
         });
 
