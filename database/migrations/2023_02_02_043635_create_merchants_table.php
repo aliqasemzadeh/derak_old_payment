@@ -20,7 +20,14 @@ return new class extends Migration
             $table->bigInteger('user_id');
             $table->string('crypto')->default('enable');
             $table->string('fiat')->default('disable');
+            $table->string('document')->nullable();
+            $table->string('address')->nullable();
+            $table->string('website')->nullable();
+            $table->string('logo')->nullable();
+            $table->string('phone')->nullable();
+            $table->string('status')->default('enable');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
