@@ -23,7 +23,6 @@ class Create extends Component
 
     public function create()
     {
-        dd($this->payment_type);
         $this->validate([
            'title' => 'required',
            'phone' => 'required',
@@ -42,6 +41,15 @@ class Create extends Component
         $merchant->website = $this->website;
         $merchant->logo = $this->logo->store('merchant_logos');
         $merchant->user_id = auth()->user()->id;
+
+        foreach ($this->payment_type as $key => $payment_type) {
+            if($key == 'crypto' && $payment_type) {
+                $this->crypto = 'enable';
+            }
+            if($key == 'fiat' && $payment_type) {
+                $this->crypto = 'verify';
+            }
+        }
         $merchant->save();
 
         $this->emitTo(\App\Http\Livewire\Panel\Merchant\Index::getName(), 'updateList');
