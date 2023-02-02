@@ -68,21 +68,21 @@ class Edit extends Component
         foreach ($this->payment_type as $key => $payment_type) {
             if($key == 'crypto') {
                 if($payment_type) {
-                    $this->crypto = 'enable';
+                    $merchant->crypto = 'enable';
                 } else {
-                    $this->crypto = 'disable';
+                    $merchant->crypto = 'disable';
                 }
             }
 
             if($key == 'fiat') {
                 if($payment_type) {
                     if($this->merchant->fiat == 'enable')  {
-                        $this->fiat = 'enable';
+                        $merchant->fiat = 'enable';
                     } else {
-                        $this->fiat = 'verify';
+                        $merchant->fiat = 'verify';
                     }
                 } else {
-                    $this->fiat = 'disable';
+                    $merchant->fiat = 'disable';
                 }
             }
 
