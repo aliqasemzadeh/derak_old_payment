@@ -72,7 +72,7 @@
                             <label class="form-label">{{ __('bap.payment_type') }}</label>
                             <div class="form-selectgroup">
                                 <label class="form-selectgroup-item">
-                                    <input type="checkbox" wire:model.defer="payment_type" name="payment_type" value="crypto" class="form-selectgroup-input">
+                                    <input type="checkbox" wire:model.defer="payment_type.crypto" name="payment_type" value="true" class="form-selectgroup-input">
                                     <span class="form-selectgroup-label">
                                         <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-coin-bitcoin" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
@@ -86,7 +86,7 @@
                                         {{ __('bap.crypto') }}</span>
                                 </label>
                                 <label class="form-selectgroup-item">
-                                    <input type="checkbox" wire:model.defer="payment_type" name="payment_type" value="fiat" class="form-selectgroup-input">
+                                    <input type="checkbox" wire:model.defer="payment_type.fiat" name="payment_type" value="true" class="form-selectgroup-input">
                                     <span class="form-selectgroup-label">
                                         <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-wallet" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
@@ -97,6 +97,9 @@
                                 </label>
 
                             </div>
+                            @error('payment_type')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
                         </div>
                     </div>
                 </div>
