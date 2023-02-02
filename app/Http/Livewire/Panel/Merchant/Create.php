@@ -23,7 +23,6 @@ class Create extends Component
 
     public function create()
     {
-        dd($this->payment_type);
         $this->validate([
            'title' => 'required',
            'phone' => 'required',
