@@ -52,6 +52,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['re
             Route::get('/invoice/index', \App\Http\Livewire\Panel\Invoice\Index::class)->name('panel.invoice.index');
             Route::get('/invoice/view/{invoice}', \App\Http\Livewire\Panel\Invoice\View::class)->name('panel.invoice.view');
             Route::get('/merchant/view/{merchant}', \App\Http\Livewire\Panel\Merchant\View::class)->name('panel.merchant.view');
+            Route::get('/merchant/verify/{merchant}', \App\Http\Livewire\Panel\Merchant\Verify::class)->name('panel.merchant.verify');
 
         });
 

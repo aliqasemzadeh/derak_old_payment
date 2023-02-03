@@ -15,12 +15,14 @@ return new class extends Migration
     {
         Schema::create('terminals', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('user_id');
-            $table->string('title');
-            $table->string('uuid')->unique();
-            $table->string('callback_url')->nullable();
-            $table->string('password')->nullable();
-            $table->longText('symbols')->nullable();
+            $table->bigInteger('merchant_id')->index();
+            $table->bigInteger('user_id')->index()->nullable();
+            $table->string('api_key')->nullable();
+            $table->string('type')->default('crypto');
+            $table->string('status')->default('enable');
+            $table->string('sn')->nullable();
+            $table->string('title')->index()->nullable();
+            $table->string('callback_url')->index()->nullable();
             $table->timestamps();
             $table->softDeletes();
         });
