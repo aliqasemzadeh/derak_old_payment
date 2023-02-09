@@ -50,15 +50,6 @@
                         </div>
 
                     </div>
-                    <div class="col-12">
-                        <div class="mb-3">
-                            <label class="form-label" for="address">{{ __('bap.address') }}</label>
-                            <textarea wire:model="address" class="form-control @error('address') is-invalid @enderror" name="address" placeholder="{{ __('bap.address') }}"></textarea>
-                            @error('address')
-                            <div class="invalid-feedback">{{ $message }}</div>
-                            @enderror
-                        </div>
-                    </div>
                 </div>
             </div>
             <div class="modal-footer">
