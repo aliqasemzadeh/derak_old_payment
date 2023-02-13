@@ -1,0 +1,10 @@
+openapi: 3.0.3
+info:
+  title: Derak
+  description: ''
+  version: 1.0.0
+servers:
+  -
+    url: 'https://derak.io'
+paths: []
+tags: []
