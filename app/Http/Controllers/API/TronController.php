@@ -9,6 +9,14 @@ use Illuminate\Support\Facades\Log;
 
 class TronController extends Controller
 {
+    /**
+     * @bodyParam address string required
+     * @bodyParam symbol string optional
+     */
+
+    /**
+     * @response 200 integer balance
+     */
     public function balanceTRC20($address, $symbol = 'USDT')
     {
         $contract = config("symbol.".$symbol.".TRC20");
@@ -50,6 +58,13 @@ class TronController extends Controller
         return $balance;
     }
 
+    /**
+     * @bodyParam address string required
+     */
+
+    /**
+     * @response 200 integer balance
+     */
     public function balanceTRX($address)
     {
         $fullNode = new \IEXBase\TronAPI\Provider\HttpProvider('https://api.trongrid.io');

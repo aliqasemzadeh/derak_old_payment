@@ -8,6 +8,13 @@ use phpseclib\Math\BigInteger;
 
 class BitcoinController extends Controller
 {
+    /**
+     * @bodyParam address string required
+     */
+
+    /**
+     * @response 200 integer balance
+     */
     public function balance($address): int
     {
         $curl = curl_init();
