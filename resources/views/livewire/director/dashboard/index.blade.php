@@ -22,7 +22,7 @@
                         </div>
                         <div class="col">
                             <div class="font-weight-medium">
-                                0 {{ __('bap.deposit') }}
+                                0 {{ __('bap.balance') }}
                             </div>
                             <div class="text-muted">
                                 0 {{ __('bap.withdraw_pending') }}
@@ -152,14 +152,37 @@
         </div>
     </div>
     <div class="row mt-3">
-        <div class="col-md-6">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <p class="mb-3">{{ __('bap.balance_status') }}</p>
+                    <div class="progress progress-separated mb-3">
+                        <div class="progress-bar bg-primary" role="progressbar" style="width: 60%" aria-label="Crypto"></div>
+                        <div class="progress-bar bg-red" role="progressbar" style="width: 40%" aria-label="Fiat"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-auto d-flex align-items-center pe-2">
+                            <span class="legend me-2 bg-primary"></span>
+                            <span>Crypto</span>
+                            <span class="d-none d-md-inline d-lg-none d-xxl-inline ms-2 text-muted">600USD</span>
+                        </div>
+                        <div class="col-auto d-flex align-items-center px-2">
+                            <span class="legend me-2 bg-red"></span>
+                            <span>Fiat</span>
+                            <span class="d-none d-md-inline d-lg-none d-xxl-inline ms-2 text-muted">400USD</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 mt-4">
             <div class="row row-cards">
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
                             <h3 class="card-title">{{ __('bap.top_users') }}</h3>
                         </div>
-                        @for($i = 0; $i<= 5; $i++)
+                        @for($i = 0; $i<= 2; $i++)
                         <div class="list-group list-group-flush overflow-auto" style="max-height: 35rem">
                             <div class="list-group-item">
                                 <div class="row">
@@ -186,15 +209,15 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-6 mt-4">
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">{{ __('bap.network_status') }}</h3>
+                    <h3 class="card-title">{{ __('bap.crypto_status') }}</h3>
                 </div>
                 <table class="table card-table table-vcenter">
                     <thead>
                     <tr>
-                        <th>{{ __('bap.network') }}</th>
+                        <th>{{ __('bap.symbol') }}</th>
                         <th colspan="2">{{ __('bap.transactions') }}</th>
                     </tr>
                     </thead>
@@ -209,7 +232,7 @@
                         </td>
                     </tr>
                     <tr>
-                        <td>BEP20</td>
+                        <td>USD</td>
                         <td>3,550</td>
                         <td class="w-50">
                             <div class="progress progress-xs">
@@ -218,7 +241,7 @@
                         </td>
                     </tr>
                     <tr>
-                        <td>TRC20</td>
+                        <td>USDT</td>
                         <td>1,798</td>
                         <td class="w-50">
                             <div class="progress progress-xs">
@@ -228,7 +251,7 @@
                     </tr>
 
                     <tr>
-                        <td>ERC20</td>
+                        <td>USDC</td>
                         <td>986</td>
                         <td class="w-50">
                             <div class="progress progress-xs">

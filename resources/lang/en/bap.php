@@ -167,6 +167,8 @@ return [
     'symbol_status' => 'Symbol Status',
     'network_status' => 'Network Status',
     'transactions' => 'Transaction',
+    'balance_status' => 'Balance Status',
+    'crypto_status' => 'Crypto Status',
     'network' => 'Network',
     'deposit' => 'Deposit',
     'used_cashback' => 'Used Cashback',
