@@ -4,9 +4,62 @@
     </x-slot>
     <x-slot name="breadcrumb">
         <ol class="breadcrumb breadcrumb-arrows" aria-label="breadcrumbs">
-            <li class="breadcrumb-item active" aria-current="page"><a href="{{ route('admin.dashboard.index') }}">{{ __('bap.dashboard') }}</a></li>
+            <li class="breadcrumb-item active" aria-current="page"><a href="{{ route('director.dashboard.index') }}">{{ __('bap.dashboard') }}</a></li>
         </ol>
     </x-slot>
+
+
+    <x-slot name="js">
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+        <script>
+            const ctx = document.getElementById('month_chart').getContext('2d');
+            axios.get('{{ route('panel.dashboard.chart') }}').then(function (response) {
+                new Chart(ctx, {
+                    type: 'line',
+                    data: {
+                        labels: response.data.labels,
+                        datasets: [
+                            {
+                                label: "Payments",
+                                data: response.data.payments,
+                                borderColor: '#469408',
+                                backgroundColor: '#469408',
+                                fill: false
+                            },
+                        ]
+                    }
+                });
+            }).catch(function (error) {
+                console.log(error);
+            });
+        </script>
+        <script>
+            const user_ctx = document.getElementById('user_chart').getContext('2d');
+            axios.get('{{ route('panel.dashboard.chart') }}').then(function (response) {
+                new Chart(user_ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: response.data.labels,
+                        datasets: [
+                            {
+                                label: "Users",
+                                data: response.data.payments,
+                                borderColor: '#081f94',
+                                backgroundColor: '#25569d',
+                                fill: false
+                            },
+                        ]
+                    }
+                });
+            }).catch(function (error) {
+                console.log(error);
+            });
+        </script>
+    </x-slot>
+
+
+
     <div class="row row-cards">
         <div class="col-md-4">
             <div class="card card-sm">
@@ -150,8 +203,7 @@
                 </div>
             </div>
         </div>
-    </div>
-    <div class="row mt-3">
+
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
@@ -263,5 +315,22 @@
                 </table>
             </div>
         </div>
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="card-title">{{ __('bap.purchase_statement') }}</h3>
+                    <canvas id="month_chart" width="400" height="115"></canvas>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="card-title">{{ __('bap.user_registrations') }}</h3>
+                    <canvas id="user_chart" width="400" height="115"></canvas>
+                </div>
+            </div>
+        </div>
     </div>
+
 </div>

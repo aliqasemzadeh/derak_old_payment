@@ -163,6 +163,8 @@ return [
     'pending_payment' => 'Pending Payment',
     'cashback' => 'Cashback',
     'withdraw_pending' => 'Withdraw Pending',
+    'purchase_statement' => 'Purchase Statement',
+    'user_registrations' => 'User Registrations',
     'top_users' => 'Top Users',
     'symbol_status' => 'Symbol Status',
     'network_status' => 'Network Status',
