@@ -176,7 +176,7 @@
                                             @endphp
                                             {{ $faker->name }}
                                         </a>
-                                        <div class="text-muted text-truncate mt-n1">Change deprecated html tags to text decoration classes (#29604)</div>
+                                        <div class="text-muted text-truncate mt-n1">125554</div>
                                     </div>
                                 </div>
                             </div>
