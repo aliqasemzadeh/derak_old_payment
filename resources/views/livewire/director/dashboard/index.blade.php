@@ -169,7 +169,13 @@
                                         </a>
                                     </div>
                                     <div class="col text-truncate">
-                                        <a href="#" class="text-body d-block">Eva Acres</a>
+                                        <a href="#" class="text-body d-block">
+
+                                            @php
+                                                $faker = Faker\Factory::create();
+                                            @endphp
+                                            {{ $faker->name }}
+                                        </a>
                                         <div class="text-muted text-truncate mt-n1">Change deprecated html tags to text decoration classes (#29604)</div>
                                     </div>
                                 </div>
