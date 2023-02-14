@@ -173,6 +173,8 @@ return [
     'crypto_status' => 'Crypto Status',
     'network' => 'Network',
     'deposit' => 'Deposit',
+    'bounce' => 'Bounce',
+    'exchange' => 'Exchange',
     'used_cashback' => 'Used Cashback',
     'invoice_information' => 'Invoice Information',
     'address_management_system' => 'Address Management System',

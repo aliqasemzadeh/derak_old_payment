@@ -47,6 +47,25 @@
                         </a>
                     </li>
 
+                    <li class="nav-item @if(\Illuminate\Support\Facades\Route::is('panel.dashboard.index')) active @endif">
+                        <a class="nav-link" href="{{ route('director.dashboard.index') }}" >
+                                    <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/home -->
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-users" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                       <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                       <path d="M9 7m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0"></path>
+                                       <path d="M3 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2"></path>
+                                       <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                                       <path d="M21 21v-2a4 4 0 0 0 -3 -3.85"></path>
+                                    </svg>
+                                    </span>
+                            <span class="nav-link-title">
+                                      {{ __('bap.users') }}
+                                    </span>
+                        </a>
+                    </li>
+
+
+
 
 
                     <li class="nav-item @if(\Illuminate\Support\Facades\Route::is('panel.merchant.index')) active @endif">
@@ -66,12 +85,58 @@
                     </li>
 
 
+                    <li class="nav-item @if(\Illuminate\Support\Facades\Route::is('panel.merchant.index')) active @endif">
+                        <a class="nav-link" href="{{ route('panel.merchant.index') }}" >
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-a-b-2" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                <path d="M16 21h3c.81 0 1.48 -.67 1.48 -1.48l.02 -.02c0 -.82 -.69 -1.5 -1.5 -1.5h-3v3z"></path>
+                                <path d="M16 15h2.5c.84 -.01 1.5 .66 1.5 1.5s-.66 1.5 -1.5 1.5h-2.5v-3z"></path>
+                                <path d="M4 9v-4c0 -1.036 .895 -2 2 -2s2 .964 2 2v4"></path>
+                                <path d="M2.99 11.98a9 9 0 0 0 9 9m9 -9a9 9 0 0 0 -9 -9"></path>
+                                <path d="M8 7h-4"></path>
+                            </svg>
+                            <span class="nav-link-title">
+                                {{ __('bap.exchange') }}
+                            </span>
+                        </a>
+                    </li>
+
+
+                    <li class="nav-item @if(\Illuminate\Support\Facades\Route::is('panel.merchant.index')) active @endif">
+                        <a class="nav-link" href="{{ route('panel.merchant.index') }}" >
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-file-dollar" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                <path d="M14 3v4a1 1 0 0 0 1 1h4"></path>
+                                <path d="M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2z"></path>
+                                <path d="M14 11h-2.5a1.5 1.5 0 0 0 0 3h1a1.5 1.5 0 0 1 0 3h-2.5"></path>
+                                <path d="M12 17v1m0 -8v1"></path>
+                            </svg>
+                            <span class="nav-link-title">
+                                {{ __('bap.invoice') }}
+                            </span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item @if(\Illuminate\Support\Facades\Route::is('panel.merchant.index')) active @endif">
+                        <a class="nav-link" href="{{ route('panel.merchant.index') }}" >
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-bounce" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                <path d="M10 18h4"></path>
+                                <path d="M3 8a9 9 0 0 1 9 9v1l1.428 -4.285a12 12 0 0 1 6.018 -6.938l.554 -.277"></path>
+                                <path d="M15 6h5v5"></path>
+                            </svg>
+                            <span class="nav-link-title">
+                                {{ __('bap.bounce') }}
+                            </span>
+                        </a>
+                    </li>
+
                     <li class="nav-item @if(\Illuminate\Support\Facades\Route::is('panel.wallet.index')) active @endif">
                         <a class="nav-link" href="{{ route('panel.wallet.index') }}" >
-                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-wallet" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-settings" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                 <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                <path d="M17 8v-3a1 1 0 0 0 -1 -1h-10a2 2 0 0 0 0 4h12a1 1 0 0 1 1 1v3m0 4v3a1 1 0 0 1 -1 1h-12a2 2 0 0 1 -2 -2v-12"></path>
-                                <path d="M20 12v4h-4a2 2 0 0 1 0 -4h4"></path>
+                                <path d="M10.325 4.317c.426 -1.756 2.924 -1.756 3.35 0a1.724 1.724 0 0 0 2.573 1.066c1.543 -.94 3.31 .826 2.37 2.37a1.724 1.724 0 0 0 1.065 2.572c1.756 .426 1.756 2.924 0 3.35a1.724 1.724 0 0 0 -1.066 2.573c.94 1.543 -.826 3.31 -2.37 2.37a1.724 1.724 0 0 0 -2.572 1.065c-.426 1.756 -2.924 1.756 -3.35 0a1.724 1.724 0 0 0 -2.573 -1.066c-1.543 .94 -3.31 -.826 -2.37 -2.37a1.724 1.724 0 0 0 -1.065 -2.572c-1.756 -.426 -1.756 -2.924 0 -3.35a1.724 1.724 0 0 0 1.066 -2.573c-.94 -1.543 .826 -3.31 2.37 -2.37c1 .608 2.296 .07 2.572 -1.065z"></path>
+                                <path d="M12 12m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0"></path>
                             </svg>
                             <span class="nav-link-title">
                                 {{ __('bap.wallet') }}
