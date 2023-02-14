@@ -17,5 +17,5 @@ use Illuminate\Support\Facades\Route;
 Route::get('bitcoin/balance/{address}', [App\Http\Controllers\API\BitcoinController::class, 'balance']);
 Route::get('tron/balance-trc20/{address}/{symbol?}', [App\Http\Controllers\API\TronController::class, 'balanceTRC20']);
 Route::get('tron/balance-trx/{address}', [App\Http\Controllers\API\TronController::class, 'balanceTRX']);
-Route::get('binance/balance-trc20/{address}/{symbol?}', [App\Http\Controllers\API\BinanceController::class, 'balanceBEP20']);
-Route::get('binance/balance-trx/{address}', [App\Http\Controllers\API\BinanceController::class, 'balanceBNB']);
+Route::get('binance/balance-bep20/{address}/{symbol?}', [App\Http\Controllers\API\BinanceController::class, 'balanceBEP20']);
+Route::get('binance/balance-bnb/{address}', [App\Http\Controllers\API\BinanceController::class, 'balanceBNB']);
