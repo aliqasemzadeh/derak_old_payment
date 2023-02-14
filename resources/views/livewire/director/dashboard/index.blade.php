@@ -151,4 +151,88 @@
             </div>
         </div>
     </div>
+    <div class="row mt-3">
+        <div class="col-md-6">
+            <div class="row row-cards">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">{{ __('bap.top_users') }}</h3>
+                        </div>
+                        @for($i = 0; $i<= 5; $i++)
+                        <div class="list-group list-group-flush overflow-auto" style="max-height: 35rem">
+                            <div class="list-group-item">
+                                <div class="row">
+                                    <div class="col-auto">
+                                        <a href="#">
+                                            <span class="avatar" style="background-image: url(https://i.pravatar.cc/300?img={{ $i }})"></span>
+                                        </a>
+                                    </div>
+                                    <div class="col text-truncate">
+                                        <a href="#" class="text-body d-block">Eva Acres</a>
+                                        <div class="text-muted text-truncate mt-n1">Change deprecated html tags to text decoration classes (#29604)</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        @endfor
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">{{ __('bap.network_status') }}</h3>
+                </div>
+                <table class="table card-table table-vcenter">
+                    <thead>
+                    <tr>
+                        <th>{{ __('bap.network') }}</th>
+                        <th colspan="2">{{ __('bap.transactions') }}</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>BTC</td>
+                        <td>1,245</td>
+                        <td class="w-50">
+                            <div class="progress progress-xs">
+                                <div class="progress-bar bg-primary" style="width: 24.9%"></div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>BEP20</td>
+                        <td>3,550</td>
+                        <td class="w-50">
+                            <div class="progress progress-xs">
+                                <div class="progress-bar bg-primary" style="width: 71.0%"></div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>TRC20</td>
+                        <td>1,798</td>
+                        <td class="w-50">
+                            <div class="progress progress-xs">
+                                <div class="progress-bar bg-primary" style="width: 35.96%"></div>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>ERC20</td>
+                        <td>986</td>
+                        <td class="w-50">
+                            <div class="progress progress-xs">
+                                <div class="progress-bar bg-primary" style="width: 19.72%"></div>
+                            </div>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
 </div>
