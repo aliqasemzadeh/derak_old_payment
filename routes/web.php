@@ -79,6 +79,11 @@ Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['re
             Route::get('/payment/address/generator', \App\Http\Livewire\Admin\Payment\Address\Generator::class)->name('admin.payment.address.generator');
             Route::get('/payment/address/import', \App\Http\Livewire\Admin\Payment\Address\Import::class)->name('admin.payment.address.import');
         });
+
+
+        Route::group(['prefix' => config('bap.director-prefix-url'), 'middleware' => ['auth:sanctum', 'verified', 'director']], function () {
+            Route::get('/dashboard/index', \App\Http\Livewire\Director\Dashboard\Index::class)->name('director.dashboard.index');
+        });
     });
 
 });

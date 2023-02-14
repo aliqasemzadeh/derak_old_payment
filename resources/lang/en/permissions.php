@@ -62,4 +62,7 @@ return [
     'admin_address_txs' => 'View Address TXs',
     'admin_address_check' => 'Check Address Balance',
 
+
+    'director_access' => 'Access Director'
+
 ];
