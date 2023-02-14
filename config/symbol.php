@@ -7,7 +7,7 @@ return [
     ],
     'BUSD'  => [
         'ERC20' => '0xe9e7cea3dedca5984780bafc599bd69add087d56',
-        'BEP20' => '0x1318489c426e032465edbda5a1d32023923afb87',
+        'BEP20' => '0xe9e7cea3dedca5984780bafc599bd69add087d56',
     ],
     'USDC'  => [
         'TRC20' => 'TEkxiTehnzSmSe2XqrBj4w32RUN966rdz8',
