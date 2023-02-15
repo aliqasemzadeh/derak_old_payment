@@ -46,8 +46,8 @@
                         </a>
                     </li>
 
-                    <li class="nav-item @if(\Illuminate\Support\Facades\Route::is('panel.dashboard.index')) active @endif">
-                        <a class="nav-link" href="{{ route('director.dashboard.index') }}" >
+                    <li class="nav-item @if(\Illuminate\Support\Facades\Route::is('director.user.index')) active @endif">
+                        <a class="nav-link" href="{{ route('director.user.index') }}" >
                                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-users" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                                        <path d="M9 7m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0"></path>
@@ -66,8 +66,8 @@
 
 
 
-                    <li class="nav-item @if(\Illuminate\Support\Facades\Route::is('panel.merchant.index')) active @endif">
-                        <a class="nav-link" href="{{ route('panel.merchant.index') }}" >
+                    <li class="nav-item @if(\Illuminate\Support\Facades\Route::is('director.merchant.index')) active @endif">
+                        <a class="nav-link" href="{{ route('director.merchant.index') }}" >
                             <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-building-store" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                 <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                                 <path d="M3 21l18 0"></path>
@@ -83,8 +83,8 @@
                     </li>
 
 
-                    <li class="nav-item @if(\Illuminate\Support\Facades\Route::is('panel.merchant.index')) active @endif">
-                        <a class="nav-link" href="{{ route('panel.merchant.index') }}" >
+                    <li class="nav-item @if(\Illuminate\Support\Facades\Route::is('director.exchange.index')) active @endif">
+                        <a class="nav-link" href="{{ route('director.exchange.index') }}" >
                             <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-a-b-2" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                 <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                                 <path d="M16 21h3c.81 0 1.48 -.67 1.48 -1.48l.02 -.02c0 -.82 -.69 -1.5 -1.5 -1.5h-3v3z"></path>
@@ -100,8 +100,8 @@
                     </li>
 
 
-                    <li class="nav-item @if(\Illuminate\Support\Facades\Route::is('panel.merchant.index')) active @endif">
-                        <a class="nav-link" href="{{ route('panel.merchant.index') }}" >
+                    <li class="nav-item @if(\Illuminate\Support\Facades\Route::is('director.invoice.index')) active @endif">
+                        <a class="nav-link" href="{{ route('director.invoice.index') }}" >
                             <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-file-dollar" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                 <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                                 <path d="M14 3v4a1 1 0 0 0 1 1h4"></path>
@@ -115,8 +115,8 @@
                         </a>
                     </li>
 
-                    <li class="nav-item @if(\Illuminate\Support\Facades\Route::is('panel.merchant.index')) active @endif">
-                        <a class="nav-link" href="{{ route('panel.merchant.index') }}" >
+                    <li class="nav-item @if(\Illuminate\Support\Facades\Route::is('director.financial.index')) active @endif">
+                        <a class="nav-link" href="{{ route('director.financial.index') }}" >
                             <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-report-money" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                 <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                                 <path d="M9 5h-2a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-12a2 2 0 0 0 -2 -2h-2"></path>
@@ -130,8 +130,8 @@
                         </a>
                     </li>
 
-                    <li class="nav-item @if(\Illuminate\Support\Facades\Route::is('panel.merchant.index')) active @endif">
-                        <a class="nav-link" href="{{ route('panel.merchant.index') }}" >
+                    <li class="nav-item @if(\Illuminate\Support\Facades\Route::is('director.bounce.index')) active @endif">
+                        <a class="nav-link" href="{{ route('director.bounce.index') }}" >
                             <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-bounce" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                 <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                                 <path d="M10 18h4"></path>
@@ -144,8 +144,8 @@
                         </a>
                     </li>
 
-                    <li class="nav-item @if(\Illuminate\Support\Facades\Route::is('panel.wallet.index')) active @endif">
-                        <a class="nav-link" href="{{ route('panel.wallet.index') }}" >
+                    <li class="nav-item @if(\Illuminate\Support\Facades\Route::is('director.terminal.index')) active @endif">
+                        <a class="nav-link" href="{{ route('director.terminal.index') }}" >
                             <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-terminal-2" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                 <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                                 <path d="M8 9l3 3l-3 3"></path>
@@ -159,8 +159,8 @@
 
                     </li>
 
-                    <li class="nav-item @if(\Illuminate\Support\Facades\Route::is('panel.wallet.index')) active @endif">
-                        <a class="nav-link" href="{{ route('panel.wallet.index') }}" >
+                    <li class="nav-item @if(\Illuminate\Support\Facades\Route::is('director.wallet.index')) active @endif">
+                        <a class="nav-link" href="{{ route('director.wallet.index') }}" >
                             <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-wallet" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                 <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                                 <path d="M17 8v-3a1 1 0 0 0 -1 -1h-10a2 2 0 0 0 0 4h12a1 1 0 0 1 1 1v3m0 4v3a1 1 0 0 1 -1 1h-12a2 2 0 0 1 -2 -2v-12"></path>
@@ -173,8 +173,8 @@
 
                     </li>
 
-                    <li class="nav-item @if(\Illuminate\Support\Facades\Route::is('panel.wallet.index')) active @endif">
-                        <a class="nav-link" href="{{ route('panel.wallet.index') }}" >
+                    <li class="nav-item @if(\Illuminate\Support\Facades\Route::is('director.level.index')) active @endif">
+                        <a class="nav-link" href="{{ route('director.level.index') }}" >
                             <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chart-arrows-vertical" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                 <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                                 <path d="M18 21v-14"></path>

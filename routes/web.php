@@ -83,6 +83,15 @@ Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['re
 
         Route::group(['prefix' => config('bap.director-prefix-url'), 'middleware' => ['auth:sanctum', 'verified', 'director']], function () {
             Route::get('/dashboard/index', \App\Http\Livewire\Director\Dashboard\Index::class)->name('director.dashboard.index');
+            Route::get('/user/index', \App\Http\Livewire\Director\User\Index::class)->name('director.user.index');
+            Route::get('/merchant/index', \App\Http\Livewire\Director\Merchant\Index::class)->name('director.merchant.index');
+            Route::get('/exchange/index', \App\Http\Livewire\Director\Exchange\Index::class)->name('director.exchange.index');
+            Route::get('/invoice/index', \App\Http\Livewire\Director\Dashboard\Index::class)->name('director.invoice.index');
+            Route::get('/financial/index', \App\Http\Livewire\Director\Financial\Index::class)->name('director.financial.index');
+            Route::get('/bounce/index', \App\Http\Livewire\Director\Bounce\Index::class)->name('director.bounce.index');
+            Route::get('/terminal/index', \App\Http\Livewire\Director\Terminal\Index::class)->name('director.terminal.index');
+            Route::get('/wallet/index', \App\Http\Livewire\Director\Wallet\Index::class)->name('director.wallet.index');
+            Route::get('/level/index', \App\Http\Livewire\Director\Level\Index::class)->name('director.level.index');
         });
     });
 
