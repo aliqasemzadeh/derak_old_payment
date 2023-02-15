@@ -8,6 +8,6 @@ class Index extends Component
 {
     public function render()
     {
-        return view('livewire.director.bounce.index');
+        return view('livewire.director.bounce.index')->layout('layouts.director');
     }
 }
