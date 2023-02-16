@@ -132,8 +132,10 @@
                         </a>
                     </li>
 
-                    <li class="nav-item @if(\Illuminate\Support\Facades\Route::is('director.financial.index')) active @endif">
-                        <a class="nav-link" href="{{ route('director.financial.index') }}">
+                    <li class="nav-item dropdown @if(\Illuminate\Support\Facades\Route::is('director.financial.*')) show @endif">
+                        <a class="nav-link dropdown-toggle" href="#navbar-financial" data-bs-toggle="dropdown"
+                           data-bs-auto-close="false" role="button" aria-expanded="true">
+
                             <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-report-money"
                                  width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
                                  fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -145,11 +147,23 @@
                                 <path d="M14 11h-2.5a1.5 1.5 0 0 0 0 3h1a1.5 1.5 0 0 1 0 3h-2.5"></path>
                                 <path d="M12 17v1m0 -8v1"></path>
                             </svg>
+
                             <span class="nav-link-title">
-                                {{ __('bap.financial') }}
+                                    {{ __('bap.financial') }}
                             </span>
                         </a>
+                        <div
+                            class="dropdown-menu @if(\Illuminate\Support\Facades\Route::is('panel.support.*')) show @endif "
+                            data-bs-popper="none">
+
+                            <a class="dropdown-item @if(\Illuminate\Support\Facades\Route::is('director.financial.symbol.index')) active @endif"
+                               href="{{ route('director.financial.symbol.index') }}">
+                                {{ __('bap.symbols') }}
+                            </a>
+
+                        </div>
                     </li>
+
 
                     <li class="nav-item @if(\Illuminate\Support\Facades\Route::is('director.bounce.index')) active @endif">
                         <a class="nav-link" href="{{ route('director.bounce.index') }}">
@@ -239,7 +253,7 @@
 
                             <span class="nav-link-title">
                                     {{ __('bap.support') }}
-                                  </span>
+                            </span>
                         </a>
                         <div
                             class="dropdown-menu @if(\Illuminate\Support\Facades\Route::is('panel.support.*')) show @endif "
