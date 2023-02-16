@@ -83,7 +83,7 @@
                     <tr>
                         <td>
                             <div class="d-flex py-1 align-items-center">
-                                <span class="avatar me-2" style="background-image: url('{{ asset('cryptocurrency-icons/'.strtolower($symbol->symbol).'.png') }}')"></span>
+                                <span class="avatar me-2" style="background-image: url('{{ asset('cryptocurrency-icons/'.strtolower($symbol->symbol).'.svg') }}')"></span>
                                 <div class="flex-fill">
                                     <div class="font-weight-medium">{{ $symbol->title }}</div>
                                     <div class="text-muted">{{ $symbol->symbol }}</div>
