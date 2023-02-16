@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\Panel\Merchant;
+namespace App\Http\Livewire\Director\Merchant;
 
 use App\Models\Merchant;
 use Livewire\Component;
