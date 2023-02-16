@@ -184,6 +184,7 @@ return [
     'edit_symbol' => 'Edit Symbol',
     'invoice_information' => 'Invoice Information',
     'coingeko_id' => 'Coingecko ID',
+    'sort_order' => 'Sort Order',
     'address_management_system' => 'Address Management System',
     'help_currency' => 'Select currency that you want to pay with it.You will get address on that network and payment will ',
     'import' => 'Import',
