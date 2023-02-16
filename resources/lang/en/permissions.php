@@ -61,6 +61,7 @@ return [
     'admin_address_generator' => 'Payment Address Generator',
     'admin_address_txs' => 'View Address TXs',
     'admin_address_check' => 'Check Address Balance',
+    'admin_user_wallets' => 'Manage User Wallets',
 
 
     'director_access' => 'Access Director'

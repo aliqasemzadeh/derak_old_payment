@@ -16,4 +16,12 @@ return [
         'networks' => ['BEP20', 'ERC20'],
         'withdraw_fee' => 1,
     ],
+    'BTC' => [
+        'networks' => ['BTC', 'BEP20', 'ERC20'],
+        'withdraw_fee' => 1,
+    ],
+    'TRX' => [
+        'networks' => ['TRC20'],
+        'withdraw_fee' => 1,
+    ],
 ];
