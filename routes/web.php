@@ -89,6 +89,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['re
             Route::get('/invoice/index', \App\Http\Livewire\Director\Dashboard\Index::class)->name('director.invoice.index');
             Route::get('/financial/index', \App\Http\Livewire\Director\Financial\Index::class)->name('director.financial.index');
             Route::get('/financial/symbol/index', \App\Http\Livewire\Director\Financial\Symbol\Index::class)->name('director.financial.symbol.index');
+            Route::get('/financial/symbol/transactions/{symbol}', \App\Http\Livewire\Director\Financial\Symbol\Transactions::class)->name('director.financial.symbol.transactions');
             Route::get('/bounce/index', \App\Http\Livewire\Director\Bounce\Index::class)->name('director.bounce.index');
             Route::get('/terminal/index', \App\Http\Livewire\Director\Terminal\Index::class)->name('director.terminal.index');
             Route::get('/wallet/index', \App\Http\Livewire\Director\Wallet\Index::class)->name('director.wallet.index');

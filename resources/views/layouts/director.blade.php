@@ -153,7 +153,7 @@
                             </span>
                         </a>
                         <div
-                            class="dropdown-menu @if(\Illuminate\Support\Facades\Route::is('panel.support.*')) show @endif "
+                            class="dropdown-menu @if(\Illuminate\Support\Facades\Route::is('director.financial.*')) show @endif "
                             data-bs-popper="none">
 
                             <a class="dropdown-item @if(\Illuminate\Support\Facades\Route::is('director.financial.symbol.index')) active @endif"
