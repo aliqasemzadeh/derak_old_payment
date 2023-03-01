@@ -133,11 +133,11 @@
                             </span>
                         </a>
                         <div
-                            class="dropdown-menu @if(\Illuminate\Support\Facades\Route::is('director.financial.*')) show @endif "
+                            class="dropdown-menu @if(\Illuminate\Support\Facades\Route::is('director.exchange.*')) show @endif "
                             data-bs-popper="none">
 
-                            <a class="dropdown-item @if(\Illuminate\Support\Facades\Route::is('director.financial.symbol.*')) active @endif"
-                               href="{{ route('director.financial.symbol.index') }}">
+                            <a class="dropdown-item @if(\Illuminate\Support\Facades\Route::is('director.exchange.symbol.*')) active @endif"
+                               href="{{ route('director.exchange.symbol.index') }}">
                                 {{ __('bap.symbols') }}
                             </a>
 
@@ -168,7 +168,7 @@
                             class="dropdown-menu @if(\Illuminate\Support\Facades\Route::is('director.financial.*')) show @endif "
                             data-bs-popper="none">
 
-                            <a class="dropdown-item @if(\Illuminate\Support\Facades\Route::is('director.financial.symbol.*')) active @endif"
+                            <a class="dropdown-item @if(\Illuminate\Support\Facades\Route::is('director.financial.ticket.*')) active @endif"
                                href="{{ route('director.financial.symbol.index') }}">
                                 {{ __('bap.symbols') }}
                             </a>
