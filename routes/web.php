@@ -88,8 +88,8 @@ Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['re
             Route::get('/exchange/index', \App\Http\Livewire\Director\Exchange\Index::class)->name('director.exchange.index');
             Route::get('/invoice/index', \App\Http\Livewire\Director\Dashboard\Index::class)->name('director.invoice.index');
             Route::get('/financial/index', \App\Http\Livewire\Director\Financial\Index::class)->name('director.financial.index');
-            Route::get('/financial/symbol/index', \App\Http\Livewire\Director\Exchange\Symbol\Index::class)->name('director.financial.symbol.index');
-            Route::get('/financial/symbol/transactions/{symbol}', \App\Http\Livewire\Director\Exchange\Symbol\Transactions::class)->name('director.financial.symbol.transactions');
+            Route::get('/exchange/symbol/index', \App\Http\Livewire\Director\Exchange\Symbol\Index::class)->name('director.exchange.symbol.index');
+            Route::get('/exchange/symbol/transactions/{symbol}', \App\Http\Livewire\Director\Exchange\Symbol\Transactions::class)->name('director.exchange.symbol.transactions');
             Route::get('/bounce/index', \App\Http\Livewire\Director\Bounce\Index::class)->name('director.bounce.index');
             Route::get('/terminal/index', \App\Http\Livewire\Director\Terminal\Index::class)->name('director.terminal.index');
             Route::get('/wallet/index', \App\Http\Livewire\Director\Wallet\Index::class)->name('director.wallet.index');
