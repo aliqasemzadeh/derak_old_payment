@@ -95,26 +95,6 @@
                     </li>
 
 
-                    <li class="nav-item @if(\Illuminate\Support\Facades\Route::is('director.exchange.index')) active @endif">
-                        <a class="nav-link" href="{{ route('director.exchange.index') }}">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-a-b-2"
-                                 width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
-                                 fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                <path
-                                    d="M16 21h3c.81 0 1.48 -.67 1.48 -1.48l.02 -.02c0 -.82 -.69 -1.5 -1.5 -1.5h-3v3z"></path>
-                                <path d="M16 15h2.5c.84 -.01 1.5 .66 1.5 1.5s-.66 1.5 -1.5 1.5h-2.5v-3z"></path>
-                                <path d="M4 9v-4c0 -1.036 .895 -2 2 -2s2 .964 2 2v4"></path>
-                                <path d="M2.99 11.98a9 9 0 0 0 9 9m9 -9a9 9 0 0 0 -9 -9"></path>
-                                <path d="M8 7h-4"></path>
-                            </svg>
-                            <span class="nav-link-title">
-                                {{ __('bap.exchange') }}
-                            </span>
-                        </a>
-                    </li>
-
-
                     <li class="nav-item @if(\Illuminate\Support\Facades\Route::is('director.invoice.index')) active @endif">
                         <a class="nav-link" href="{{ route('director.invoice.index') }}">
                             <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-file-dollar"
@@ -130,6 +110,38 @@
                                 {{ __('bap.invoice') }}
                             </span>
                         </a>
+                    </li>
+
+                    <li class="nav-item dropdown @if(\Illuminate\Support\Facades\Route::is('director.exchange.*')) show @endif">
+                        <a class="nav-link dropdown-toggle" href="#navbar-exchange" data-bs-toggle="dropdown"
+                           data-bs-auto-close="false" role="button" aria-expanded="true">
+
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-report-money"
+                                 width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
+                                 fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                <path
+                                    d="M9 5h-2a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-12a2 2 0 0 0 -2 -2h-2"></path>
+                                <path
+                                    d="M9 3m0 2a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v0a2 2 0 0 1 -2 2h-2a2 2 0 0 1 -2 -2z"></path>
+                                <path d="M14 11h-2.5a1.5 1.5 0 0 0 0 3h1a1.5 1.5 0 0 1 0 3h-2.5"></path>
+                                <path d="M12 17v1m0 -8v1"></path>
+                            </svg>
+
+                            <span class="nav-link-title">
+                                    {{ __('bap.exchange') }}
+                            </span>
+                        </a>
+                        <div
+                            class="dropdown-menu @if(\Illuminate\Support\Facades\Route::is('director.financial.*')) show @endif "
+                            data-bs-popper="none">
+
+                            <a class="dropdown-item @if(\Illuminate\Support\Facades\Route::is('director.financial.symbol.*')) active @endif"
+                               href="{{ route('director.financial.symbol.index') }}">
+                                {{ __('bap.symbols') }}
+                            </a>
+
+                        </div>
                     </li>
 
                     <li class="nav-item dropdown @if(\Illuminate\Support\Facades\Route::is('director.financial.*')) show @endif">

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\Director\Financial\Symbol;
+namespace App\Http\Livewire\Director\Exchange\Symbol;
 
 use App\Models\Symbol;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
@@ -33,7 +33,7 @@ class Create extends Component
         $symbol->sort_order = $this->sort_order;
         $symbol->save();
 
-        $this->emitTo(\App\Http\Livewire\Director\Financial\Symbol\Index::getName(), 'updateList');
+        $this->emitTo(\App\Http\Livewire\Director\Exchange\Symbol\Index::getName(), 'updateList');
         $this->emit('hideModal');
 
         $this->alert('success', __('bap.created'));

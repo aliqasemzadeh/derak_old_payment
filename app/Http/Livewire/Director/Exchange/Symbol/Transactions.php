@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\Director\Financial\Symbol;
+namespace App\Http\Livewire\Director\Exchange\Symbol;
 
 use App\Models\Symbol;
 use App\Models\Transaction;

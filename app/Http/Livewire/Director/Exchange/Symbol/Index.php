@@ -1,8 +1,7 @@
 <?php
 
-namespace App\Http\Livewire\Director\Financial\Symbol;
+namespace App\Http\Livewire\Director\Exchange\Symbol;
 
-use App\Models\Merchant;
 use App\Models\Symbol;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Component;
