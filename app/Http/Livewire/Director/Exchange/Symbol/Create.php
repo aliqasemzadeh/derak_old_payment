@@ -41,6 +41,6 @@ class Create extends Component
 
     public function render()
     {
-        return view('livewire.director.financial.symbol.create');
+        return view('livewire.director.exchange.symbol.create');
     }
 }

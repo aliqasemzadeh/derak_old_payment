@@ -49,6 +49,6 @@ class Edit extends Component
     }
     public function render()
     {
-        return view('livewire.director.financial.symbol.edit');
+        return view('livewire.director.exchange.symbol.edit');
     }
 }

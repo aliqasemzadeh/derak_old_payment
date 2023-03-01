@@ -136,6 +136,6 @@ class Index extends Component
     public function render()
     {
         $symbols = Symbol::filter(['search' => $this->search])->orderBy($this->sortColumn, $this->sortDirection)->paginate($this->perPage);
-        return view('livewire.director.financial.symbol.index', compact('symbols'))->layout('layouts.director');
+        return view('livewire.director.exchange.symbol.index', compact('symbols'))->layout('layouts.director');
     }
 }

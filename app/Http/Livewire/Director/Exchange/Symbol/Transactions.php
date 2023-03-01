@@ -63,6 +63,6 @@ class Transactions extends Component
     public function render()
     {
         $transactions = Transaction::whereIn('wallet_id', Wallet::select('id')->where('symbol', $this->symbol->symbol)->get())->orderBy($this->sortColumn, $this->sortDirection)->paginate($this->perPage);
-        return view('livewire.director.financial.symbol.transactions', compact('transactions'))->layout('layouts.director');
+        return view('livewire.director.exchange.symbol.transactions', compact('transactions'))->layout('layouts.director');
     }
 }
