@@ -169,7 +169,7 @@
                             data-bs-popper="none">
 
                             <a class="dropdown-item @if(\Illuminate\Support\Facades\Route::is('director.financial.ticket.*')) active @endif"
-                               href="{{ route('director.financial.symbol.index') }}">
+                               href="{{ route('director.exchange.symbol.index') }}">
                                 {{ __('bap.symbols') }}
                             </a>
 
