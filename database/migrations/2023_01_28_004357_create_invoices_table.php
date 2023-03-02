@@ -15,9 +15,10 @@ return new class extends Migration
     {
         Schema::create('invoices', function (Blueprint $table) {
             $table->id();
+            $table->string('number')->nullable();
             $table->bigInteger('user_id')->index();
             $table->bigInteger('address_id')->index()->nullable();
-            $table->bigInteger('store_id')->index()->nullable();
+            $table->bigInteger('terminal_id')->index()->nullable();
             $table->double('total');
             $table->string('email')->nullable();
             $table->string('name')->nullable();
