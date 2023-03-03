@@ -89,7 +89,7 @@ class Edit extends Component
         }
         $merchant->save();
 
-        $this->emitTo(\App\Http\Livewire\Panel\Merchant\Index::getName(), 'updateList');
+        $this->emitTo(\App\Http\Livewire\Director\Merchant\Index::getName(), 'updateList');
         $this->emit('hideModal');
 
         $this->alert('success', __('bap.edited'));
