@@ -204,7 +204,9 @@ return [
     'accepted' => 'Accepted',
     'verify_merchant' => 'Verify Merchant',
     'terminals' => 'Terminals',
-    'terminals' => 'Terminals',
+    'username' => 'Username',
+    'api_key' => 'API Key',
+    'callback_password' => 'Callback Password',
     'category_types' => [
         'article' => 'Article',
         'ticket' => 'Ticket',

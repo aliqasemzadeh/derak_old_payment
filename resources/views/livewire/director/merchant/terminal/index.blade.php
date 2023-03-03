@@ -5,11 +5,11 @@
     <x-slot name="actions">
     <div class="col-auto ms-auto d-print-none">
         <div class="btn-list">
-            <button onclick="Livewire.emit('showModal', 'director.merchant.terminal.create')" class="btn btn-primary d-none d-sm-inline-block">
+            <button onclick="Livewire.emit('showModal', 'director.merchant.terminal.create', '{{ json_encode($merchant->id) }}')" class="btn btn-primary d-none d-sm-inline-block">
                 <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
                 {{ __('bap.create_terminal') }}
             </button>
-            <button onclick="Livewire.emit('showModal', 'director.merchant.terminal.create')" class="btn btn-primary d-sm-none btn-icon" aria-label="{{ __('bap.create_store') }}">
+            <button onclick="Livewire.emit('showModal', 'director.merchant.terminal.create', '{{ json_encode($merchant->id) }}')" class="btn btn-primary d-sm-none btn-icon" aria-label="{{ __('bap.create_store') }}">
                 <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
             </button>
         </div>
@@ -88,6 +88,30 @@
                             @endif
                         @endif
                     </th>
+                    <th wire:click="sortByColumn('type')">{{ __('bap.type') }}
+                        @if ($sortColumn == 'type')
+                            @if($sortDirection == 'asc')
+                                <!-- Download SVG icon from http://tabler-icons.io/i/chevron-up -->
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-sm text-dark icon-thick" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><polyline points="6 15 12 9 18 15" /></svg>
+                            @else
+                                <!-- Download SVG icon from http://tabler-icons.io/i/chevron-down -->
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-sm text-dark icon-thick" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><polyline points="6 9 12 15 18 9" /></svg>
+
+                            @endif
+                        @endif
+                    </th>
+                    <th wire:click="sortByColumn('api_key')">{{ __('bap.api_key') }}
+                        @if ($sortColumn == 'api_key')
+                            @if($sortDirection == 'asc')
+                                <!-- Download SVG icon from http://tabler-icons.io/i/chevron-up -->
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-sm text-dark icon-thick" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><polyline points="6 15 12 9 18 15" /></svg>
+                            @else
+                                <!-- Download SVG icon from http://tabler-icons.io/i/chevron-down -->
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-sm text-dark icon-thick" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><polyline points="6 9 12 15 18 9" /></svg>
+
+                            @endif
+                        @endif
+                    </th>
                     <th wire:click="sortByColumn('created_at')">{{ __('bap.created_at') }}
                         @if ($sortColumn == 'created_at')
                             @if($sortDirection == 'asc')
@@ -140,7 +164,13 @@
                             {{ __('bap.'.$terminal->status) }}
                         </td>
                         <td>
+                            {{ __('bap.'.$terminal->type) }}
+                        </td>
+                        <td>
                             {{ $terminal->api_key }}
+                        </td>
+                        <td>
+                            {{ $terminal->created_at }}
                         </td>
                         <td class="text-end">
                             <button onclick="Livewire.emit('showModal', 'director.merchant.edit', '{{ json_encode($terminal->id) }}')" class="btn btn-primary btn-icon btn-sm">
