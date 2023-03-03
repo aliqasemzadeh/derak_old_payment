@@ -157,7 +157,7 @@
                                 </svg>
                             </button>
 
-                            <a href="{{ route('director.merchant.terminal.index', [$merchant->id]) }}" class="btn btn-warning btn-icon btn-sm">
+                            <a href="{{ route('director.merchant.terminal.index', [$merchant->id]) }}" class="btn btn-dark btn-icon btn-sm">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-terminal-2" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                     <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                                     <path d="M8 9l3 3l-3 3"></path>
