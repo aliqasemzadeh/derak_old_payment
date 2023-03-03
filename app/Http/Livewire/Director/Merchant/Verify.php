@@ -3,12 +3,24 @@
 namespace App\Http\Livewire\Director\Merchant;
 
 use App\Models\Merchant;
+use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Component;
+use Livewire\WithFileUploads;
 
 class Verify extends Component
 {
-    public Merchant $merchant;
+    use LivewireAlert;
+    use WithFileUploads;
 
+    public Merchant $merchant;
+    public $title;
+    public $website;
+    public $email;
+    public $phone;
+    public $address;
+    public $logo;
+    public $description;
+    public $payment_type = [];
     public function verify()
     {
 
