@@ -91,7 +91,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['re
             Route::get('/exchange/symbol/index', \App\Http\Livewire\Director\Exchange\Symbol\Index::class)->name('director.exchange.symbol.index');
             Route::get('/exchange/symbol/transactions/{symbol}', \App\Http\Livewire\Director\Exchange\Symbol\Transactions::class)->name('director.exchange.symbol.transactions');
             Route::get('/bounce/index', \App\Http\Livewire\Director\Bounce\Index::class)->name('director.bounce.index');
-            Route::get('/terminal/index', \App\Http\Livewire\Director\Terminal\Index::class)->name('director.terminal.index');
+            Route::get('/merchant/terminal/{merchant}', \App\Http\Livewire\Director\Merchant\Terminal\Index::class)->name('director.merchant.terminal.index');
             Route::get('/wallet/index', \App\Http\Livewire\Director\Wallet\Index::class)->name('director.wallet.index');
             Route::get('/level/index', \App\Http\Livewire\Director\Level\Index::class)->name('director.level.index');
         });
