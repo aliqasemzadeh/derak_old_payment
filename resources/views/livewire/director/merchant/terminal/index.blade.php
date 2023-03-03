@@ -178,7 +178,7 @@
             </table>
         </div>
         <div class="card-footer d-flex justify-content-between">
-            {{ $merchants->links() }}
+            {{ $terminals->links() }}
         </div>
     </div>
 </div>
