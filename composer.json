@@ -18,6 +18,7 @@
         "ffsoft-foss/tron-sdk": "4.0.1.6",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.2",
+        "irfa/php-sn-generator": "^1.1",
         "jantinnerezo/livewire-alert": "^2.2",
         "kornrunner/ethereum-address": "^0.3.0",
         "kornrunner/keccak": "^1.1",

@@ -203,6 +203,8 @@ return [
     'rejected' => 'Rejected',
     'accepted' => 'Accepted',
     'verify_merchant' => 'Verify Merchant',
+    'terminals' => 'Terminals',
+    'terminals' => 'Terminals',
     'category_types' => [
         'article' => 'Article',
         'ticket' => 'Ticket',

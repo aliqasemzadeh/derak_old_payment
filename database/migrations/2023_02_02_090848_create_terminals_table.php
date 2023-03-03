@@ -16,13 +16,15 @@ return new class extends Migration
         Schema::create('terminals', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('merchant_id')->index();
-            $table->bigInteger('user_id')->index()->nullable();
+            $table->bigInteger('user_id')->index();
             $table->string('api_key')->nullable();
             $table->string('type')->default('crypto');
             $table->string('status')->default('enable');
-            $table->string('sn')->nullable();
+            $table->string('username')->index()->nullable();
             $table->string('title')->index()->nullable();
             $table->string('callback_url')->index()->nullable();
+            $table->string('callback_password')->index()->nullable();
+            $table->longText('note')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

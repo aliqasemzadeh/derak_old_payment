@@ -170,6 +170,8 @@ return [
 
         App\Providers\FortifyServiceProvider::class,
         App\Providers\JetstreamServiceProvider::class,
+        Irfa\SerialNumber\SerialNumberGeneratorSeviceProvider::class,
+
 
         /*
          * Application Service Providers...
