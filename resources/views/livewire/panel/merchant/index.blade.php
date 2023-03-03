@@ -5,11 +5,11 @@
     <x-slot name="actions">
         <div class="col-auto ms-auto d-print-none">
             <div class="btn-list">
-                <button onclick="Livewire.emit('showModal', 'panel.merchant.create')" class="btn btn-primary d-none d-sm-inline-block">
+                <button onclick="Livewire.emit('showModal', 'director.merchant.create')" class="btn btn-primary d-none d-sm-inline-block">
                     <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
                     {{ __('bap.create_merchant') }}
                 </button>
-                <button onclick="Livewire.emit('showModal', 'panel.merchant.create')" class="btn btn-primary d-sm-none btn-icon" aria-label="{{ __('bap.create_store') }}">
+                <button onclick="Livewire.emit('showModal', 'director.merchant.create')" class="btn btn-primary d-sm-none btn-icon" aria-label="{{ __('bap.create_store') }}">
                     <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
                 </button>
             </div>
@@ -17,8 +17,8 @@
     </x-slot>
     <x-slot name="breadcrumb">
         <ol class="breadcrumb breadcrumb-arrows" aria-label="breadcrumbs">
-            <li class="breadcrumb-item"><a href="{{ route('panel.dashboard.index') }}">{{ __('bap.dashboard') }}</a></li>
-            <li class="breadcrumb-item active" aria-current="page"><a href="{{ route('panel.merchant.index') }}">{{ __('bap.merchants') }}</a></li>
+            <li class="breadcrumb-item"><a href="{{ route('director.dashboard.index') }}">{{ __('bap.dashboard') }}</a></li>
+            <li class="breadcrumb-item active" aria-current="page"><a href="{{ route('director.merchant.index') }}">{{ __('bap.merchants') }}</a></li>
         </ol>
     </x-slot>
 
@@ -90,11 +90,11 @@
                             </div>
                         </td>
                         <td class="text-end">
-                            <button onclick="Livewire.emit('showModal', 'panel.merchant.edit', '{{ json_encode($merchant->id) }}')" class="btn btn-primary btn-icon btn-sm">
+                            <button onclick="Livewire.emit('showModal', 'director.merchant.edit', '{{ json_encode($merchant->id) }}')" class="btn btn-primary btn-icon btn-sm">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 7h-3a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-3" /><path d="M9 15h3l8.5 -8.5a1.5 1.5 0 0 0 -3 -3l-8.5 8.5v3" /><line x1="16" y1="5" x2="19" y2="8" /></svg>
                             </button>
 
-                            <a href="{{ route('panel.merchant.verify', [$merchant->id]) }}" class="btn btn-secondary btn-icon btn-sm">
+                            <a href="{{ route('director.merchant.verify', [$merchant->id]) }}" class="btn btn-secondary btn-icon btn-sm">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-zoom-check" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                     <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                                     <path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0"></path>
@@ -104,7 +104,7 @@
                             </a>
 
 
-                            <a href="{{ route('panel.merchant.view', [$merchant->id]) }}" class="btn btn-warning btn-icon btn-sm">
+                            <a href="{{ route('director.merchant.view', [$merchant->id]) }}" class="btn btn-warning btn-icon btn-sm">
                                 <!-- Download SVG icon from http://tabler-icons.io/i/eye -->
                                 <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-list-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                     <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
