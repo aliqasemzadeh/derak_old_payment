@@ -90,19 +90,19 @@
                             </div>
                         </td>
                         <td class="text-end">
-                            <button onclick="Livewire.emit('showModal', 'panel.merchant.edit', '{{ json_encode($merchant->id) }}')" class="btn btn-primary btn-icon btn-sm">
+                            <button onclick="Livewire.emit('showModal', 'director.merchant.edit', '{{ json_encode($merchant->id) }}')" class="btn btn-primary btn-icon btn-sm">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 7h-3a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-3" /><path d="M9 15h3l8.5 -8.5a1.5 1.5 0 0 0 -3 -3l-8.5 8.5v3" /><line x1="16" y1="5" x2="19" y2="8" /></svg>
                             </button>
 
-                            <a href="{{ route('panel.merchant.verify', [$merchant->id]) }}" class="btn btn-secondary btn-icon btn-sm">
+
+                            <button onclick="Livewire.emit('showModal', 'director.merchant.verify', '{{ json_encode($merchant->id) }}')" class="btn btn-secondary btn-icon btn-sm">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-zoom-check" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                     <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                                     <path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0"></path>
                                     <path d="M21 21l-6 -6"></path>
                                     <path d="M7 10l2 2l4 -4"></path>
                                 </svg>
-                            </a>
-
+                            </button>
 
                             <a href="{{ route('panel.merchant.view', [$merchant->id]) }}" class="btn btn-warning btn-icon btn-sm">
                                 <!-- Download SVG icon from http://tabler-icons.io/i/eye -->

@@ -1,8 +1,8 @@
 <div class="modal-dialog modal-lg">
-    <form wire:submit.prevent="edit">
+    <form wire:submit.prevent="verify">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">{{ __('bap.edit_merchant') }}</h5>
+                <h5 class="modal-title">{{ __('bap.verify_merchant') }}</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="{{ __('bap.close') }}"></button>
             </div>
             <div class="modal-body">

@@ -195,6 +195,7 @@ return [
     'help_currency' => 'Select currency that you want to pay with it.You will get address on that network and payment will ',
     'import' => 'Import',
     'balance' => 'Balance',
+    'verify_merchant' => 'Verify Merchant',
     'category_types' => [
         'article' => 'Article',
         'ticket' => 'Ticket',
