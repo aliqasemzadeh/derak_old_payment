@@ -20,10 +20,33 @@ class Verify extends Component
     public $address;
     public $logo;
     public $description;
+    public $note;
     public $payment_type = [];
     public function verify()
     {
+        $merchant = $this->merchant;
+        $merchant->note = $this->note;
+        $merchant->status = 'enable';
+        $merchant->save();
 
+
+        $this->emitTo(\App\Http\Livewire\Director\Merchant\Index::getName(), 'updateList');
+        $this->emit('hideModal');
+
+        $this->alert('success', __('bap.accepted'));
+    }
+
+    public function reject()
+    {
+        $merchant = $this->merchant;
+        $merchant->note = $this->note;
+        $merchant->status = 'reject';
+        $merchant->save();
+
+        $this->emitTo(\App\Http\Livewire\Director\Merchant\Index::getName(), 'updateList');
+        $this->emit('hideModal');
+
+        $this->alert('success', __('bap.rejected'));
     }
 
     public function mount(Merchant $merchant)
