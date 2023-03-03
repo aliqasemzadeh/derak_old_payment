@@ -27,6 +27,7 @@ return new class extends Migration
             $table->string('logo')->nullable();
             $table->string('phone')->nullable();
             $table->string('status')->default('enable');
+            $table->longText('note')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

@@ -102,6 +102,15 @@
                             @enderror
                         </div>
                     </div>
+                    <div class="col-12">
+                        <div class="mb-3">
+                            <label class="form-label" for="description">{{ __('bap.note') }}</label>
+                            <textarea wire:model="note" class="form-control @error('note') is-invalid @enderror" name="description" placeholder="{{ __('bap.description') }}"></textarea>
+                            @error('note')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
+                        </div>
+                    </div>
                 </div>
 
 
