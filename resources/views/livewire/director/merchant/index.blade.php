@@ -73,7 +73,7 @@
                             @endif
                         @endif
                     </th>
-                    <th wire:click="sortByColumn('title')">{{ __('bap.status') }}
+                    <th wire:click="sortByColumn('status')">{{ __('bap.status') }}
                         @if ($sortColumn == 'status')
                             @if($sortDirection == 'asc')
                                 <!-- Download SVG icon from http://tabler-icons.io/i/chevron-up -->
@@ -85,7 +85,7 @@
                             @endif
                         @endif
                     </th>
-                    <th wire:click="sortByColumn('title')">{{ __('bap.created_at') }}
+                    <th wire:click="sortByColumn('created_at')">{{ __('bap.created_at') }}
                         @if ($sortColumn == 'created_at')
                             @if($sortDirection == 'asc')
                                 <!-- Download SVG icon from http://tabler-icons.io/i/chevron-up -->

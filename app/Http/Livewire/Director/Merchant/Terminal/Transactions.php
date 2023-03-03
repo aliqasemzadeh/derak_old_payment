@@ -5,7 +5,7 @@ namespace App\Http\Livewire\Director\Merchant\Terminal;
 use App\Models\Merchant;
 use Livewire\Component;
 
-class View extends Component
+class Transactions extends Component
 {
     public Merchant $merchant;
 
@@ -13,9 +13,9 @@ class View extends Component
     {
 
     }
-
+    
     public function render()
     {
-        return view('livewire.director.merchant.terminal.view');
+        return view('livewire.director.merchant.terminal.transactions');
     }
 }
