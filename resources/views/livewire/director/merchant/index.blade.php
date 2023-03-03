@@ -85,6 +85,18 @@
                             @endif
                         @endif
                     </th>
+                    <th wire:click="sortByColumn('title')">{{ __('bap.created_at') }}
+                        @if ($sortColumn == 'created_at')
+                            @if($sortDirection == 'asc')
+                                <!-- Download SVG icon from http://tabler-icons.io/i/chevron-up -->
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-sm text-dark icon-thick" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><polyline points="6 15 12 9 18 15" /></svg>
+                            @else
+                                <!-- Download SVG icon from http://tabler-icons.io/i/chevron-down -->
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-sm text-dark icon-thick" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><polyline points="6 9 12 15 18 9" /></svg>
+
+                            @endif
+                        @endif
+                    </th>
                     <th></th>
                 </tr>
                 </thead>
@@ -96,12 +108,39 @@
                                 <span class="avatar me-2" style="background-image: url('{{ route('file.merchant.logo', [$merchant->id]) }}')"></span>
                                 <div class="flex-fill">
                                     <div class="font-weight-medium">{{ $merchant->title }}</div>
-                                    <div class="text-muted">{{ $merchant->description }}</div>
+                                    <div class="text-muted">
+                                        @if($merchant->crypto)
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-coin-bitcoin" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                                <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"></path>
+                                                <path d="M9 8h4.09c1.055 0 1.91 .895 1.91 2s-.855 2 -1.91 2c1.055 0 1.91 .895 1.91 2s-.855 2 -1.91 2h-4.09"></path>
+                                                <path d="M10 12h4"></path>
+                                                <path d="M10 7v10v-9"></path>
+                                                <path d="M13 7v1"></path>
+                                                <path d="M13 16v1"></path>
+                                            </svg>
+                                            {{ __('bap.crypto') }}</span>
+                                        @endif
+
+                                            @if($merchant->fiat)
+
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-wallet" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                           <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                           <path d="M17 8v-3a1 1 0 0 0 -1 -1h-10a2 2 0 0 0 0 4h12a1 1 0 0 1 1 1v3m0 4v3a1 1 0 0 1 -1 1h-12a2 2 0 0 1 -2 -2v-12"></path>
+                                           <path d="M20 12v4h-4a2 2 0 0 1 0 -4h4"></path>
+                                        </svg>
+                                        {{ __('bap.fiat') }}
+                                            @endif
+
+                                    </div>
                                 </div>
                             </div>
                         </td>
                         <td>
                             {{ __('bap.'.$merchant->status) }}
+                        </td>
+                        <td>
+                            {{ $merchant->created_at }}
                         </td>
                         <td class="text-end">
                             <button onclick="Livewire.emit('showModal', 'director.merchant.edit', '{{ json_encode($merchant->id) }}')" class="btn btn-primary btn-icon btn-sm">
