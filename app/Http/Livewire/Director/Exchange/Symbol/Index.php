@@ -81,7 +81,7 @@ class Index extends Component
             return abort(403);
         }
 
-        $this->merchant->delete();
+        $this->symbol->delete();
         $this->emit('updateList');
         $this->alert(
             'success',
