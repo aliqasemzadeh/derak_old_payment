@@ -96,6 +96,6 @@ class Edit extends Component
     }
     public function render()
     {
-        return view('livewire.director.merchant.edit');
+        return view('livewire.director.merchant.edit')->layout('layouts.director');;
     }
 }

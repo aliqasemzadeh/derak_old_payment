@@ -2,20 +2,21 @@
 
 namespace App\Http\Livewire\Director\Merchant\Terminal;
 
-use App\Models\Merchant;
+use App\Models\Terminal;
 use Livewire\Component;
 
 class Transactions extends Component
 {
-    public Merchant $merchant;
+    public Terminal $terminal;
 
-    public function mount(Merchant $merchant)
+    public function mount(Terminal $terminal)
     {
+        $this->terminal = $this->terminal;
 
     }
-    
+
     public function render()
     {
-        return view('livewire.director.merchant.terminal.transactions');
+        return view('livewire.director.merchant.terminal.transactions')->layout('layouts.director');
     }
 }
