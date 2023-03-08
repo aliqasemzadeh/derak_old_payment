@@ -3,15 +3,16 @@
 namespace App\Http\Livewire\Director\Merchant\Terminal;
 
 use App\Models\Merchant;
+use App\Models\Terminal;
 use Livewire\Component;
 
 class View extends Component
 {
-    public Merchant $merchant;
+    public Terminal $Terminal;
 
-    public function mount(Merchant $merchant)
+    public function mount(Terminal $terminal)
     {
-
+        $this->terminal = $terminal;
     }
 
     public function render()

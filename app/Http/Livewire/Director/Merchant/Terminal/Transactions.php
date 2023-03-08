@@ -11,7 +11,7 @@ class Transactions extends Component
 
     public function mount(Terminal $terminal)
     {
-        $this->terminal = $this->terminal;
+        $this->terminal = $terminal;
 
     }
 
