@@ -206,7 +206,12 @@ return [
     'terminals' => 'Terminals',
     'username' => 'Username',
     'api_key' => 'API Key',
+    'print_invoice' => 'Print Invoice',
     'callback_password' => 'Callback Password',
+    'total_due' => 'Total Due',
+    'email' => 'Email',
+    'edit_invoice' => 'Edit Invoice',
+    'select_type_of_payment_you_want' => 'Select type of payment you want to pay.',
     'category_types' => [
         'article' => 'Article',
         'ticket' => 'Ticket',

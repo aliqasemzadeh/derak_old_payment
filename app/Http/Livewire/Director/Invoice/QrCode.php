@@ -1,22 +1,21 @@
 <?php
 
-namespace App\Http\Livewire\App\Invoice;
+namespace App\Http\Livewire\Director\Invoice;
 
 use App\Models\Invoice;
-use App\Models\Symbol;
+use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Component;
 
-class View extends Component
+class QrCode extends Component
 {
+    use LivewireAlert;
     public Invoice $invoice;
     public function mount(Invoice $invoice)
     {
         $this->invoice = $invoice;
-
     }
     public function render()
     {
-        $symbols = Symbol::all();
-        return view('livewire.app.invoice.view', compact('symbols'));
+        return view('livewire.director.invoice.qr-code');
     }
 }

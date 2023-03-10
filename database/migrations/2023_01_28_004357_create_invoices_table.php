@@ -26,6 +26,7 @@ return new class extends Migration
             $table->string('phone')->nullable();
             $table->longText('description')->nullable();
             $table->longText('options')->nullable();
+            $table->longText('symbols')->nullable();
             $table->expirable();
             $table->timestamps();
             $table->softDeletes();
