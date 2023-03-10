@@ -2,7 +2,6 @@
 
 namespace App\Http\Livewire\Director\Merchant\Terminal;
 
-use App\Models\Symbol;
 use App\Models\Terminal;
 use App\Models\Transaction;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
