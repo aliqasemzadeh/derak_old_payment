@@ -36,7 +36,7 @@ class Edit extends Component
         if($this->type == 'crypto') {
             $this->validate([
                 'title' => 'required|string',
-                'username' => 'nullable|required|string|unique:terminals',
+                'username' => ['nullable','string', Rule::unique('terminals')->ignore($this->terminal->id)],
                 'callback_url' => 'required|url',
                 'callback_password' => 'required|string',
             ]);
@@ -54,7 +54,7 @@ class Edit extends Component
         } else {
             $this->validate([
                 'title' => 'required|string',
-                'username' => 'nullable|string|unique:terminals',
+                'username' => ['nullable','string', Rule::unique('terminals')->ignore($this->terminal->id)],
             ]);
 
             $terminal = $this->terminal;
