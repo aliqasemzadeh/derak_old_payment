@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Director\Merchant\Terminal;
 
 use App\Models\Merchant;
 use App\Models\Terminal;
+use Irfa\SerialNumber\Facades\SerialNumber;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Component;
 use Livewire\WithFileUploads;
@@ -28,6 +29,49 @@ class Edit extends Component
         $this->username = $terminal->username;
         $this->callback_password = $terminal->callback_password;
         $this->callback_url = $terminal->callback_url;
+    }
+
+    public function edit()
+    {
+
+        if($this->type == 'crypto') {
+            $this->validate([
+                'title' => 'required|string',
+                'username' => 'nullable|required|string|unique:terminals',
+                'callback_url' => 'required|url',
+                'callback_password' => 'required|string',
+            ]);
+
+            $terminal = $this->terminal;
+            $terminal->title = $this->title;
+            $terminal->username = $this->username;
+            $terminal->user_id = auth()->user()->id;
+            $terminal->merchant_id = $this->merchant->id;
+            $terminal->callback_url = $this->callback_url;
+            $terminal->callback_password = $this->callback_password;
+            $terminal->api_key = SerialNumber::generate();
+            $terminal->save();
+
+        } else {
+            $this->validate([
+                'title' => 'required|string',
+                'username' => 'nullable|string|unique:terminals',
+            ]);
+
+            $terminal = $this->terminal;
+            $terminal->title = $this->title;
+            $terminal->username = $this->username;
+            $terminal->user_id = auth()->user()->id;
+            $terminal->merchant_id = $this->merchant->id;
+            $terminal->api_key = SerialNumber::generate();
+            $terminal->save();
+        }
+
+
+        $this->emitTo(\App\Http\Livewire\Director\Merchant\Terminal\Index::getName(), 'updateList');
+        $this->emit('hideModal');
+
+        $this->alert('success', __('bap.created'));
     }
 
     public function render()
