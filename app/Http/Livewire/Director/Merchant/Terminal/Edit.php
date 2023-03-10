@@ -14,7 +14,6 @@ class Edit extends Component
     use LivewireAlert;
     use WithFileUploads;
     public Terminal $Terminal;
-    public Merchant $merchant;
     public $type = 'crypto';
     public $title;
     public $username;
@@ -44,9 +43,9 @@ class Edit extends Component
 
             $terminal = $this->terminal;
             $terminal->title = $this->title;
+            $terminal->type = $this->type;
             $terminal->username = $this->username;
             $terminal->user_id = auth()->user()->id;
-            $terminal->merchant_id = $this->merchant->id;
             $terminal->callback_url = $this->callback_url;
             $terminal->callback_password = $this->callback_password;
             $terminal->api_key = SerialNumber::generate();
@@ -60,9 +59,9 @@ class Edit extends Component
 
             $terminal = $this->terminal;
             $terminal->title = $this->title;
+            $terminal->type = $this->type;
             $terminal->username = $this->username;
             $terminal->user_id = auth()->user()->id;
-            $terminal->merchant_id = $this->merchant->id;
             $terminal->api_key = SerialNumber::generate();
             $terminal->save();
         }

@@ -39,6 +39,7 @@ class Create extends Component
 
             $terminal = new Terminal();
             $terminal->title = $this->title;
+            $terminal->type = $this->type;
             $terminal->username = $this->username;
             $terminal->user_id = auth()->user()->id;
             $terminal->merchant_id = $this->merchant->id;
@@ -55,6 +56,7 @@ class Create extends Component
 
             $terminal = new Terminal();
             $terminal->title = $this->title;
+            $terminal->type = $this->type;
             $terminal->username = $this->username;
             $terminal->user_id = auth()->user()->id;
             $terminal->merchant_id = $this->merchant->id;
