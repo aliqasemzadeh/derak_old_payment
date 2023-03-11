@@ -214,6 +214,7 @@ return [
     'pay_with_wallet' => 'Pay With Wallet',
     'pay_with_crypto' => 'Pay With Crypto',
     'pay_with_fiat' => 'Pay With Fiat',
+    'payment' => 'Payment',
     'select_type_of_payment_you_want' => 'Select type of payment you want to pay.',
     'category_types' => [
         'article' => 'Article',

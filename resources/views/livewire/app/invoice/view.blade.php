@@ -52,48 +52,24 @@
                         </tr>
                         </tbody></table>
 
+                        <div class="row">
+                            <div class="col-6 col-start">
+                                <p class="text-muted text-center mt-5">{{ __('bap.select_type_of_payment_you_want') }}</p>
 
-
-                    <div class="row">
-                        <div class="col-6 col-start">
-                            <p class="text-muted text-center mt-5">{{ __('bap.select_type_of_payment_you_want') }}</p>
-                            <div class="input-group mb-2">
-                              <span class="input-group-text">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-at" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                   <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                   <path d="M12 12m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0"></path>
-                                   <path d="M16 12v1.5a2.5 2.5 0 0 0 5 0v-1.5a9 9 0 1 0 -5.5 8.28"></path>
-                                </svg>
-                              </span>
-                                <input type="text" wire:model="email" class="form-control" placeholder="{{ __('bap.email') }}" autocomplete="off">
+                                <p class="text-muted text-center">
+                                    <button type="button" class="btn btn-primary w-100">
+                                        {{ __('bap.pay_with_wallet') }}
+                                    </button>
+                                    <button type="button" class="btn btn-purple w-100" onclick="Livewire.emit('showModal', 'app.invoice.crypto', '{{ json_encode($invoice->id) }}')">
+                                        {{ __('bap.pay_with_crypto') }}
+                                    </button>
+                                    <button type="button" class="btn btn-teal w-100">
+                                        {{ __('bap.pay_with_fiat') }}
+                                    </button>
+                                </p>
+                                </p>
                             </div>
-                            <div class="input-group mb-2">
-                              <span class="input-group-text">
-
-
-                                  <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-device-mobile" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                   <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                   <path d="M6 3m0 2a2 2 0 0 1 2 -2h8a2 2 0 0 1 2 2v14a2 2 0 0 1 -2 2h-8a2 2 0 0 1 -2 -2z"></path>
-                                   <path d="M11 4l2 0"></path>
-                                   <path d="M12 17l0 .01"></path>
-                                </svg>
-                              </span>
-                                <input type="text" wire:model="phone" class="form-control" placeholder="{{ __('bap.phone') }}" autocomplete="off">
-                            </div>
-                            <p class="text-muted text-center">
-                                <button type="button" class="btn btn-primary">
-                                    {{ __('bap.pay_with_wallet') }}
-                                </button>
-                                <button type="button" class="btn btn-purple" onclick="Livewire.emit('showModal', 'app.invoice.crypto', '{{ json_encode($invoice->id) }}')">
-                                    {{ __('bap.pay_with_crypto') }}
-                                </button>
-                                <button type="button" class="btn btn-teal ">
-                                    {{ __('bap.pay_with_fiat') }}
-                                </button>
-                            </p>
-                            </p>
                         </div>
-                    </div>
                 </div>
             </div>
         </div>

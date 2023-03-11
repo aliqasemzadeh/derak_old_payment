@@ -15,9 +15,9 @@ class Crypto extends Component
         $this->invoice = $invoice;
     }
 
-    public function payment($symbol)
+    public function payment()
     {
-        dd($symbol);
+
     }
     public function render()
     {
