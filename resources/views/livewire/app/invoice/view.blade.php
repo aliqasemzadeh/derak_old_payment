@@ -84,7 +84,7 @@
                                 <button type="button" class="btn btn-primary">
                                     {{ __('bap.pay_with_wallet') }}
                                 </button>
-                                <button type="button" class="btn btn-purple" onclick="Livewire.emit('showModal', 'admin.content.article.edit', '{{ json_encode($invoice->id) }}')">
+                                <button type="button" class="btn btn-purple" onclick="Livewire.emit('showModal', 'app.invoice.crypto', '{{ json_encode($invoice->id) }}')">
                                     {{ __('bap.pay_with_crypto') }}
                                 </button>
                                 <button type="button" class="btn btn-teal ">
