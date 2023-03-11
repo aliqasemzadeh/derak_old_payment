@@ -3,10 +3,9 @@
 namespace App\Http\Livewire\App\Invoice;
 
 use App\Models\Invoice;
-use App\Models\Symbol;
 use Livewire\Component;
 
-class View extends Component
+class Fiat extends Component
 {
     public Invoice $invoice;
     public function mount(Invoice $invoice)
@@ -15,7 +14,6 @@ class View extends Component
     }
     public function render()
     {
-        $symbols = Symbol::all();
-        return view('livewire.app.invoice.view', compact('symbols'));
+        return view('livewire.app.invoice.fiat');
     }
 }

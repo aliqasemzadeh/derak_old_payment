@@ -211,6 +211,9 @@ return [
     'total_due' => 'Total Due',
     'email' => 'Email',
     'edit_invoice' => 'Edit Invoice',
+    'pay_with_wallet' => 'Pay With Wallet',
+    'pay_with_crypto' => 'Pay With Crypto',
+    'pay_with_fiat' => 'Pay With Fiat',
     'select_type_of_payment_you_want' => 'Select type of payment you want to pay.',
     'category_types' => [
         'article' => 'Article',

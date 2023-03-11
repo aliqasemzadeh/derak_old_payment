@@ -80,22 +80,20 @@
                               </span>
                                 <input type="text" wire:model="phone" class="form-control" placeholder="{{ __('bap.phone') }}" autocomplete="off">
                             </div>
+                            <p class="text-muted text-center">
+                                <button type="button" class="btn btn-primary">
+                                    {{ __('bap.pay_with_wallet') }}
+                                </button>
+                                <button type="button" class="btn btn-purple" onclick="Livewire.emit('showModal', 'admin.content.article.edit', '{{ json_encode($invoice->id) }}')">
+                                    {{ __('bap.pay_with_crypto') }}
+                                </button>
+                                <button type="button" class="btn btn-teal ">
+                                    {{ __('bap.pay_with_fiat') }}
+                                </button>
+                            </p>
+                            </p>
                         </div>
                     </div>
-                    <p class="text-muted text-center mt-5">
-
-                    </p>
-                    <div class="row g-2 align-items-center">
-                        @foreach($symbols as $symbol)
-                            <div class="col-6 col-sm-4 col-md-2 col-xl-auto py-3">
-                                <button href="#" class="btn btn-tabler w-100">
-                                    <img width="16" height="16" src="{{ asset('cryptocurrency-icons/'.strtolower($symbol->symbol).'.svg') }}" />
-                                    {{ $symbol->title }}
-                                </button>
-                            </div>
-                        @endforeach
-                    </div>
-
                 </div>
             </div>
         </div>
