@@ -42,7 +42,7 @@ class Create extends Component
             $terminal->type = $this->type;
             $terminal->username = $this->username;
             $terminal->user_id = auth()->user()->id;
-            $terminal->merchant_id = $this->merchant_id;
+            $terminal->merchant_id = $this->merchant->id;
             $terminal->callback_url = $this->callback_url;
             $terminal->callback_password = $this->callback_password;
             $terminal->api_key = SerialNumber::generate();
