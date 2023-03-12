@@ -19,7 +19,12 @@ class Crypto extends Component
 
     public function payment()
     {
+        $this->validate([
+            'email'  => 'required|email'
+        ]);
 
+        $this->invoice->email = $this->email;
+        $this->invoice->save();
     }
     public function render()
     {
