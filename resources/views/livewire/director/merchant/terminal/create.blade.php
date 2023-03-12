@@ -1,5 +1,6 @@
 <div class="modal-dialog modal-lg">
     <form wire:submit.prevent="create">
+        <input type="hidden" name="merchant_id" value="{{ $merchant->id }}" wire:model="merchant_id" />
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title">{{ __('bap.create_terminal') }}: {{ $merchant->title }}</h5>

@@ -15,6 +15,7 @@ class Create extends Component
     use WithFileUploads;
 
     public Merchant $merchant;
+    public $merchant_id;
     public $type = 'crypto';
     public $title;
     public $username;
@@ -28,7 +29,6 @@ class Create extends Component
 
     public function create()
     {
-
         if($this->type == 'crypto') {
             $this->validate([
                 'title' => 'required|string',
@@ -42,7 +42,7 @@ class Create extends Component
             $terminal->type = $this->type;
             $terminal->username = $this->username;
             $terminal->user_id = auth()->user()->id;
-            $terminal->merchant_id = $this->merchant->id;
+            $terminal->merchant_id = $this->merchant_id;
             $terminal->callback_url = $this->callback_url;
             $terminal->callback_password = $this->callback_password;
             $terminal->api_key = SerialNumber::generate();

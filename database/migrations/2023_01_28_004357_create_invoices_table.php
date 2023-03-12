@@ -25,6 +25,7 @@ return new class extends Migration
             $table->longText('address')->nullable();
             $table->string('phone')->nullable();
             $table->longText('description')->nullable();
+            $table->longText('user_description')->nullable();
             $table->longText('options')->nullable();
             $table->longText('symbols')->nullable();
             $table->expirable();

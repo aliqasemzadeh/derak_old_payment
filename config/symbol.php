@@ -18,4 +18,13 @@ return [
         'ERC20' => '0x89d24a6b4ccb1b6faa2625fe562bdd9a23260359',
         'BEP20' => '0x1af3f329e8be154074d8769d1ffa4ee058b1dbc3',
     ],
+    'BTC' => [
+        'BTC'
+    ],
+    'TRX' => [
+        'TRC20'
+    ],
+    'ETH' => [
+        'ERC20'
+    ]
 ];

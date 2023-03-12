@@ -209,6 +209,7 @@ return [
     'print_invoice' => 'Print Invoice',
     'callback_password' => 'Callback Password',
     'total_due' => 'Total Due',
+    'director_dashboard' => 'Director Dashboard',
     'email' => 'Email',
     'edit_invoice' => 'Edit Invoice',
     'pay_with_wallet' => 'Pay With Wallet',
@@ -216,7 +217,10 @@ return [
     'pay_with_fiat' => 'Pay With Fiat',
     'pay_amount_to_address' => 'Pay amount to address.',
     'payment' => 'Payment',
+    'select_symbol' => 'Select Symbol',
+    'user_description' => 'User Description',
     'select_type_of_payment_you_want' => 'Select type of payment you want to pay.',
+    'please_select_network' => 'Please select network',
     'category_types' => [
         'article' => 'Article',
         'ticket' => 'Ticket',

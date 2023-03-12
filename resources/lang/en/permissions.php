@@ -64,6 +64,7 @@ return [
     'admin_user_wallets' => 'Manage User Wallets',
 
 
-    'director_access' => 'Access Director'
+    'director_access' => 'Access Director',
+    'director_dashboard_index' => 'Director Dashboard Access',
 
 ];
