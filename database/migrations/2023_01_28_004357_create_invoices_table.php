@@ -22,7 +22,7 @@ return new class extends Migration
             $table->double('total');
             $table->string('email')->nullable();
             $table->string('name')->nullable();
-            $table->string('address')->nullable();
+            $table->longText('address')->nullable();
             $table->string('phone')->nullable();
             $table->longText('description')->nullable();
             $table->longText('options')->nullable();

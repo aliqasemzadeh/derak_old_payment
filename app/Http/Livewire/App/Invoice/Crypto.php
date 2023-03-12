@@ -12,6 +12,7 @@ class Crypto extends Component
     public $symbol;
     public $email;
     public $phone;
+    public $address;
     public function mount(Invoice $invoice)
     {
         $this->invoice = $invoice;
@@ -23,7 +24,10 @@ class Crypto extends Component
             'email'  => 'required|email'
         ]);
 
+        $this->invoice->name = $this->name;
         $this->invoice->email = $this->email;
+        $this->invoice->phone = $this->phone;
+        $this->invoice->address = $this->address;
         $this->invoice->save();
     }
     public function render()
