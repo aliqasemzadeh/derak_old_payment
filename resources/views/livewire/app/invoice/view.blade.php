@@ -57,13 +57,13 @@
                                 <p class="text-muted text-center mt-5">{{ __('bap.select_type_of_payment_you_want') }}</p>
 
                                 <p class="text-muted text-center">
-                                    <button type="button" class="btn btn-primary w-100">
+                                    <button type="button" class="btn btn-primary w-100 mb-2">
                                         {{ __('bap.pay_with_wallet') }}
                                     </button>
-                                    <button type="button" class="btn btn-purple w-100" onclick="Livewire.emit('showModal', 'app.invoice.crypto', '{{ json_encode($invoice->id) }}')">
+                                    <button type="button" class="btn btn-purple w-100 mb-2" onclick="Livewire.emit('showModal', 'app.invoice.crypto', '{{ json_encode($invoice->id) }}')">
                                         {{ __('bap.pay_with_crypto') }}
                                     </button>
-                                    <button type="button" class="btn btn-teal w-100">
+                                    <button type="button" class="btn btn-teal w-100" mb-2>
                                         {{ __('bap.pay_with_fiat') }}
                                     </button>
                                 </p>
