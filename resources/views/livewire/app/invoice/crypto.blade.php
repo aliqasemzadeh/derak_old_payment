@@ -7,6 +7,7 @@
             </div>
             <div class="modal-body">
 
+                @if(!$showAddress)
                 <div class="row">
                     <div class="col-md-6">
                         <div class="mb-3">
@@ -30,7 +31,7 @@
                                        <path d="M16 12v1.5a2.5 2.5 0 0 0 5 0v-1.5a9 9 0 1 0 -5.5 8.28"></path>
                                     </svg>
                               </span>
-                                <input type="text" wire:model="mobile" class="form-control" placeholder="{{ __('bap.mobile') }}" autocomplete="off">
+                                <input type="text" wire:model="phone" class="form-control" placeholder="{{ __('bap.phone') }}" autocomplete="off">
                             </div>
                         </div>
                         <div class="mb-3">
@@ -43,7 +44,10 @@
                                    <path d="M12 17v.01"></path>
                                 </svg>
                               </span>
-                                <input type="text" wire:model="phone" class="form-control" placeholder="{{ __('bap.email') }}" autocomplete="off">
+                                <input type="text" wire:model="email" class="form-control @error('email') is-invalid @enderror" placeholder="{{ __('bap.email') }}" autocomplete="off">
+                                @error('email')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
                             </div>
                         </div>
                         <div class="mb-3">
@@ -81,7 +85,9 @@
                         </div>
                     </div>
                 </div>
+                @else
 
+                @endif
 
             </div>
         </div>

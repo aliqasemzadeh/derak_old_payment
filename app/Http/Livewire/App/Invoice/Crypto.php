@@ -11,8 +11,10 @@ class Crypto extends Component
     public Invoice $invoice;
     public $symbol;
     public $email;
+    public $name;
     public $phone;
     public $address;
+    public $showAddress = false;
     public function mount(Invoice $invoice)
     {
         $this->invoice = $invoice;
@@ -21,7 +23,11 @@ class Crypto extends Component
     public function payment()
     {
         $this->validate([
-            'email'  => 'required|email'
+            'symbol'  => 'required|string',
+            'email'  => 'required|email',
+            'phone'  => 'string|nullable',
+            'address'  => 'string|nullable',
+            'name'  => 'string|nullable',
         ]);
 
         $this->invoice->name = $this->name;
@@ -29,6 +35,10 @@ class Crypto extends Component
         $this->invoice->phone = $this->phone;
         $this->invoice->address = $this->address;
         $this->invoice->save();
+
+        $this->showAddress = true;
+
+        $this->alert('success', __('bap.pay_amount_to_address'));
     }
     public function render()
     {
