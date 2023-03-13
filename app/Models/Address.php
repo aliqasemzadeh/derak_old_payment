@@ -7,6 +7,7 @@ use EloquentFilter\Filterable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\Builder;
 
 class Address extends Model
 {
@@ -19,4 +20,19 @@ class Address extends Model
         'address',
         'network',
     ];
+
+    public function scopeUnused(Builder $query): void
+    {
+        $query->where('status', 'unused');
+    }
+
+    public function scopeUsed(Builder $query): void
+    {
+        $query->where('status', '==', 'used');
+    }
+
+    public function scopeOfNetwork(Builder $query, $network): void
+    {
+        $query->where('network', $network);
+    }
 }

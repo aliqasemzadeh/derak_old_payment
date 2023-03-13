@@ -2,9 +2,11 @@
 
 namespace App\Networks;
 
+use App\Models\Invoice;
+
 class Bitcoin
 {
-    public static function getAddress($xpub, $type = 'xpub')
+    public static function getInvoiceAddress(Invoice $invoice)
     {
 
     }

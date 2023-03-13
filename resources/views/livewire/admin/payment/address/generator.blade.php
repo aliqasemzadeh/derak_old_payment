@@ -29,7 +29,7 @@
                                             <div class="mb-3">
                                                 <div class="form-label" for="chain">{{ __('bap.network') }}</div>
                                                 <select class="form-select" wire:model="network" id="network">
-                                                    @foreach(config('networks') as $row => $network)
+                                                    @foreach(config('networks') as $network => $networkData)
                                                         <option value="{{ $network }}">{{ __('network.'.$network) }}</option>
                                                     @endforeach
                                                 </select>

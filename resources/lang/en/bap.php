@@ -221,6 +221,7 @@ return [
     'user_description' => 'User Description',
     'select_type_of_payment_you_want' => 'Select type of payment you want to pay.',
     'please_select_network' => 'Please select network',
+    'please_pay_amount_to_address' => 'Please pay amount to address',
     'category_types' => [
         'article' => 'Article',
         'ticket' => 'Ticket',

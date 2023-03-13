@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\App\Invoice;
 
 use App\Models\Invoice;
+use App\Models\Rate;
 use App\Models\Symbol;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Component;
@@ -16,7 +17,9 @@ class Crypto extends Component
     public $name;
     public $phone;
     public $address;
+    public $networkAddress;
     public $search;
+    public $network;
     public $user_description;
     public $showSymbol = true;
     public $showNetwork = false;
@@ -32,27 +35,37 @@ class Crypto extends Component
 
     public function payment()
     {
-        $this->validate([
-            'symbol'  => 'required|string',
-            'email'  => 'required|email',
-            'phone'  => 'string|nullable',
-            'address'  => 'string|nullable',
-            'name'  => 'string|nullable',
-        ]);
+        if($this->showSymbol) {
+            $this->validate([
+                'symbol'  => 'required|string',
+                'email'  => 'required|email',
+                'phone'  => 'string|nullable',
+                'address'  => 'string|nullable',
+                'name'  => 'string|nullable',
+            ]);
 
-        $this->invoice->name = $this->name;
-        $this->invoice->email = $this->email;
-        $this->invoice->phone = $this->phone;
-        $this->invoice->address = $this->address;
-        $this->invoice->user_description = $this->user_description;
-        $this->invoice->save();
+            $this->invoice->name = $this->name;
+            $this->invoice->email = $this->email;
+            $this->invoice->phone = $this->phone;
+            $this->invoice->address = $this->address;
+            $this->invoice->user_description = $this->user_description;
+            $this->invoice->save();
 
-        $this->showSymbol = false;
-        $this->showNetwork = true;
+            $this->showSymbol = false;
+            $this->showNetwork = true;
+            $this->alert('success', __('bap.please_select_network'));
+        } else {
+            $this->showNetwork = false;
 
+            $networkClass = config('networks.'.$this->network.'.class');
+            $this->networkAddress = $networkClass::getInvoiceAddress($this->invoice, $this->symbol);
 
+            $this->invoice->total_in_symbol = round($this->invoice->total / Rate::where('symbol', $this->symbol)->latest()->first()->price, 8, PHP_ROUND_HALF_UP);
+            $this->invoice->address_id = $this->networkAddress->id;
+            $this->invoice->save();
 
-        $this->alert('success', __('bap.please_select_network'));
+            $this->alert('success', __('bap.please_pay_amount_to_address'));
+        }
     }
     public function render()
     {

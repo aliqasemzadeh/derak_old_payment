@@ -103,6 +103,7 @@
     "/cryptocurrency-icons/btt.svg": "/cryptocurrency-icons/btt.svg?id=1b7e97fb6a615837ea69f6b5ca3af820",
     "/cryptocurrency-icons/btx.svg": "/cryptocurrency-icons/btx.svg?id=c970685f063374282d48b00eb2a473d1",
     "/cryptocurrency-icons/burst.svg": "/cryptocurrency-icons/burst.svg?id=de0ab92de4e2c18bd74cbfb13c133c83",
+    "/cryptocurrency-icons/busd.svg": "/cryptocurrency-icons/busd.svg?id=8705fd81e119294bc526887bc154e5c5",
     "/cryptocurrency-icons/bze.svg": "/cryptocurrency-icons/bze.svg?id=ae8e628a6c2ee40080af77e85a07c83a",
     "/cryptocurrency-icons/call.svg": "/cryptocurrency-icons/call.svg?id=b2770066725c0996a16d067705df3b53",
     "/cryptocurrency-icons/cc.svg": "/cryptocurrency-icons/cc.svg?id=314968ebc127b23f4433008f65560ed5",
@@ -502,5 +503,8 @@
     "/cryptocurrency-icons/zil.svg": "/cryptocurrency-icons/zil.svg?id=86c3735c510d5c92507442488d2a700d",
     "/cryptocurrency-icons/zilla.svg": "/cryptocurrency-icons/zilla.svg?id=6c3ac6af783b9ae72679f422a84cb6c8",
     "/cryptocurrency-icons/zrx.svg": "/cryptocurrency-icons/zrx.svg?id=bd8c8c3041d8635d495bb8c21add02d7",
-    "/cryptocurrency-icons/busd.svg": "/cryptocurrency-icons/busd.svg?id=8705fd81e119294bc526887bc154e5c5"
+    "/networks/bep20.svg": "/networks/bep20.svg?id=2626df36e7822f2ca4b9cef986fa3c12",
+    "/networks/btc.svg": "/networks/btc.svg?id=edae64fcb50f425e582a9a1429784b70",
+    "/networks/erc20.svg": "/networks/erc20.svg?id=ed79179a3b6bc2c2ee4c54d8ade79b01",
+    "/networks/trc20.svg": "/networks/trc20.svg?id=6e61dfd0a444ac582c5abf4c384c4b5b"
 }

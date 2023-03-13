@@ -20,6 +20,7 @@ return new class extends Migration
             $table->bigInteger('address_id')->index()->nullable();
             $table->bigInteger('terminal_id')->index()->nullable();
             $table->double('total');
+            $table->double('total_in_symbol')->nullable();
             $table->string('email')->nullable();
             $table->string('name')->nullable();
             $table->longText('address')->nullable();

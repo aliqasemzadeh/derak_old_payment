@@ -17,6 +17,7 @@ mix.js('resources/js/app.js', 'public/js')
     .copyDirectory('resources/favicon', 'public/favicon')
     .copyDirectory('node_modules/cryptocurrency-icons/svg/color', 'public/cryptocurrency-icons')
     .copyDirectory('resources/cryptocurrency-icons', 'public/cryptocurrency-icons')
+    .copyDirectory('resources/networks', 'public/networks')
     .webpackConfig(require('./webpack.config'));
 
 if (mix.inProduction()) {

@@ -19,12 +19,16 @@ return [
         'BEP20' => '0x1af3f329e8be154074d8769d1ffa4ee058b1dbc3',
     ],
     'BTC' => [
-        'BTC'
+        'BTC' => 'mainnet'
     ],
     'TRX' => [
-        'TRC20'
+        'TRC20' => 'mainnet'
     ],
     'ETH' => [
-        'ERC20'
+        'ERC20' => 'mainnet'
+    ],
+    'BNB' => [
+        'BEP20' => 'mainnet'
     ]
+
 ];
