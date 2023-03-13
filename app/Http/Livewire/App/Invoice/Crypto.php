@@ -50,6 +50,8 @@ class Crypto extends Component
         $this->showSymbol = false;
         $this->showNetwork = true;
 
+
+
         $this->alert('success', __('bap.please_select_network'));
     }
     public function render()
