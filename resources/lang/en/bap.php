@@ -222,6 +222,9 @@ return [
     'select_type_of_payment_you_want' => 'Select type of payment you want to pay.',
     'please_select_network' => 'Please select network',
     'please_pay_amount_to_address' => 'Please pay amount to address',
+    'xpubs' => 'xPubs',
+    'xpub' => 'xPub',
+    'create_xpub' => 'Create xPub',
     'category_types' => [
         'article' => 'Article',
         'ticket' => 'Ticket',
