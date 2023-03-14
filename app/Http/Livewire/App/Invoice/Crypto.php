@@ -60,7 +60,8 @@ class Crypto extends Component
             $networkClass = config('networks.'.$this->network.'.class');
             $this->networkAddress = $networkClass::getInvoiceAddress($this->invoice, $this->symbol);
 
-            $this->invoice->total_in_symbol = round($this->invoice->total / Rate::where('symbol', $this->symbol)->latest()->first()->price, 8, PHP_ROUND_HALF_UP);
+            $total_in_symbol = round($this->invoice->total / Rate::where('symbol', $this->symbol)->latest()->first()->price, 8, PHP_ROUND_HALF_UP);
+            $this->invoice->total_in_symbol = $total_in_symbol * (1 + config('payment.commission_rate'));
             $this->invoice->address_id = $this->networkAddress->id;
             $this->invoice->save();
 
