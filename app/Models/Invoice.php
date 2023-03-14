@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use ALajusticia\Expirable\Traits\Expirable;
 use EloquentFilter\Filterable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -13,9 +14,15 @@ class Invoice extends Model
     use HasFactory;
     use SoftDeletes;
     use Filterable;
+    use Expirable;
 
     public function terminal(): BelongsTo
     {
         return $this->belongsTo(Terminal::class);
+    }
+
+    public static function defaultExpiresAt()
+    {
+        return Carbon::now()->addMinutes(config('payment.payment_expiry'));
     }
 }
