@@ -62,6 +62,7 @@ return [
     'admin_address_txs' => 'View Address TXs',
     'admin_address_check' => 'Check Address Balance',
     'admin_user_wallets' => 'Manage User Wallets',
+    'admin_manage_xpubs' => 'Manage xPubs',
 
 
     'director_access' => 'Access Director',

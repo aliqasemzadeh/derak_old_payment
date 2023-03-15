@@ -50,7 +50,6 @@
                 <tr>
                     <th class="w-1"><input name="selectAll" wire:model="selectAll" class="form-check-input m-0 align-middle" type="checkbox" aria-label="Select all invoices"></th>
                     <th class="w-1" wire:click="sortByColumn('id')">{{ __('bap.number') }}
-
                         @if ($sortColumn == 'id')
                             @if($sortDirection == 'asc')
                                 <!-- Download SVG icon from http://tabler-icons.io/i/chevron-up -->
@@ -62,9 +61,9 @@
                             @endif
                         @endif
                     </th>
-                    <th wire:click="sortByColumn('address')">{{ __('bap.address') }}
+                    <th wire:click="sortByColumn('name')">{{ __('bap.name') }}
 
-                        @if ($sortColumn == 'address')
+                        @if ($sortColumn == 'name')
                             @if($sortDirection == 'asc')
                                 <!-- Download SVG icon from http://tabler-icons.io/i/chevron-up -->
                                 <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-sm text-dark icon-thick" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><polyline points="6 15 12 9 18 15" /></svg>
@@ -88,9 +87,9 @@
                             @endif
                         @endif
                     </th>
-                    <th wire:click="sortByColumn('status')">{{ __('bap.status') }}
+                    <th wire:click="sortByColumn('type')">{{ __('bap.type') }}
 
-                        @if ($sortColumn == 'status')
+                        @if ($sortColumn == 'type')
                             @if($sortDirection == 'asc')
                                 <!-- Download SVG icon from http://tabler-icons.io/i/chevron-up -->
                                 <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-sm text-dark icon-thick" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><polyline points="6 15 12 9 18 15" /></svg>
@@ -101,9 +100,22 @@
                             @endif
                         @endif
                     </th>
-                    <th wire:click="sortByColumn('balance')">{{ __('bap.balance') }}
+                    <th wire:click="sortByColumn('xpub')">{{ __('bap.xpub') }}
 
-                        @if ($sortColumn == 'balance')
+                        @if ($sortColumn == 'xpub')
+                            @if($sortDirection == 'asc')
+                                <!-- Download SVG icon from http://tabler-icons.io/i/chevron-up -->
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-sm text-dark icon-thick" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><polyline points="6 15 12 9 18 15" /></svg>
+                            @else
+                                <!-- Download SVG icon from http://tabler-icons.io/i/chevron-down -->
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-sm text-dark icon-thick" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><polyline points="6 9 12 15 18 9" /></svg>
+
+                            @endif
+                        @endif
+                    </th>
+                    <th wire:click="sortByColumn('last')">{{ __('bap.last') }}
+
+                        @if ($sortColumn == 'last')
                             @if($sortDirection == 'asc')
                                 <!-- Download SVG icon from http://tabler-icons.io/i/chevron-up -->
                                 <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-sm text-dark icon-thick" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><polyline points="6 15 12 9 18 15" /></svg>
@@ -131,25 +143,18 @@
                 </tr>
                 </thead>
                 <tbody>
-                @foreach($addresses as $address)
+                @foreach($xpubs as $xpub)
                     <tr>
-                        <td><input class="form-check-input m-0 align-middle" type="checkbox" aria-label="Select Address" value="{{ $address->id }}" name="selectedItems" wire:model="selectedItems"></td>
-                        <td>{{ $address->id }}</td>
-                        <td>
-                            <div class="d-flex py-1 align-items-center">
-                                <span class="avatar me-2" style="background-image: url()"></span>
-                                <div class="flex-fill">
-                                    <div class="font-weight-medium">{{ $address->address }}</div>
-                                    <div class="text-muted">{{ $address->network }}</div>
-                                </div>
-                            </div>
-                        </td>
+                        <td><input class="form-check-input m-0 align-middle" type="checkbox" aria-label="Select Address" value="{{ $xpub->id }}" name="selectedItems" wire:model="selectedItems"></td>
+                        <td>{{ $xpub->id }}</td>
+                        <td>{{ $address->name }}</td>
                         <td>{{ $address->symbol }}</td>
-                        <td>{{ $address->status }}</td>
-                        <td>{{ $address->balance }}</td>
+                        <td>{{ $address->type }}</td>
+                        <td>{{ $address->xpub }}</td>
+                        <td>{{ $address->last }}</td>
                         <td>{{ $address->created_at }}</td>
                         <td class="text-end">
-                            @can('admin_address_txs')
+                            @can('admin_manage_xpubs')
                                 <button onclick="Livewire.emit('showModal', 'admin.payment.address.txs', '{{ json_encode($address->id) }}')" class="btn btn-secondary btn-icon btn-sm">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrows-transfer-down" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                         <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
