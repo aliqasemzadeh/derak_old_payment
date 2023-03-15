@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('symbol');
             $table->string('type');
-            $table->text('xpub');
+            $table->text('xpub')->nullable();
             $table->string('last')->default(0);
             $table->timestamps();
             $table->softDeletes();
