@@ -63,6 +63,8 @@ return [
     'admin_address_check' => 'Check Address Balance',
     'admin_user_wallets' => 'Manage User Wallets',
     'admin_manage_xpubs' => 'Manage xPubs',
+    'admin_xpub_create' => 'Create xPubs',
+    'admin_xpub_edit' => 'Edit xPubs',
 
 
     'director_access' => 'Access Director',

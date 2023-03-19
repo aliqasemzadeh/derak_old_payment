@@ -225,6 +225,7 @@ return [
     'xpubs' => 'xPubs',
     'xpub' => 'xPub',
     'create_xpub' => 'Create xPub',
+    'edit_xpub' => 'Edit xPub',
     'category_types' => [
         'article' => 'Article',
         'ticket' => 'Ticket',
