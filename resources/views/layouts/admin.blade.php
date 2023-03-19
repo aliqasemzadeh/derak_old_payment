@@ -181,6 +181,11 @@
                                             {{ __('bap.addresses') }}
                                         </a>
                                     @endcan
+                                        @can('admin_manage_xpubs')
+                                            <a class="dropdown-item @if(\Illuminate\Support\Facades\Route::is('admin.payment.x-pub.index')) active @endif" href="{{ route('admin.payment.x-pub.index') }}">
+                                                {{ __('bap.manage_xpubs') }}
+                                            </a>
+                                        @endcan
                                     @can('admin_address_import')
                                         <a class="dropdown-item @if(\Illuminate\Support\Facades\Route::is('admin.support.address.import')) active @endif" href="{{ route('admin.payment.address.import') }}">
                                             {{ __('bap.import') }}

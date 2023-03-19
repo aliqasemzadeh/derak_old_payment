@@ -78,6 +78,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['re
             Route::get('/payment/address/index', \App\Http\Livewire\Admin\Payment\Address\Index::class)->name('admin.payment.address.index');
             Route::get('/payment/address/generator', \App\Http\Livewire\Admin\Payment\Address\Generator::class)->name('admin.payment.address.generator');
             Route::get('/payment/address/import', \App\Http\Livewire\Admin\Payment\Address\Import::class)->name('admin.payment.address.import');
+            Route::get('/payment/x-pub/index', \App\Http\Livewire\Admin\Payment\XPub\Index::class)->name('admin.payment.x-pub.index');
         });
 
 

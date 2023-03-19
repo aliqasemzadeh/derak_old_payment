@@ -223,6 +223,7 @@ return [
     'please_select_network' => 'Please select network',
     'please_pay_amount_to_address' => 'Please pay amount to address',
     'xpubs' => 'xPubs',
+    'manage_xpubs' => 'Manage xPubs',
     'xpub' => 'xPub',
     'create_xpub' => 'Create xPub',
     'edit_xpub' => 'Edit xPub',

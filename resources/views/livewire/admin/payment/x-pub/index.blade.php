@@ -5,7 +5,7 @@
     <x-slot name="breadcrumb">
         <ol class="breadcrumb breadcrumb-arrows" aria-label="breadcrumbs">
             <li class="breadcrumb-item"><a href="{{ route('admin.dashboard.index') }}">{{ __('bap.dashboard') }}</a></li>
-            <li class="breadcrumb-item active" aria-current="page"><a href="{{ route('admin.payment.xpub.index') }}">{{ __('bap.addresses') }}</a></li>
+            <li class="breadcrumb-item active" aria-current="page"><a href="{{ route('admin.payment.x-pub.index') }}">{{ __('bap.manage_xpubs') }}</a></li>
         </ol>
     </x-slot>
 
@@ -185,7 +185,7 @@
             </div>
 
             <div>
-                {{ $addresses->links() }}
+                {{ $xpubs->links() }}
             </div>
         </div>
     </div>

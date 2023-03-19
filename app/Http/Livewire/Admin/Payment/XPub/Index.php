@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Admin\Payment\XPub;
 
+use App\Models\XPub;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Component;
 use Livewire\WithPagination;
@@ -31,6 +32,7 @@ class Index extends Component
     ];
     public function render()
     {
-        return view('livewire.admin.payment.x-pub.index');
+        $xpubs = XPub::latest()->paginate(15);
+        return view('livewire.admin.payment.x-pub.index', compact('xpubs'))->layout('layouts.admin');
     }
 }
