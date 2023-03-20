@@ -228,6 +228,8 @@ return [
     'create_xpub' => 'Create xPub',
     'edit_xpub' => 'Edit xPub',
     'last_address' => 'Last Patch',
+    'addresses' => 'Addresses',
+    'expires_at' => 'Expires At',
     'category_types' => [
         'article' => 'Article',
         'ticket' => 'Ticket',

@@ -9,10 +9,10 @@ use Livewire\Component;
 class QrCode extends Component
 {
     use LivewireAlert;
-    public Invoice $invoice;
-    public function mount(Invoice $invoice)
+    public \App\Models\Invoice $invoice;
+    public function mount($invoice)
     {
-        $this->invoice = $invoice;
+        $this->invoice = \App\Models\Invoice::withExpired()->findOrFail($invoice);
     }
     public function render()
     {

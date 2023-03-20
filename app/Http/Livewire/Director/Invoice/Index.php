@@ -135,7 +135,7 @@ class Index extends Component
     }
     public function render()
     {
-        $invoices = Invoice::filter(['search' => $this->search])->orderBy($this->sortColumn, $this->sortDirection)->paginate($this->perPage);
+        $invoices = Invoice::filter(['search' => $this->search])->withExpired()->orderBy($this->sortColumn, $this->sortDirection)->paginate($this->perPage);
         return view('livewire.director.invoice.index', compact('invoices'))->layout('layouts.director');
     }
 }

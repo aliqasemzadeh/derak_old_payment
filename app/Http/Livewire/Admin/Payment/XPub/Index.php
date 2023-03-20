@@ -32,6 +32,10 @@ class Index extends Component
     ];
     public function render()
     {
+        if(!auth()->user()->can('admin_xpub_create')) {
+            return abort(403);
+        }
+
         $xpubs = XPub::latest()->paginate(15);
         return view('livewire.admin.payment.x-pub.index', compact('xpubs'))->layout('layouts.admin');
     }
