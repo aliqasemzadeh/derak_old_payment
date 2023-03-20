@@ -22,4 +22,8 @@ class Invoice extends Model
         return $this->belongsTo(Terminal::class);
     }
 
+    public static function defaultExpiresAt()
+    {
+        return Carbon::now()->addMinutes(config('payment.default_expiry'));
+    }
 }
