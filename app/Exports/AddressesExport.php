@@ -3,10 +3,12 @@
 namespace App\Exports;
 
 use App\Models\Address;
+use App\Models\XPub;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Log;
 use kornrunner\Ethereum\Address as ChainAddress;
 use Maatwebsite\Excel\Concerns\FromArray;
+use App\Utils\HD;
 
 class AddressesExport implements FromArray
 {
@@ -40,7 +42,7 @@ class AddressesExport implements FromArray
                     Log::error($e->getMessage());
                 }
             }
-        } else {
+        } else if($this->network == "BEP20" || $this->network == "ERC20") {
             for ($i = 0; $i < $this->count; $i++) {
                 $address = new ChainAddress();
                 $addresses[$i]['address'] = "0x" . $address->get();
@@ -50,6 +52,37 @@ class AddressesExport implements FromArray
                 $addresses[$i]['created_at'] = Carbon::now();
                 $addresses[$i]['updated_at'] = Carbon::now();
             }
+        } else if($this->network == "BTC") {
+            $xpub = XPub::latest()->first();
+            $hd = new HD();
+            if($xpub->type == 'zpub') {
+                $hd->set_zpub($xpub->xpub);
+            }
+            if($xpub->type == 'xpub') {
+                $hd->set_xpub($xpub->xpub);
+            }
+            if($xpub->type == 'ypub') {
+                $hd->set_ypub($xpub->xpub);
+            }
+
+
+            for ($i = 0; $i < $this->count; $i++) {
+                $address = $hd->address_from_master_pub('0/'.$xpub->last);
+
+                $addresses[$i]['address'] = $address;
+                $addresses[$i]['network'] = $this->network;
+                $addresses[$i]['xpub_id'] = $xpub->id;
+                $addresses[$i]['private_key'] = "";
+                $addresses[$i]['public_key'] = "";
+                $addresses[$i]['created_at'] = Carbon::now();
+                $addresses[$i]['updated_at'] = Carbon::now();
+
+
+                $xpub->last = $xpub->last + 1;
+                $xpub->save();
+            }
+
+
         }
 
         Address::insert($addresses);
