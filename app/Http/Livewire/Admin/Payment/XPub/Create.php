@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Admin\Payment\XPub;
 
+use App\Models\Symbol;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Component;
 
@@ -46,6 +47,6 @@ class Create extends Component
     public function render()
     {
         $symbols = Symbol::orderBy('sort_order')->get();
-        return view('livewire.admin.payment.x-pub.create');
+        return view('livewire.admin.payment.x-pub.create', compact('symbols'));
     }
 }

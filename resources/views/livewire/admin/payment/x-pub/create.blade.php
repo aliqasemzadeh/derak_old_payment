@@ -1,4 +1,4 @@
-<div class="modal-dialog modal-xl">
+<div class="modal-dialog">
     <form wire:submit.prevent="create">
         <div class="modal-content">
             <div class="modal-header">
