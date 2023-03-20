@@ -31,7 +31,7 @@ class AddressWatcherCommand extends Command
     {
         $addresses = Address::all();
         foreach ($addresses as $address) {
-            AddressWatcherJob::dispatch($address);
+            AddressWatcherJob::dispatch($address->id);
         }
         return Command::SUCCESS;
     }

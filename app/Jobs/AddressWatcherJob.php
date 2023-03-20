@@ -3,6 +3,7 @@
 namespace App\Jobs;
 
 use App\Models\Address;
+use Carbon\Carbon;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldBeUnique;
 use Illuminate\Contracts\Queue\ShouldQueue;
@@ -20,9 +21,9 @@ class AddressWatcherJob implements ShouldQueue
      *
      * @return void
      */
-    public function __construct(Address $address)
+    public function __construct($address)
     {
-        $this->address = $address;
+        $this->address = Address::withTrashed()->findOrFail($address);
     }
 
     /**
@@ -32,12 +33,7 @@ class AddressWatcherJob implements ShouldQueue
      */
     public function handle()
     {
-        if($this->address->network == 'TRC20') {
-
-        }
-
-        if($this->address->network == 'BTC') {
-            
-        }
+        $networkClass = config('networks.'.$this->address->network.'.class');
+        $this->networkAddress = $networkClass::updateAddressBalance($this->address);
     }
 }

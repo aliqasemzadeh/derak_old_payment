@@ -26,7 +26,7 @@ class Tron
 
         if($balance != 0) {
             if($address->invoice_id) {
-                UpdateInvoiceJob::dispatch($address->invoice_id);
+                UpdateInvoiceJob::dispatch(Invoice::withExpired()->findOrFail($address->invoice_id));
             }
         }
         return true;

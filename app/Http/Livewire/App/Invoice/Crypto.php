@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\App\Invoice;
 
 use App\Jobs\AddressWatcherJob;
+use App\Models\Address;
 use App\Models\Invoice;
 use App\Models\Rate;
 use App\Models\Symbol;
@@ -65,10 +66,17 @@ class Crypto extends Component
         } else {
             $this->showNetwork = false;
 
-            $networkClass = config('networks.'.$this->network.'.class');
-            $this->networkAddress = $networkClass::getInvoiceAddress($this->invoice, $this->symbol);
-            $this->networkAddress->expires_at = Carbon::now()->addMinutes(config('payment.address_expiry'));
-            $this->networkAddress->save();
+            if($this->invoice->address_id) {
+                $this->networkAddress = Address::withExpired()->findOrFail($this->invoice->address_id);
+                $this->networkAddress->expires_at = Carbon::now()->addMinutes(config('payment.address_expiry'));
+                $this->networkAddress->invoice_id = $this->invoice->id;
+                $this->networkAddress->save();
+            } else {
+                $networkClass = config('networks.'.$this->network.'.class');
+                $this->networkAddress = $networkClass::getInvoiceAddress($this->invoice, $this->symbol);
+                $this->networkAddress->expires_at = Carbon::now()->addMinutes(config('payment.address_expiry'));
+                $this->networkAddress->save();
+            }
 
             AddressWatcherJob::dispatch($this->networkAddress);
 
