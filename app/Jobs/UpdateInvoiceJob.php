@@ -2,7 +2,7 @@
 
 namespace App\Jobs;
 
-use App\Models\Address;
+use App\Models\Invoice;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldBeUnique;
 use Illuminate\Contracts\Queue\ShouldQueue;
@@ -10,19 +10,19 @@ use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 
-class AddressWatcherJob implements ShouldQueue
+class UpdateInvoiceJob implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
-    public Address $address;
+    public Invoice  $invoice;
     /**
      * Create a new job instance.
      *
      * @return void
      */
-    public function __construct(Address $address)
+    public function __construct(Invoice $invoice)
     {
-        $this->address = $address;
+        $this->invoice = $invoice;
     }
 
     /**
@@ -32,12 +32,6 @@ class AddressWatcherJob implements ShouldQueue
      */
     public function handle()
     {
-        if($this->address->network == 'TRC20') {
-
-        }
-
-        if($this->address->network == 'BTC') {
-            
-        }
+        //
     }
 }

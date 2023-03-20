@@ -2,6 +2,7 @@
 
 namespace App\Networks;
 
+use App\Jobs\UpdateInvoiceJob;
 use App\Models\Address;
 use App\Models\Invoice;
 
@@ -17,5 +18,18 @@ class Ethereum
         $address->status = 'used';
         $address->save();
         return $address;
+    }
+
+    public static function updateAddressBalance(Address $address) : Address
+    {
+
+        $balance = 0;
+
+        if($balance != 0) {
+            if($address->invoice_id) {
+                UpdateInvoiceJob::dispatch($address->invoice_id);
+            }
+        }
+        return true;
     }
 }
