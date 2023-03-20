@@ -43,24 +43,6 @@ class Create extends Component
         $this->alert('success', __('bap.created'));
     }
 
-    public function confirmedDeleteXpub()
-    {
-        $this->xpub->delete();
-        $this->emit('updateList');
-        $this->alert(
-            'success',
-            __('bap.removed')
-        );
-    }
-
-    public function cancelledDeleteXpub()
-    {
-        $this->alert(
-            'success',
-            __('bap.cancelled')
-        );
-    }
-
     public function render()
     {
         $symbols = Symbol::orderBy('sort_order')->get();
