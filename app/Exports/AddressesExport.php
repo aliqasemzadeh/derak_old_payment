@@ -4,11 +4,11 @@ namespace App\Exports;
 
 use App\Models\Address;
 use App\Models\XPub;
+use App\Utils\HDUtil;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Log;
 use kornrunner\Ethereum\Address as ChainAddress;
 use Maatwebsite\Excel\Concerns\FromArray;
-use App\Utils\HD;
 
 class AddressesExport implements FromArray
 {
@@ -54,7 +54,7 @@ class AddressesExport implements FromArray
             }
         } else if($this->network == "BTC") {
             $xpub = XPub::latest()->first();
-            $hd = new HD();
+            $hd = new HDUtil();
             if($xpub->type == 'zpub') {
                 $hd->set_zpub($xpub->xpub);
             }
@@ -73,7 +73,7 @@ class AddressesExport implements FromArray
                 $addresses[$i]['network'] = $this->network;
                 $addresses[$i]['xpub_id'] = $xpub->id;
                 $addresses[$i]['private_key'] = "";
-                $addresses[$i]['public_key'] = "";
+                $addresses[$i]['public_key'] = $xpub->xpub;
                 $addresses[$i]['created_at'] = Carbon::now();
                 $addresses[$i]['updated_at'] = Carbon::now();
 
