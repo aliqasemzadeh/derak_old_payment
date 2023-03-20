@@ -123,6 +123,7 @@
                     @else
                         <div class="row">
                             <div class="col-md-12 text-center">
+
                                 {!! SimpleSoftwareIO\QrCode\Facades\QrCode::size(300)->generate(route('invoice.view', [$invoice->id])) !!}
                                 <br />
                                 {{ $networkAddress->network }}:{{ $networkAddress->symbol }}

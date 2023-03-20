@@ -5,6 +5,7 @@ namespace App\Http\Livewire\App\Invoice;
 use App\Models\Invoice;
 use App\Models\Rate;
 use App\Models\Symbol;
+use Carbon\Carbon;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Component;
 
@@ -31,6 +32,12 @@ class Crypto extends Component
         $this->invoice->phone = $invoice->phone;
         $this->invoice->address = $invoice->address;
         $this->invoice->user_description = $invoice->user_description;
+
+        $this->name = $invoice->name;
+        $this->email = $invoice->email;
+        $this->phone = $invoice->phone;
+        $this->address = $invoice->address;
+        $this->user_description = $invoice->user_description;
     }
 
     public function payment()
@@ -63,6 +70,8 @@ class Crypto extends Component
             $total_in_symbol = round($this->invoice->total / Rate::where('symbol', $this->symbol)->latest()->first()->price, 8, PHP_ROUND_HALF_UP);
             $this->invoice->total_in_symbol = $total_in_symbol * (1 + config('payment.commission_rate'));
             $this->invoice->address_id = $this->networkAddress->id;
+            $this->invoice->expires_at = Carbon::now()->addMinutes(config('payment.payment_expiry'));
+
             $this->invoice->save();
 
             $this->alert('success', __('bap.please_pay_amount_to_address'));
