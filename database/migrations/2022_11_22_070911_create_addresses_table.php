@@ -25,7 +25,9 @@ return new class extends Migration
             $table->bigInteger('user_id')->index()->nullable();
             $table->bigInteger('terminal_id')->index()->nullable();
             $table->bigInteger('invoice_id')->index()->nullable();
+            $table->bigInteger('xpub_id')->index()->nullable();
             $table->longText('description')->nullable();
+            $table->longText('options')->nullable();
             $table->expirable();
             $table->timestamps();
             $table->softDeletes();
