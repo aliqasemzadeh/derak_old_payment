@@ -227,6 +227,7 @@ return [
     'xpub' => 'xPub',
     'create_xpub' => 'Create xPub',
     'edit_xpub' => 'Edit xPub',
+    'last_address' => 'Last Patch',
     'category_types' => [
         'article' => 'Article',
         'ticket' => 'Ticket',

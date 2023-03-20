@@ -1,6 +1,6 @@
 <div>
     <x-slot name="title">
-        {{ __('bap.xpubs') }}
+        {{ __('bap.manage_xpubs') }}
     </x-slot>
     <x-slot name="actions">
         <div class="col-auto ms-auto d-print-none">
@@ -160,15 +160,25 @@
                     <tr>
                         <td><input class="form-check-input m-0 align-middle" type="checkbox" aria-label="Select Address" value="{{ $xpub->id }}" name="selectedItems" wire:model="selectedItems"></td>
                         <td>{{ $xpub->id }}</td>
-                        <td>{{ $address->name }}</td>
-                        <td>{{ $address->symbol }}</td>
-                        <td>{{ $address->type }}</td>
-                        <td>{{ $address->xpub }}</td>
-                        <td>{{ $address->last }}</td>
-                        <td>{{ $address->created_at }}</td>
+                        <td>{{ $xpub->name }}</td>
+                        <td>{{ $xpub->symbol }}</td>
+                        <td>{{ $xpub->type }}</td>
+                        <td>{{ \Illuminate\Support\Str::limit($xpub->xpub, 15) }}</td>
+                        <td>{{ $xpub->last }}</td>
+                        <td>{{ $xpub->created_at }}</td>
                         <td class="text-end">
+                            @can('admin_xpub_edit')
+                                <button onclick="Livewire.emit('showModal', 'admin.payment.x-pub.edit', '{{ json_encode($xpub->id) }}')" class="btn btn-primary btn-icon btn-sm">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-edit" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                        <path d="M7 7h-1a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-1"></path>
+                                        <path d="M20.385 6.585a2.1 2.1 0 0 0 -2.97 -2.97l-8.415 8.385v3h3l8.385 -8.415z"></path>
+                                        <path d="M16 5l3 3"></path>
+                                    </svg>
+                                </button>
+                            @endcan
                             @can('admin_manage_xpubs')
-                                <button onclick="Livewire.emit('showModal', 'admin.payment.address.txs', '{{ json_encode($address->id) }}')" class="btn btn-secondary btn-icon btn-sm">
+                                <button onclick="Livewire.emit('showModal', 'admin.payment.address.txs', '{{ json_encode($xpub->id) }}')" class="btn btn-secondary btn-icon btn-sm">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrows-transfer-down" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                         <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                                         <path d="M17 3v6"></path>
