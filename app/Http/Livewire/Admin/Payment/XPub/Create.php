@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Admin\Payment\XPub;
 
 use App\Models\Symbol;
+use App\Models\XPub;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Component;
 
@@ -28,7 +29,7 @@ class Create extends Component
             'symbol' => 'required',
         ]);
 
-        $xpub = new Xpub();
+        $xpub = new XPub();
         $xpub->name = $this->name;
         $xpub->type = $this->type;
         $xpub->xpub = $this->xpub;
@@ -38,7 +39,7 @@ class Create extends Component
 
         activity()->log('Add xPub:'.$xpub->id);
 
-        $this->emitTo(\App\Http\Livewire\Admin\Payment\Xpub\Index::getName(), 'updateList');
+        $this->emitTo(\App\Http\Livewire\Admin\Payment\XPub\Index::getName(), 'updateList');
         $this->emit('hideModal');
 
         $this->alert('success', __('bap.created'));
