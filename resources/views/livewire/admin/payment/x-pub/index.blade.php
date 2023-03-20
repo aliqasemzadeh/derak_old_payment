@@ -126,7 +126,7 @@
                             @endif
                         @endif
                     </th>
-                    <th wire:click="sortByColumn('last')">{{ __('bap.last') }}
+                    <th wire:click="sortByColumn('last')">{{ __('bap.last_address') }}
 
                         @if ($sortColumn == 'last')
                             @if($sortDirection == 'asc')
