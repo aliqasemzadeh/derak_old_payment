@@ -62,7 +62,7 @@
                             @endif
                         @endif
                     </th>
-                    <th wire:click="sortByColumn('xpub')">{{ __('bap.xpub') }}
+                    <th wire:click="sortByColumn('address')">{{ __('bap.address') }}
 
                         @if ($sortColumn == 'address')
                             @if($sortDirection == 'asc')
@@ -178,7 +178,6 @@
                 </div>
 
             </div>
-
             <div>
                 {{ $addresses->links() }}
             </div>
