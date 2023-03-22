@@ -67,6 +67,7 @@ class Crypto extends Component
             $this->showNetwork = false;
 
             if($this->invoice->address_id) {
+                dd($this->invoice->address_id);
                 $this->networkAddress = Address::withExpired()->findOrFail($this->invoice->address_id);
                 $this->networkAddress->expires_at = Carbon::now()->addMinutes(config('payment.address_expiry'));
                 $this->networkAddress->invoice_id = $this->invoice->id;
