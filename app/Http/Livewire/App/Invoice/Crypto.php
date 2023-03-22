@@ -80,7 +80,7 @@ class Crypto extends Component
                 $this->networkAddress->save();
             }
 
-            AddressWatcherJob::dispatch($this->networkAddress);
+            AddressWatcherJob::dispatch($this->networkAddress->id);
 
             $total_in_symbol = round($this->invoice->total / Rate::where('symbol', $this->symbol)->latest()->first()->price, 8, PHP_ROUND_HALF_UP);
             $this->invoice->total_in_symbol = $total_in_symbol * (1 + config('payment.commission_rate'));
