@@ -26,6 +26,7 @@ class Bitcoin
     {
         $balance = 0;
         $client = new Client();
+        Log::info($address->address);
         try {
             $response = $client->get('https://mempool.space/api/address/'.$address->address);
             if($response->getStatusCode() == 200) {
