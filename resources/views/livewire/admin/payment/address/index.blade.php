@@ -145,7 +145,7 @@
                             </div>
                         </td>
                         <td>{{ $address->network }}</td>
-                        <td>{{ $address->status }}</td>
+                        <td>{{ __('status'.$address->status) }}</td>
                         <td>{{ $address->balance }}</td>
                         <td>{{ $address->created_at }}</td>
                         <td class="text-end">

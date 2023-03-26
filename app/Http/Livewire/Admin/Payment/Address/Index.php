@@ -80,7 +80,7 @@ class Index extends Component
         if(!auth()->user()->can('admin_address_index')) {
             return abort(403);
         }
-        $addresses = Address::filter(['search' => $this->search])->orderBy($this->sortColumn, $this->sortDirection)->paginate($this->perPage);
+        $addresses = Address::withExpired()->filter(['search' => $this->search])->orderBy($this->sortColumn, $this->sortDirection)->paginate($this->perPage);
         return view('livewire.admin.payment.address.index', compact('addresses'))->layout('layouts.admin');
     }
 }
