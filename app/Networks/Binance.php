@@ -31,4 +31,9 @@ class Binance
         }
         return true;
     }
+
+    public static function callbackBalance(Invoice $invoice) : bool
+    {
+        return true;
+    }
 }

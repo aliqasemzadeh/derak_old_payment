@@ -21,14 +21,17 @@ class Tron
 
     public static function updateAddressBalance(Address $address) : bool
     {
-
         $balance = 0;
-
         if($balance != 0) {
             if($address->invoice_id) {
                 UpdateInvoiceJob::dispatch(Invoice::withExpired()->findOrFail($address->invoice_id));
             }
         }
+        return true;
+    }
+
+    public static function callbackBalance(Invoice $invoice) : bool
+    {
         return true;
     }
 }

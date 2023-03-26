@@ -32,4 +32,9 @@ class Ethereum
         }
         return true;
     }
+
+    public static function callbackBalance(Invoice $invoice) : bool
+    {
+        return true;
+    }
 }
