@@ -28,7 +28,7 @@ class UpdateAddressStatusCommand extends Command
      */
     public function handle()
     {
-        $addresses = Address::onlyExpired()->where('status', '!=', 'used')->get();
+        $addresses = Address::onlyExpired()->used()->get();
         foreach ($addresses as $address) {
             $address->status = 'expired';
             $address->save();

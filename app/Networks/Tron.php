@@ -30,7 +30,6 @@ class Tron
             }
         }
 
-        TronBalanceJob::dispatch($address->address, $address->symbol)->delay(now()->addSeconds(30));
         return true;
     }
 

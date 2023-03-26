@@ -39,5 +39,7 @@ class AddressWatcherJob implements ShouldQueue
         $address = Address::withExpired()->findOrFail($this->address_id);
         $networkClass = config('networks.'.$address->network.'.class');
         $this->networkAddress = $networkClass::updateAddressBalance($address);
+
+        AddressWatcherJob::dispatch($this->address_id)->delay(now()->addSeconds(30));
     }
 }
