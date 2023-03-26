@@ -137,7 +137,7 @@
                         <td>{{ $address->id }}</td>
                         <td>
                             <div class="d-flex py-1 align-items-center">
-                                <span class="avatar me-2" style="background-image: url('{{ asset('cryptocurrency-icons/'.strtolower($address->symbol).'.svg') }}')"></span>
+                                <span class="avatar me-2" style="background-image: url('{{ asset('cryptocurrency-icons/'.strtolower($address->symbol ? $address->symbol : 'empty').'.svg') }}')"></span>
                                 <div class="flex-fill">
                                     <div class="font-weight-medium">{{ $address->address }}</div>
 
