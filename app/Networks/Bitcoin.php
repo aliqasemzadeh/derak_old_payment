@@ -26,18 +26,15 @@ class Bitcoin
     {
         $balance = 0;
         $client = new Client();
-        Log::info($address->address);
         try {
             $response = $client->get('https://mempool.space/api/address/'.$address->address);
             if($response->getStatusCode() == 200) {
                 $bodyData = json_decode($response->getBody()->getContents(),true);
                 if($bodyData['chain_stats']['funded_txo_sum'] != 0) {
-                    $balance = ($bodyData['chain_stats']['funded_txo_sum'] - $bodyData['chain_stats']['spent_txo_sum']) / 100000000;
+                    $balance = ($bodyData['chain_stats']['funded_txo_sum'] - $bodyData['chain_stats']['spent_txo_sum']);
                     $address->balance = $balance;
                     $address->save();
                 }
-
-                Log::critical("Balance:" . $bodyData['chain_stats']['funded_txo_sum']);
 
                 if($bodyData['mempool_stats']['funded_txo_sum'] != 0) {
                     $address->status = 'wait';
