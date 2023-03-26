@@ -2,6 +2,7 @@
 
 namespace App\Jobs;
 
+use App\Models\Address;
 use App\Models\Invoice;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldBeUnique;
@@ -30,8 +31,19 @@ class UpdateInvoiceJob implements ShouldQueue
      *
      * @return void
      */
-    public function handle()
+    public function handle() : bool
     {
-        //
+        $address = Address::withExpired()->findOrFail($this->invoice->address_id);
+        if($address->balance >= $this->invoiceinvoice->total_in_symbol) {
+            $this->invoice->status = 'paid';
+            $this->invoice->save();
+            return true;
+        }
+
+        if($address->balance > 0) {
+            $this->invoice->status = 'less_payment';
+            $this->invoice->save();
+            return true;
+        }
     }
 }
