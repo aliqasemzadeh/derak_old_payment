@@ -29,7 +29,7 @@ class AddressWatcherCommand extends Command
      */
     public function handle()
     {
-        $addresses = Address::all();
+        $addresses = Address::withExpired()->used()->get();
         foreach ($addresses as $address) {
             AddressWatcherJob::dispatch($address->id);
         }

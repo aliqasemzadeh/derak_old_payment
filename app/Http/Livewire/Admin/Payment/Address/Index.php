@@ -78,6 +78,9 @@ class Index extends Component
 
     public function updateBalance($address_id)
     {
+        if(!auth()->user()->can('admin_address_index')) {
+            return abort(403);
+        }
         AddressWatcherJob::dispatch($address_id);
         $this->alert('success', __('bap.updated'));
     }

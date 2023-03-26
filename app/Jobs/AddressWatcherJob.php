@@ -10,20 +10,21 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Support\Facades\Log;
 
 class AddressWatcherJob implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
-    public Address $address;
+    public $address_id;
     /**
      * Create a new job instance.
      *
      * @return void
      */
-    public function __construct($address)
+    public function __construct($address_id)
     {
-        $this->address = Address::withTrashed()->findOrFail($address);
+        $this->address_id = $address_id;
     }
 
     /**
@@ -33,7 +34,8 @@ class AddressWatcherJob implements ShouldQueue
      */
     public function handle()
     {
-        $networkClass = config('networks.'.$this->address->network.'.class');
-        $this->networkAddress = $networkClass::updateAddressBalance($this->address);
+        $address = Address::withExpired()->findOrFail($this->address_id);
+        $networkClass = config('networks.'.$address->network.'.class');
+        $this->networkAddress = $networkClass::updateAddressBalance($address);
     }
 }
