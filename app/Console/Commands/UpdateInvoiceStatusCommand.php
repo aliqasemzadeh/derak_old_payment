@@ -2,6 +2,8 @@
 
 namespace App\Console\Commands;
 
+use App\Models\Address;
+use App\Models\Invoice;
 use Illuminate\Console\Command;
 
 class UpdateInvoiceStatusCommand extends Command
@@ -27,6 +29,11 @@ class UpdateInvoiceStatusCommand extends Command
      */
     public function handle()
     {
+        $invoices = Invoice::onlyExpired()->where('status', 'address')->get();
+        foreach ($invoices as $invoice) {
+            $invoice->status = 'expired';
+            $invoice->save();
+        }
         return Command::SUCCESS;
     }
 }
