@@ -9,7 +9,7 @@ class EthereumController extends Controller
 {
     public function balanceERC20($address, $symbol = 'USDT')
     {
-        $contract = config("symbol.".$symbol.".ERC20");
+        $contract = config("symbol.".$symbol.".ERC20.contract");
     }
 
     public function balanceETH($address)

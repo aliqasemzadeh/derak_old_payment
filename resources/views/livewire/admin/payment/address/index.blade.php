@@ -140,7 +140,9 @@
                                 <span class="avatar me-2" style="background-image: url('{{ asset('cryptocurrency-icons/'.strtolower($address->symbol ? $address->symbol : 'empty').'.svg') }}')"></span>
                                 <div class="flex-fill">
                                     <div class="font-weight-medium">{{ $address->address }}</div>
-
+                                    @if($address->symbol)
+                                        <div class="text-muted">{{ $address->symbol }}</div>
+                                    @endif
                                 </div>
                             </div>
                         </td>

@@ -75,6 +75,7 @@ class Crypto extends Component
                 $networkClass = config('networks.'.$this->network.'.class');
                 $this->networkAddress = $networkClass::getInvoiceAddress($this->invoice, $this->symbol);
                 $this->networkAddress->expires_at = Carbon::now()->addMinutes(config('payment.address_expiry'));
+                $this->networkAddress->invoice_id = $this->invoice->id;
                 $this->networkAddress->save();
             }
 

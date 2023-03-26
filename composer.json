@@ -34,6 +34,7 @@
         "nesbot/carbon": "^2.54",
         "protonlabs/bitcoin": "^1.0",
         "questocat/laravel-referral": "^1.0",
+        "romanzipp/laravel-queue-monitor": "^2.3",
         "simplesoftwareio/simple-qrcode": "^4.2",
         "spatie/laravel-activitylog": "^4.5",
         "spatie/laravel-medialibrary": "^10.1",

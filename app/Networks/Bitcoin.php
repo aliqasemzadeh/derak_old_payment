@@ -30,15 +30,17 @@ class Bitcoin
             $response = $client->get('https://mempool.space/api/address/'.$address->address);
             if($response->getStatusCode() == 200) {
                 $bodyData = json_decode($response->getBody()->getContents(),true);
-                if($bodyData['chain_stats']['funded_txo_sum'] != 0) {
+                if($bodyData['chain_stats']['funded_txo_sum'] != 0 || $bodyData['mempool_stats']['funded_txo_sum'] != 0) {
                     $balance = ($bodyData['chain_stats']['funded_txo_sum'] - $bodyData['chain_stats']['spent_txo_sum']);
                     $address->balance = $balance;
-                    $address->save();
-                }
 
-                if($bodyData['mempool_stats']['funded_txo_sum'] != 0) {
-                    $address->status = 'wait';
-                    $address->makeEternal();
+                    if($bodyData['mempool_stats']['funded_txo_sum'] != 0) {
+                        $address->status = 'wait';
+                        $address->makeEternal();
+                    } else if($bodyData['chain_stats']['funded_txo_sum'] != 0) {
+                        $address->status = 'paid';
+                        $address->makeEternal();
+                    }
                     $address->save();
                 }
 

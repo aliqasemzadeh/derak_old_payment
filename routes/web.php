@@ -13,7 +13,9 @@ use Laravel\Fortify\Http\Controllers\AuthenticatedSessionController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+Route::prefix('jobs')->group(function () {
+    Route::queueMonitor();
+});
 
 Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['referral']], function() {
 

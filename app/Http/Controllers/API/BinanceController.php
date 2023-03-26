@@ -18,7 +18,7 @@ class BinanceController extends Controller
      */
     public function balanceBEP20($address, $symbol = 'USDT')
     {
-        $contract = config("symbol.".$symbol.".BEP20");
+        $contract = config("symbol.".$symbol.".BEP20.contract");
 
         $uri = 'https://bsc-dataseed1.defibit.io/';
         $api = new \Binance\NodeApi($uri);

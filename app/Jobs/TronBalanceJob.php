@@ -11,10 +11,12 @@ use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Support\Facades\Log;
+use romanzipp\QueueMonitor\Traits\IsMonitored;
 
 class TronBalanceJob implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
+    use IsMonitored;
 
     public $address;
     public $symbol;
@@ -57,7 +59,7 @@ class TronBalanceJob implements ShouldQueue
             $addressItem->save();
         } else {
 
-            $contract = config("symbol.".$symbol.".TRC20");
+            $contract = config("symbol.".$symbol.".TRC20.contract");
             $fullNode = new \IEXBase\TronAPI\Provider\HttpProvider('https://api.trongrid.io');
             $solidityNode = new \IEXBase\TronAPI\Provider\HttpProvider('https://api.trongrid.io');
             $eventServer = new \IEXBase\TronAPI\Provider\HttpProvider('https://api.trongrid.io');
