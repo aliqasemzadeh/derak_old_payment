@@ -143,7 +143,7 @@
                             <div class="font-weight-medium">{{ $invoice->expires_at }}</div>
                         </td>
                         <td>
-                            <div class="font-weight-medium">{{ $invoice->status }}</div>
+                            <div class="font-weight-medium">{{ __('status.'.$invoice->status) }}</div>
                         </td>
                         <td class="text-end">
                             <button onclick="Livewire.emit('showModal', 'director.invoice.edit', '{{ json_encode($invoice->id) }}')" class="btn btn-primary btn-icon btn-sm">
