@@ -33,8 +33,8 @@ class Bitcoin
                 $bodyData = json_decode($response->getBody()->getContents(),true);
                 if($bodyData['chain_stats']['funded_txo_sum'] != 0) {
                     $balance = ($bodyData['chain_stats']['funded_txo_sum'] - $bodyData['chain_stats']['spent_txo_sum']) / 100000000;
-                    $address->address->balance = $balance;
-                    $address->address->save();
+                    $address->balance = $balance;
+                    $address->save();
                 }
 
                 Log::critical("Balance:" . $bodyData['chain_stats']['funded_txo_sum']);
@@ -42,7 +42,7 @@ class Bitcoin
                 if($bodyData['mempool_stats']['funded_txo_sum'] != 0) {
                     $address->status = 'wait';
                     $address->makeEternal();
-                    $address->address->save();
+                    $address->save();
                 }
 
             } else {
