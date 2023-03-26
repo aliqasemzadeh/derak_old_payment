@@ -148,7 +148,11 @@
                         </td>
                         <td>{{ $address->network }}</td>
                         <td>{{ __('status.'.$address->status) }}</td>
-                        <td>{{ $address->balance }}</td>
+                        @if($address->balance == 0)
+                            <td>{{ $address->balance }}</td>
+                        @else
+                            <td>{{ \App\Utils\MoneyUtil::display($address->balance, $address->network, $address->symbol) }}</td>
+                        @endif
                         <td>{{ $address->created_at }}</td>
                         <td class="text-end">
                             @can('admin_address_txs')

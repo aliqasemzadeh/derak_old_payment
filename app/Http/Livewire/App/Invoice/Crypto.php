@@ -7,6 +7,7 @@ use App\Models\Address;
 use App\Models\Invoice;
 use App\Models\Rate;
 use App\Models\Symbol;
+use App\Utils\MoneyUtil;
 use Carbon\Carbon;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Component;
@@ -81,7 +82,12 @@ class Crypto extends Component
 
             AddressWatcherJob::dispatch($this->networkAddress->id)->delay(now()->addseconds(15));
 
-            $total_in_symbol = round($this->invoice->total / Rate::where('symbol', $this->symbol)->latest()->first()->price, 8, PHP_ROUND_HALF_UP);
+            if(config('symbol.' . $this->symbol . '.' . $this->network . '.have_precision')) {
+                $total_in_symbol = MoneyUtil::changeToString(round($this->invoice->total / Rate::where('symbol', $this->symbol)->latest()->first()->price, config('symbol.' . $this->symbol . '.' . $this->network . '.precision'), PHP_ROUND_HALF_UP), config('symbol.' . $this->symbol . '.' . $this->network . '.precision'));
+            } else {
+                $total_in_symbol = round($this->invoice->total / Rate::where('symbol', $this->symbol)->latest()->first()->price, 8, PHP_ROUND_HALF_UP);
+            }
+
             $this->invoice->total_in_symbol = $total_in_symbol * (1 + config('payment.commission_rate'));
             $this->invoice->address_id = $this->networkAddress->id;
             $this->invoice->status = 'address';

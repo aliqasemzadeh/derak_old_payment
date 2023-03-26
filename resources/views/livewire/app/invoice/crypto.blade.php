@@ -128,8 +128,8 @@
                                 <br />
                                 {{ $networkAddress->network }}:{{ $networkAddress->symbol }}
                                 <br />
-                                <div class="input-group mb-2" x-data="{ total_in_symbol: '{{ $invoice->total_in_symbol }}' }">
-                                    <input type="text" class="form-control" value="{{ $invoice->total_in_symbol }}" placeholder="{{ $networkAddress->address }}">
+                                <div class="input-group mb-2" x-data="{ total_in_symbol: '{{ \App\Utils\MoneyUtil::display($invoice->total_in_symbol, $networkAddress->network, $networkAddress->symbol) }}' }">
+                                    <input type="text" class="form-control" value="{{ \App\Utils\MoneyUtil::display($invoice->total_in_symbol, $networkAddress->network, $networkAddress->symbol) }}" placeholder="{{ \App\Utils\MoneyUtil::display($invoice->total_in_symbol, $networkAddress->network, $networkAddress->symbol) }}">
                                     <button class="btn" type="button" x-clipboard="total_in_symbol">
                                         <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copy" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                             <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
