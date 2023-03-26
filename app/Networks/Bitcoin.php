@@ -39,7 +39,6 @@ class Bitcoin
                         $address->makeEternal();
                     } else if($bodyData['chain_stats']['funded_txo_sum'] != 0) {
                         $address->status = 'paid';
-                        $address->makeEternal();
                     }
                     $address->save();
                 }

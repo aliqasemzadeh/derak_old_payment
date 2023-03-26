@@ -28,6 +28,8 @@ class Tron
             if($address->invoice_id) {
                 UpdateInvoiceJob::dispatch(Invoice::withExpired()->findOrFail($address->invoice_id));
             }
+            $address->status = 'paid';
+            $address->save();
         }
 
         return true;
