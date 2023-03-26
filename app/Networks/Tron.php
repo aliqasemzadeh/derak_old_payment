@@ -2,6 +2,7 @@
 
 namespace App\Networks;
 
+use App\Jobs\TronBalanceJob;
 use App\Jobs\UpdateInvoiceJob;
 use App\Models\Address;
 use App\Models\Invoice;
@@ -21,12 +22,15 @@ class Tron
 
     public static function updateAddressBalance(Address $address) : bool
     {
-        $balance = 0;
-        if($balance != 0) {
+        TronBalanceJob::dispatch($address->address, $address->symbol);
+
+        if($address->balance != 0) {
             if($address->invoice_id) {
                 UpdateInvoiceJob::dispatch(Invoice::withExpired()->findOrFail($address->invoice_id));
             }
         }
+
+        TronBalanceJob::dispatch($address->address, $address->symbol)->delay(now()->addSeconds(30));
         return true;
     }
 

@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Admin\Payment\Address;
 
 use App\Exports\AddressesExport;
+use App\Jobs\AddressWatcherJob;
 use App\Models\Address;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Component;
@@ -73,6 +74,11 @@ class Index extends Component
         if($this->selectAll) {
             $this->selectAll = false;
         }
+    }
+
+    public function updateBalance($address_id)
+    {
+        AddressWatcherJob::dispatch($address_id);
     }
 
     public function render()

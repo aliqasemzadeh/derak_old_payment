@@ -52,7 +52,7 @@ class TronBalanceJob implements ShouldQueue
             }
 
             $balance = $tron->getBalance($address, true);
-            $addressItem = Address::where('address', $address)->first();
+            $addressItem = Address::withExpired()->where('address', $address)->first();
             $addressItem->balance = $balance;
             $addressItem->save();
         } else {
@@ -94,7 +94,7 @@ class TronBalanceJob implements ShouldQueue
                 throw new Exception("Token balance not found");
             }
 
-            $addressItem = Address::where('address', $address)->first();
+            $addressItem = Address::withExpired()->where('address', $address)->first();
             $addressItem->balance = $balance;
             $addressItem->save();
         }
