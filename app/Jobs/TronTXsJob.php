@@ -40,7 +40,7 @@ class TronTXsJob implements ShouldQueue
     {
         $address = $this->address;
 
-        $addressItem = Address::where('address', $address)->first();
+        $addressItem = Address::withExpired()->where('address', $address)->first();
         $curl = curl_init();
 
         curl_setopt_array($curl, array(

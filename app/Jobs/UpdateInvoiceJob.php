@@ -10,6 +10,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Support\Facades\Log;
 use romanzipp\QueueMonitor\Traits\IsMonitored;
 
 class UpdateInvoiceJob implements ShouldQueue
@@ -36,13 +37,11 @@ class UpdateInvoiceJob implements ShouldQueue
     public function handle() : bool
     {
         $address = Address::withExpired()->findOrFail($this->invoice->address_id);
-        if($address->balance >= $this->invoiceinvoice->total_in_symbol) {
+        if($address->balance >= $this->invoice->total_in_symbol) {
             $this->invoice->status = 'paid';
             $this->invoice->save();
             return true;
-        }
-
-        if($address->balance > 0) {
+        }else if($address->balance > 0) {
             $this->invoice->status = 'less_payment';
             $this->invoice->save();
             return true;

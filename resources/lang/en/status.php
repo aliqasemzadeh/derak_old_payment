@@ -4,7 +4,7 @@ return [
     'unused' => 'Unused',
     'payment' => 'Payment Processing',
     'address' => 'Received Address',
-    'less_payment' => 'Received Address',
-    'paid' => 'Less Payment',
+    'less_payment' => 'Less Payment',
+    'paid' => 'Paid',
     'wait' => 'Waiting',
 ];
