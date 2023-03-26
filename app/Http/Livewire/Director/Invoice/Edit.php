@@ -29,6 +29,7 @@ class Edit extends Component
     public function edit() : void
     {
         $this->validate([
+            'terminal_id' => 'required|numeric',
             'total' => 'required|numeric',
             'description' => 'required|string',
         ]);

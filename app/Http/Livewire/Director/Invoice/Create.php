@@ -25,6 +25,7 @@ class Create extends Component
     public function create() : void
     {
         $this->validate([
+            'terminal_id' => 'required|numeric',
             'total' => 'required|numeric',
             'description' => 'required|string',
         ]);

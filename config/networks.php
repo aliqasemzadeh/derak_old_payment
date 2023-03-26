@@ -19,6 +19,7 @@ return [
         'class' => App\Networks\Tron::class
     ],
     'BTC' => [
+        'title' => 'BTC',
         'explorer_address' => 'https://mempool.space/address/',
         'explorer_transaction' => 'https://mempool.space/tx/',
         'class' => App\Networks\Bitcoin::class

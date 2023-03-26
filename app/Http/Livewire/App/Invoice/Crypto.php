@@ -67,28 +67,23 @@ class Crypto extends Component
         } else {
             $this->showNetwork = false;
 
-            if($this->invoice->address_id) {
-                $this->networkAddress = Address::withExpired()->findOrFail($this->invoice->address_id);
-                $this->networkAddress->expires_at = Carbon::now()->addMinutes(config('payment.address_expiry'));
-                $this->networkAddress->invoice_id = $this->invoice->id;
-                $this->networkAddress->save();
-            } else {
-                $networkClass = config('networks.'.$this->network.'.class');
-                $this->networkAddress = $networkClass::getInvoiceAddress($this->invoice, $this->symbol);
-                $this->networkAddress->expires_at = Carbon::now()->addMinutes(config('payment.address_expiry'));
-                $this->networkAddress->invoice_id = $this->invoice->id;
-                $this->networkAddress->save();
-            }
+
+            $networkClass = config('networks.'.$this->network.'.class');
+            $this->networkAddress = $networkClass::getInvoiceAddress($this->invoice, $this->symbol);
+            $this->networkAddress->expires_at = Carbon::now()->addMinutes(config('payment.address_expiry'));
+            $this->networkAddress->invoice_id = $this->invoice->id;
+            $this->networkAddress->save();
+
 
             AddressWatcherJob::dispatch($this->networkAddress->id)->delay(now()->addseconds(15));
 
             if(config('symbol.' . $this->symbol . '.' . $this->network . '.have_precision')) {
                 $total_in_symbol = MoneyUtil::changeToString(round($this->invoice->total / Rate::where('symbol', $this->symbol)->latest()->first()->price, config('symbol.' . $this->symbol . '.' . $this->network . '.precision'), PHP_ROUND_HALF_UP), config('symbol.' . $this->symbol . '.' . $this->network . '.precision'));
             } else {
-                $total_in_symbol = round($this->invoice->total / Rate::where('symbol', $this->symbol)->latest()->first()->price, 8, PHP_ROUND_HALF_UP);
+                $total_in_symbol = round($this->invoice->total / Rate::where('symbol', $this->symbol)->latest()->first()->price, config('symbol.' . $this->symbol . '.' . $this->network . '.have_precision'), PHP_ROUND_HALF_UP);
             }
 
-            $this->invoice->total_in_symbol = $total_in_symbol * (1 + config('payment.commission_rate'));
+            $this->invoice->total_in_symbol = round($total_in_symbol * (1 + config('payment.commission_rate')), 0, PHP_ROUND_HALF_UP);
             $this->invoice->address_id = $this->networkAddress->id;
             $this->invoice->status = 'address';
             $this->invoice->expires_at = Carbon::now()->addMinutes(config('payment.payment_expiry'));
