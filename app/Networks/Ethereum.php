@@ -20,7 +20,7 @@ class Ethereum
         return $address;
     }
 
-    public static function updateAddressBalance(Address $address) : Address
+    public static function updateAddressBalance(Address $address) : bool
     {
 
         $balance = 0;

@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Log;
 
 class Bitcoin
 {
-    public static function getInvoiceAddress(Invoice $invoice, $symbol) : Address
+    public static function getInvoiceAddress(Invoice $invoice, $symbol) : bool
     {
         $address = Address::unused()->ofNetwork('BTC')->latest()->first();
         $address->symbol = $symbol;
