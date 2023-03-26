@@ -26,6 +26,7 @@ class Kernel extends ConsoleKernel
     {
         $schedule->command('update:rates')->everyFiveMinutes();
         //$schedule->command('watch:addresses')->everyFiveMinutes();
+        $schedule->command('address:update_status')->everyFiveMinutes();
     }
 
     /**

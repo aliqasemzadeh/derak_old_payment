@@ -7,4 +7,5 @@ return [
     'less_payment' => 'Less Payment',
     'paid' => 'Paid',
     'wait' => 'Waiting',
+    'expired' => 'Expired',
 ];
