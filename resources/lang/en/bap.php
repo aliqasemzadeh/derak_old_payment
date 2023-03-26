@@ -230,6 +230,7 @@ return [
     'last_address' => 'Last Patch',
     'addresses' => 'Addresses',
     'expires_at' => 'Expires At',
+    'updated' => 'Updated',
     'category_types' => [
         'article' => 'Article',
         'ticket' => 'Ticket',

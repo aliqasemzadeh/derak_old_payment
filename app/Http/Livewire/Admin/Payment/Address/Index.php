@@ -79,6 +79,7 @@ class Index extends Component
     public function updateBalance($address_id)
     {
         AddressWatcherJob::dispatch($address_id);
+        $this->alert('success', __('bap.updated'));
     }
 
     public function render()

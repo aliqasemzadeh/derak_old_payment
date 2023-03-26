@@ -9,9 +9,9 @@ use Livewire\Component;
 class Txs extends Component
 {
     public $address;
-    public function mount(Address $address)
+    public function mount($address)
     {
-        $this->address = $address;
+        $this->address = Address::withExpired()->findOrFail($address);
     }
     public function render()
     {
