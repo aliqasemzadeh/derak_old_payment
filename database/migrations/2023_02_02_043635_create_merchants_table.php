@@ -18,6 +18,8 @@ return new class extends Migration
             $table->string('title');
             $table->longText('description')->nullable();
             $table->bigInteger('user_id');
+            $table->bigInteger('commission')->default(3);
+            $table->bigInteger('cashback')->default(3);
             $table->string('crypto')->default('enable');
             $table->string('fiat')->default('disable');
             $table->string('document')->nullable();
