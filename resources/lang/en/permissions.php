@@ -80,4 +80,8 @@ return [
 
     'director_invoice_index' => 'Manage Invoice',
     'director_invoice_create' => 'Create Invoice',
+
+    'director_exchange_manage' => 'Manage Exchange',
+    'director_symbol_index' => 'Manage Symbols',
+    'director_symbol_create' => 'Create Symbol',
 ];

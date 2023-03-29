@@ -118,6 +118,7 @@
                     </li>
                     @endcan
 
+                    @can('director_exchange_manage')
                     <li class="nav-item dropdown @if(\Illuminate\Support\Facades\Route::is('director.exchange.*')) show @endif">
                         <a class="nav-link dropdown-toggle" href="#navbar-exchange" data-bs-toggle="dropdown"
                            data-bs-auto-close="false" role="button" aria-expanded="true">
@@ -138,6 +139,7 @@
                                     {{ __('bap.exchange') }}
                             </span>
                         </a>
+                        @can('director_symbol_index')
                         <div
                             class="dropdown-menu @if(\Illuminate\Support\Facades\Route::is('director.exchange.*')) show @endif "
                             data-bs-popper="none">
@@ -148,7 +150,9 @@
                             </a>
 
                         </div>
+                        @endcan
                     </li>
+                    @endcan
 
 
                     <li class="nav-item @if(\Illuminate\Support\Facades\Route::is('director.financial.index')) active @endif">
