@@ -39,6 +39,7 @@
             <div class="collapse navbar-collapse" id="navbar-menu">
                 <ul class="navbar-nav pt-lg-3">
 
+                    @can('director_dashboard_index')
                     <li class="nav-item @if(\Illuminate\Support\Facades\Route::is('director.dashboard.index')) active @endif">
                         <a class="nav-link" href="{{ route('director.dashboard.index') }}">
                             <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
@@ -52,10 +53,12 @@
 
                             <span class="nav-link-title">
                                       {{ __('bap.dashboard') }}
-                                    </span>
+                            </span>
                         </a>
                     </li>
+                    @endcan
 
+                    @can('director_user_index')
                     <li class="nav-item @if(\Illuminate\Support\Facades\Route::is('director.user.index')) active @endif">
                         <a class="nav-link" href="{{ route('director.user.index') }}">
                             <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-users"
@@ -73,8 +76,9 @@
                                     </span>
                         </a>
                     </li>
+                    @endcan
 
-
+                    @can('director_merchant_index')
                     <li class="nav-item @if(\Illuminate\Support\Facades\Route::is('director.merchant.index')) active @endif">
                         <a class="nav-link" href="{{ route('director.merchant.index') }}">
                             <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-building-store"
@@ -93,8 +97,9 @@
                             </span>
                         </a>
                     </li>
+                    @endcan
 
-
+                    @can('director_invoice_index')
                     <li class="nav-item @if(\Illuminate\Support\Facades\Route::is('director.invoice.index')) active @endif">
                         <a class="nav-link" href="{{ route('director.invoice.index') }}">
                             <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-file-dollar"
@@ -111,6 +116,7 @@
                             </span>
                         </a>
                     </li>
+                    @endcan
 
                     <li class="nav-item dropdown @if(\Illuminate\Support\Facades\Route::is('director.exchange.*')) show @endif">
                         <a class="nav-link dropdown-toggle" href="#navbar-exchange" data-bs-toggle="dropdown"

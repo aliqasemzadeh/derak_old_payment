@@ -75,4 +75,9 @@ return [
     'director_user_wallet' => 'Manage User Wallet',
     'director_user_ban' => 'Ban User',
 
+    'director_merchant_index' => 'Manage Merchant',
+    'director_merchant_create' => 'Create Merchant',
+
+    'director_invoice_index' => 'Manage Invoice',
+    'director_invoice_create' => 'Create Invoice',
 ];
