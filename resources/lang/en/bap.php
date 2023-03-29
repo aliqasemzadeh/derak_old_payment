@@ -231,6 +231,7 @@ return [
     'addresses' => 'Addresses',
     'expires_at' => 'Expires At',
     'updated' => 'Updated',
+    'expire' => 'Expire Time',
     'category_types' => [
         'article' => 'Article',
         'ticket' => 'Ticket',
