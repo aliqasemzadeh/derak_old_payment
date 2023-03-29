@@ -69,6 +69,10 @@ return [
 
     'director_access' => 'Access Director',
     'director_dashboard_index' => 'Director Dashboard Access',
-    'director_user_create_ticket' => 'Director Create Ticket For User',
+    'director_user_index' => 'View User Index',
+    'director_user_create' => 'Create User',
+    'director_user_ticket' => 'Manage User Ticket',
+    'director_user_wallet' => 'Manage User Wallet',
+    'director_user_ban' => 'Ban User',
 
 ];
