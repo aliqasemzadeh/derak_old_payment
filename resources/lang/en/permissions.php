@@ -69,5 +69,6 @@ return [
 
     'director_access' => 'Access Director',
     'director_dashboard_index' => 'Director Dashboard Access',
+    'director_user_create_ticket' => 'Director Create Ticket For User',
 
 ];
