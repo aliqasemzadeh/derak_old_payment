@@ -152,7 +152,7 @@ return [
     'add_token' => 'Add Token',
     'edit_token' => 'Edit Token',
     'tokens' => 'Tokens',
-    'merchant' => 'merchant',
+    'merchant' => 'Store',
     'create_merchant' => 'Create Merchant',
     'edit_merchant' => 'Edit Merchant',
     'merchants' => 'Merchants',
