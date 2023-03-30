@@ -55,6 +55,9 @@ class CreateTicket extends Component
             $fileRecord->save();
         }
 
+        $this->emitTo(\App\Http\Livewire\Director\User\Index::getName(), 'updateList');
+        $this->emit('hideModal');
+
         $this->alert('success', __('bap.created'));
 
     }
