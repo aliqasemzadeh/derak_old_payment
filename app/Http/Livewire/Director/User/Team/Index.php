@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\Admin\User\Team;
+namespace App\Http\Livewire\Director\User\Team;
 
 use App\Models\Article;
 use App\Models\Team;
@@ -144,6 +144,6 @@ class Index extends Component
 
         $teams = \App\Models\Team::where('name', 'LIKE', '%' . $this->search . '%')->orderBy($this->sortColumn, $this->sortDirection)->paginate($this->perPage);
 
-        return view('livewire.admin.user.team.index', compact('teams'))->layout('layouts.admin');
+        return view('livewire.director.user.team.index', compact('teams'))->layout('layouts.admin');
     }
 }

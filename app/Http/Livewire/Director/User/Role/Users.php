@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\Admin\User\Role;
+namespace App\Http\Livewire\Director\User\Role;
 
 use App\Models\User;
 use Livewire\Component;
@@ -17,6 +17,6 @@ class Users extends Component
 
     public function render()
     {
-        return view('livewire.admin.user.role.users');
+        return view('livewire.director.user.role.users');
     }
 }

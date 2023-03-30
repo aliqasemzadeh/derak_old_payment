@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\Admin\User\Permission;
+namespace App\Http\Livewire\Director\User\Permission;
 
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Component;
@@ -157,6 +157,6 @@ class Index extends Component
         }
 
         $permissions = Permission::where('name', 'LIKE', '%' . $this->search . '%')->orderBy($this->sortColumn, $this->sortDirection)->paginate($this->perPage);
-        return view('livewire.admin.user.permission.index', compact('permissions'))->layout('layouts.admin');
+        return view('livewire.director.user.permission.index', compact('permissions'))->layout('layouts.admin');
     }
 }

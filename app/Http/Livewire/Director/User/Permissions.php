@@ -93,6 +93,6 @@ class Permissions extends Component
             $permissions = Permission::all();
 
         }
-        return view('livewire.admin.user.permissions', compact('permissions'));
+        return view('livewire.director.user.permissions', compact('permissions'));
     }
 }

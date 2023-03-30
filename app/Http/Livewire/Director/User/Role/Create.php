@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\Admin\User\Role;
+namespace App\Http\Livewire\Director\User\Role;
 
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Component;
@@ -23,7 +23,7 @@ class Create extends Component
 
         Role::create(['name' => $this->name]);
 
-        $this->emitTo(\App\Http\Livewire\Admin\User\Role\Index::getName(), 'updateList');
+        $this->emitTo(\App\Http\Livewire\Director\User\Role\Index::getName(), 'updateList');
         $this->emit('hideModal');
 
         $this->alert('success', __('bap.created'));
@@ -36,6 +36,6 @@ class Create extends Component
             return abort(403);
         }
 
-        return view('livewire.admin.user.role.create');
+        return view('livewire.director.user.role.create');
     }
 }

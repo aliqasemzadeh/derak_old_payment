@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\Admin\User\Role;
+namespace App\Http\Livewire\Director\User\Role;
 
 use Spatie\Permission\Models\Role;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
@@ -155,6 +155,6 @@ class Index extends Component
         }
 
         $roles = Role::where('name', 'LIKE', '%' . $this->search . '%')->orderBy($this->sortColumn, $this->sortDirection)->paginate($this->perPage);
-        return view('livewire.admin.user.role.index', compact('roles'))->layout('layouts.admin');
+        return view('livewire.director.user.role.index', compact('roles'))->layout('layouts.admin');
     }
 }

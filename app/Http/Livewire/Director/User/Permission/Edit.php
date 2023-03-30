@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\Admin\User\Permission;
+namespace App\Http\Livewire\Director\User\Permission;
 
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Component;
@@ -35,7 +35,7 @@ class Edit extends Component
         $this->permission->name = $this->name;
         $this->permission->save();
 
-        $this->emitTo(\App\Http\Livewire\Admin\User\Permission\Index::getName(), 'updateList');
+        $this->emitTo(\App\Http\Livewire\Director\User\Permission\Index::getName(), 'updateList');
         $this->emit('hideModal');
 
         $this->alert('success', __('bap.edited'));
@@ -46,7 +46,7 @@ class Edit extends Component
         if(!auth()->user()->can('admin_permissions_edit')) {
             return abort(403);
         }
-        
-        return view('livewire.admin.user.permission.edit');
+
+        return view('livewire.director.user.permission.edit');
     }
 }

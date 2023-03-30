@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\Admin\User\Permission;
+namespace App\Http\Livewire\Director\User\Permission;
 
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
@@ -25,7 +25,7 @@ class Create extends Component
 
         Permission::create(['guard_name' => 'web', 'name' => $this->name]);
 
-        $this->emitTo(\App\Http\Livewire\Admin\User\Permission\Index::getName(), 'updateList');
+        $this->emitTo(\App\Http\Livewire\Director\User\Permission\Index::getName(), 'updateList');
         $this->emit('hideModal');
 
         $this->alert('success', __('bap.created'));
@@ -36,6 +36,6 @@ class Create extends Component
         if(!auth()->user()->can('admin_permissions_create')) {
             return abort(403);
         }
-        return view('livewire.admin.user.permission.create');
+        return view('livewire.director.user.permission.create');
     }
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\Admin\User\Team;
+namespace App\Http\Livewire\Director\User\Team;
 
 use App\Models\Team;
 use Livewire\Component;
@@ -15,6 +15,6 @@ class Users extends Component
 
     public function render()
     {
-        return view('livewire.admin.user.team.users');
+        return view('livewire.director.user.team.users');
     }
 }

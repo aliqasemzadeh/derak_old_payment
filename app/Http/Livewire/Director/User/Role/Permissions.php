@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\Admin\User\Role;
+namespace App\Http\Livewire\Director\User\Role;
 
 use App\Models\User;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
@@ -100,6 +100,6 @@ class Permissions extends Component
             $permissions = Permission::all();
         }
 
-        return view('livewire.admin.user.role.permissions', compact('permissions'));
+        return view('livewire.director.user.role.permissions', compact('permissions'));
     }
 }

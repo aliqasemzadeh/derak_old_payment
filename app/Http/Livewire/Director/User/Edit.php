@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\Admin\User;
+namespace App\Http\Livewire\Director\User;
 
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
@@ -54,7 +54,7 @@ class Edit extends Component
         }
         $this->user->save();
 
-        $this->emitTo(\App\Http\Livewire\Admin\User\Index::getName(), 'updateList');
+        $this->emitTo(\App\Http\Livewire\Director\User\Index::getName(), 'updateList');
         $this->emit('hideModal');
 
         $this->alert('success', __('bap.edited'));
@@ -66,6 +66,6 @@ class Edit extends Component
             return abort(403);
         }
 
-        return view('livewire.admin.user.edit');
+        return view('livewire.director.user.edit');
     }
 }

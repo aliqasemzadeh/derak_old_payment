@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\Admin\User\Role;
+namespace App\Http\Livewire\Director\User\Role;
 
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Component;
@@ -36,7 +36,7 @@ class Edit extends Component
         $this->role->name = $this->name;
         $this->role->save();
 
-        $this->emitTo(\App\Http\Livewire\Admin\User\Permission\Index::getName(), 'updateList');
+        $this->emitTo(\App\Http\Livewire\Director\User\Permission\Index::getName(), 'updateList');
         $this->emit('hideModal');
 
         $this->alert('success', __('bap.edited'));
@@ -48,6 +48,6 @@ class Edit extends Component
             return abort(403);
         }
 
-        return view('livewire.admin.user.role.edit');
+        return view('livewire.director.user.role.edit');
     }
 }

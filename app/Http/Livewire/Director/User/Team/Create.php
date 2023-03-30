@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\Admin\User\Team;
+namespace App\Http\Livewire\Director\User\Team;
 
 use App\Models\Team;
 use App\Models\User;
@@ -36,7 +36,7 @@ class Create extends Component
         $team->personal_team = $this->personal;
         $team->save();
 
-        $this->emitTo(\App\Http\Livewire\Admin\User\Team\Index::getName(), 'updateList');
+        $this->emitTo(\App\Http\Livewire\Director\User\Team\Index::getName(), 'updateList');
         $this->emit('hideModal');
 
         $this->alert(
@@ -52,6 +52,6 @@ class Create extends Component
         } else {
             $users = [];
         }
-        return view('livewire.admin.user.team.create', compact('users'));
+        return view('livewire.director.user.team.create', compact('users'));
     }
 }
