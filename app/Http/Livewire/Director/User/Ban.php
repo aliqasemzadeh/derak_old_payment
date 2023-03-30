@@ -21,13 +21,15 @@ class Ban extends Component
 
     public function ban()
     {
+        $user = User::findOrFail($this->user->id);
         if($this->permanent) {
-            $this->user->ban([
+            $user->ban([
                 'expired_at' => null,
                 'comment' => $this->comment,
+
             ]);
         } else {
-            $this->user->ban([
+            $user->ban([
                 'expired_at' => $this->expire,
                 'comment' => $this->comment,
             ]);
@@ -41,7 +43,8 @@ class Ban extends Component
 
     public function unban()
     {
-        $this->user->unban();
+        $user = User::findOrFail($this->user->id);
+        $user->unban();
 
         $this->emitTo(\App\Http\Livewire\Director\User\Index::getName(), 'updateList');
         $this->emit('hideModal');
