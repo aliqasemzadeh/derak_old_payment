@@ -20,6 +20,15 @@ class Tron
         return $address;
     }
 
+
+    public static function getAddress($symbol) : Address
+    {
+        $address = Address::unused()->ofNetwork('TRC20')->latest()->first();
+        $address->symbol = $symbol;
+        $address->status = 'used';
+        return $address;
+    }
+
     public static function updateAddressBalance(Address $address) : bool
     {
         TronBalanceJob::dispatch($address->address, $address->symbol);

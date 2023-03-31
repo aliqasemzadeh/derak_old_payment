@@ -58,6 +58,14 @@ class Bitcoin
         return true;
     }
 
+    public static function getAddress($symbol) : Address
+    {
+        $address = Address::unused()->ofNetwork('BTC')->latest()->first();
+        $address->symbol = $symbol;
+        $address->status = 'used';
+        return $address;
+    }
+
     public static function callbackBalance(Invoice $invoice) : bool
     {
         return true;

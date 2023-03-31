@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('get-address/{symbol}/{network}', [App\Http\Controllers\API\AddressController::class, 'getAddress']);
 Route::get('bitcoin/balance/{address}', [App\Http\Controllers\API\BitcoinController::class, 'balance']);
 Route::get('tron/balance-trc20/{address}/{symbol?}', [App\Http\Controllers\API\TronController::class, 'balanceTRC20']);
 Route::get('tron/balance-trx/{address}', [App\Http\Controllers\API\TronController::class, 'balanceTRX']);
