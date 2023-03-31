@@ -122,7 +122,7 @@
                         </td>
                         <td>{{ $user->created_at }}</td>
                         <td class="text-end">
-                            @can('director_user_create_ticket')
+                            @can('director_user_ticket')
                                 <button  onclick="Livewire.emit('showModal', 'director.user.create-ticket', '{{ $user->id }}')" class="btn bg-purple btn-icon btn-sm">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-square-plus" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                         <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
