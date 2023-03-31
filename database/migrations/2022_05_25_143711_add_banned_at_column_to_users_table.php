@@ -13,8 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('profits', function (Blueprint $table) {
-            $table->bigInteger('start_transaction')->default(0);
+        Schema::table('users', function (Blueprint $table) {
+            $table->timestamp('banned_at')->nullable();
         });
     }
 
@@ -25,8 +25,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('profits', function (Blueprint $table) {
-            $table->dropColumn('start_transaction');
+        Schema::table('users', function (Blueprint $table) {
+            $table->dropColumn('banned_at');
         });
     }
 };
