@@ -28,10 +28,9 @@
                     <label class="form-label" for="type">{{ __('bap.type') }}</label>
                     <select wire:model="type" class="form-control @error('type') is-invalid @enderror" name="type">
                         <option></option>
-                        <option value="ManualDeposit">ManualDeposit</option>
-                        <option value="ManualExchange">ManualExchange</option>
-                        <option value="ManualWithdraw">ManualWithdraw</option>
-                        <option value="Buy">Buy</option>
+                        @foreach(config('transaction.types') as $type => $typeArray)
+                            <option value="{{ $type }}">{{ $type }}</option>
+                        @endforeach
                     </select>
                     @error('type')
                     <div class="invalid-feedback">{{ $message }}</div>
