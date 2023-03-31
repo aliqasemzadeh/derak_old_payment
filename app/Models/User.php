@@ -15,8 +15,9 @@ use Laravel\Sanctum\HasApiTokens;
 use Questocat\Referral\Traits\UserReferral;
 use Spatie\Permission\Traits\HasRoles;
 use Yadahan\AuthenticationLog\AuthenticationLogable;
+use Cog\Contracts\Ban\Bannable as BannableInterface;
 
-class User extends Authenticatable implements MustVerifyEmail
+class User extends Authenticatable implements MustVerifyEmail, BannableInterface
 {
     use Bannable;
     use HasApiTokens;

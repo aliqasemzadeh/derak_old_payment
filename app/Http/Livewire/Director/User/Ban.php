@@ -26,7 +26,6 @@ class Ban extends Component
             $user->ban([
                 'expired_at' => null,
                 'comment' => $this->comment,
-
             ]);
         } else {
             $user->ban([
