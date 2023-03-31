@@ -87,6 +87,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['re
         Route::group(['prefix' => config('bap.director-prefix-url'), 'middleware' => ['auth:sanctum', 'verified', 'director']], function () {
             Route::get('/dashboard/index', \App\Http\Livewire\Director\Dashboard\Index::class)->name('director.dashboard.index');
             Route::get('/user/index', \App\Http\Livewire\Director\User\Index::class)->name('director.user.index');
+            Route::get('/user/verify/index', \App\Http\Livewire\Director\User\Verify\Index::class)->name('director.user.verify.index');
             Route::get('/merchant/index', \App\Http\Livewire\Director\Merchant\Index::class)->name('director.merchant.index');
             Route::get('/exchange/index', \App\Http\Livewire\Director\Exchange\Index::class)->name('director.exchange.index');
             Route::get('/invoice/index', \App\Http\Livewire\Director\Invoice\Index::class)->name('director.invoice.index');

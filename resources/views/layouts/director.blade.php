@@ -78,6 +78,46 @@
                     </li>
                     @endcan
 
+                        @can('director_user_index')
+                            <li class="nav-item dropdown @if(\Illuminate\Support\Facades\Route::is('director.user.*')) show @endif">
+                                <a class="nav-link dropdown-toggle" href="#navbar-users" data-bs-toggle="dropdown"
+                                   data-bs-auto-close="false" role="button" aria-expanded="true">
+
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-report-money"
+                                         width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
+                                         fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                        <path
+                                            d="M9 5h-2a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-12a2 2 0 0 0 -2 -2h-2"></path>
+                                        <path
+                                            d="M9 3m0 2a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v0a2 2 0 0 1 -2 2h-2a2 2 0 0 1 -2 -2z"></path>
+                                        <path d="M14 11h-2.5a1.5 1.5 0 0 0 0 3h1a1.5 1.5 0 0 1 0 3h-2.5"></path>
+                                        <path d="M12 17v1m0 -8v1"></path>
+                                    </svg>
+
+                                    <span class="nav-link-title">
+                                    {{ __('bap.users') }}
+                            </span>
+                                </a>
+                                @can('director_user_index')
+                                    <div
+                                        class="dropdown-menu @if(\Illuminate\Support\Facades\Route::is('director.user.index')) show @endif "
+                                        data-bs-popper="none">
+
+                                        <a class="dropdown-item @if(\Illuminate\Support\Facades\Route::is('director.user.index')) active @endif"
+                                           href="{{ route('director.user.index') }}">
+                                            {{ __('bap.users') }}
+                                        </a>
+                                        <a class="dropdown-item @if(\Illuminate\Support\Facades\Route::is('director.user.verify.index')) active @endif"
+                                           href="{{ route('director.user.verify.index') }}">
+                                            {{ __('bap.users_verify') }}
+                                        </a>
+
+                                    </div>
+                                @endcan
+                            </li>
+                        @endcan
+
                     @can('director_merchant_index')
                     <li class="nav-item @if(\Illuminate\Support\Facades\Route::is('director.merchant.index')) active @endif">
                         <a class="nav-link" href="{{ route('director.merchant.index') }}">

@@ -232,6 +232,8 @@ return [
     'expires_at' => 'Expires At',
     'updated' => 'Updated',
     'expire' => 'Expire Time',
+    'users_verify' => 'Users Verify',
+    'user_verify' => 'User Verify',
     'category_types' => [
         'article' => 'Article',
         'ticket' => 'Ticket',
