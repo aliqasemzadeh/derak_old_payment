@@ -235,6 +235,7 @@ return [
     'users_verify' => 'Users Verify',
     'user_verify' => 'User Verify',
     'linker_id' => 'Linker ID',
+    'upload' => 'Upload',
     'category_types' => [
         'article' => 'Article',
         'ticket' => 'Ticket',

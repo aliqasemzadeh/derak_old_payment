@@ -4,6 +4,7 @@ namespace App\Http\Livewire\App\Invoice;
 
 use App\Models\Invoice;
 use App\Models\Symbol;
+use Illuminate\Support\Facades\Log;
 use Livewire\Component;
 
 class View extends Component
