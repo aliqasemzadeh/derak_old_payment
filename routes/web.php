@@ -19,7 +19,6 @@ Route::prefix('jobs')->group(function () {
 
 Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['referral']], function() {
 
-
     Route::get('/', \App\Http\Livewire\App\Main\Index::class)->name('home');
     Route::get('/article/index', \App\Http\Livewire\App\Article\Index::class)->name('article.index');
     Route::get('/article/view/{article}', \App\Http\Livewire\App\Article\View::class)->name('article.view');
