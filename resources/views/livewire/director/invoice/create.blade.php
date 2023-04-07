@@ -19,7 +19,6 @@
                     @enderror
                 </div>
 
-
                 <div class="mb-3">
                     <label class="form-label" for="symbols">{{ __('bap.symbols') }}</label>
                     <select multiple wire:model="symbols" class="form-control @error('symbols') is-invalid @enderror" name="symbols" placeholder="{{ __('bap.symbols') }}">
