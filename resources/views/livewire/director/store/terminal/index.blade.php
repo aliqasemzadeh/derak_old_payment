@@ -20,8 +20,8 @@
     <x-slot name="breadcrumb">
         <ol class="breadcrumb breadcrumb-arrows" aria-label="breadcrumbs">
             <li class="breadcrumb-item"><a href="{{ route('director.dashboard.index') }}">{{ __('bap.dashboard') }}</a></li>
-            <li class="breadcrumb-item"><a href="{{ route('director.merchant.index') }}">{{ __('bap.merchants') }}</a></li>
-            <li class="breadcrumb-item active" aria-current="page"><a href="{{ route('director.merchant.terminal.index', [$store->id]) }}">{{ $store->title }} - {{ __('bap.terminals') }}</a></li>
+            <li class="breadcrumb-item"><a href="{{ route('director.store.index') }}">{{ __('bap.merchants') }}</a></li>
+            <li class="breadcrumb-item active" aria-current="page"><a href="{{ route('director.store.terminal.index', [$store->id]) }}">{{ $store->title }} - {{ __('bap.terminals') }}</a></li>
         </ol>
     </x-slot>
 
@@ -197,7 +197,7 @@
                                 </button>
                             @endif
 
-                            <a href="{{ route('director.merchant.terminal.transactions', [$terminal->id]) }}" class="btn btn-success btn-icon btn-sm">
+                            <a href="{{ route('director.store.terminal.transactions', [$terminal->id]) }}" class="btn btn-success btn-icon btn-sm">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-list" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                     <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                                     <path d="M9 6l11 0"></path>

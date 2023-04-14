@@ -13,8 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('merchants', function (Blueprint $table) {
-            $table->bigInteger('merchant_confirmation_id')->nullable()->after('user_id');
+        Schema::table('stores', function (Blueprint $table) {
+            $table->bigInteger('store_confirmation_id')->nullable()->after('user_id');
         });
     }
 
