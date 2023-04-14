@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\Director\Merchant\Terminal;
+namespace App\Http\Livewire\Director\Store\Terminal;
 
 use App\Models\Terminal;
 use App\Models\Transaction;

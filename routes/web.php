@@ -24,7 +24,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['re
     Route::get('/article/view/{article}', \App\Http\Livewire\App\Article\View::class)->name('article.view');
 
     Route::get('/invoice/view/{invoice}', \App\Http\Livewire\App\Invoice\View::class)->name('invoice.view');
-    Route::get('/file/merchant/logo/{merchant}', [\App\Http\Controllers\FileController::class, 'merchantLogo'])->name('file.merchant.logo');
+    Route::get('/file/store/logo/{store}', [\App\Http\Controllers\FileController::class, 'storeLogo'])->name('file.store.logo');
 
     Route::group(['middleware' => ['auth:sanctum', 'verified']], function() {
 
@@ -49,11 +49,11 @@ Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['re
 
             Route::get('/wallet/index', \App\Http\Livewire\Panel\Wallet\Index::class)->name('panel.wallet.index');
             Route::get('/store/index', \App\Http\Livewire\Panel\Store\Index::class)->name('panel.store.index');
-            Route::get('/merchant/index', \App\Http\Livewire\Panel\Merchant\Index::class)->name('panel.merchant.index');
+            Route::get('/store/index', \App\Http\Livewire\Panel\Store\Index::class)->name('panel.store.index');
             Route::get('/invoice/index', \App\Http\Livewire\Panel\Invoice\Index::class)->name('panel.invoice.index');
             Route::get('/invoice/view/{invoice}', \App\Http\Livewire\Panel\Invoice\View::class)->name('panel.invoice.view');
-            Route::get('/merchant/view/{merchant}', \App\Http\Livewire\Panel\Merchant\View::class)->name('panel.merchant.view');
-            Route::get('/merchant/verify/{merchant}', \App\Http\Livewire\Panel\Merchant\Verify::class)->name('panel.merchant.verify');
+            Route::get('/store/view/{store}', \App\Http\Livewire\Panel\Store\View::class)->name('panel.store.view');
+            Route::get('/store/verify/{store}', \App\Http\Livewire\Panel\Store\Verify::class)->name('panel.store.verify');
 
         });
 
@@ -86,15 +86,15 @@ Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['re
             Route::get('/dashboard/index', \App\Http\Livewire\Director\Dashboard\Index::class)->name('director.dashboard.index');
             Route::get('/user/index', \App\Http\Livewire\Director\User\Index::class)->name('director.user.index');
             Route::get('/user/verify/index', \App\Http\Livewire\Director\User\Verify\Index::class)->name('director.user.verify.index');
-            Route::get('/merchant/index', \App\Http\Livewire\Director\Merchant\Index::class)->name('director.merchant.index');
+            Route::get('/store/index', \App\Http\Livewire\Director\Store\Index::class)->name('director.store.index');
             Route::get('/exchange/index', \App\Http\Livewire\Director\Exchange\Index::class)->name('director.exchange.index');
             Route::get('/invoice/index', \App\Http\Livewire\Director\Invoice\Index::class)->name('director.invoice.index');
             Route::get('/financial/index', \App\Http\Livewire\Director\Financial\Index::class)->name('director.financial.index');
             Route::get('/exchange/symbol/index', \App\Http\Livewire\Director\Exchange\Symbol\Index::class)->name('director.exchange.symbol.index');
             Route::get('/exchange/symbol/transactions/{symbol}', \App\Http\Livewire\Director\Exchange\Symbol\Transactions::class)->name('director.exchange.symbol.transactions');
             Route::get('/bounce/index', \App\Http\Livewire\Director\Bounce\Index::class)->name('director.bounce.index');
-            Route::get('/merchant/terminal/index/{merchant}', \App\Http\Livewire\Director\Merchant\Terminal\Index::class)->name('director.merchant.terminal.index');
-            Route::get('/merchant/terminal/transactions/{terminal}', \App\Http\Livewire\Director\Merchant\Terminal\Transactions::class)->name('director.merchant.terminal.transactions');
+            Route::get('/store/terminal/index/{store}', \App\Http\Livewire\Director\Store\Terminal\Index::class)->name('director.store.terminal.index');
+            Route::get('/store/terminal/transactions/{terminal}', \App\Http\Livewire\Director\Store\Terminal\Transactions::class)->name('director.store.terminal.transactions');
             Route::get('/wallet/index', \App\Http\Livewire\Director\Wallet\Index::class)->name('director.wallet.index');
             Route::get('/level/index', \App\Http\Livewire\Director\Level\Index::class)->name('director.level.index');
         });

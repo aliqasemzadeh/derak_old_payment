@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 
-class Merchant extends Model
+class Store extends Model
 {
     use HasFactory;
     use SoftDeletes;

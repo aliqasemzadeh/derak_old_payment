@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Livewire\Director\Merchant;
+namespace App\Http\Livewire\Director\Store;
 
-use App\Models\Merchant;
+use App\Models\Store;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Component;
 use Livewire\WithFileUploads;
@@ -12,7 +12,7 @@ class Verify extends Component
     use LivewireAlert;
     use WithFileUploads;
 
-    public Merchant $merchant;
+    public Store $merchant;
     public $title;
     public $website;
     public $email;
@@ -30,7 +30,7 @@ class Verify extends Component
         $merchant->save();
 
 
-        $this->emitTo(\App\Http\Livewire\Director\Merchant\Index::getName(), 'updateList');
+        $this->emitTo(\App\Http\Livewire\Director\Store\Index::getName(), 'updateList');
         $this->emit('hideModal');
 
         $this->alert('success', __('bap.accepted'));
@@ -43,13 +43,13 @@ class Verify extends Component
         $merchant->status = 'reject';
         $merchant->save();
 
-        $this->emitTo(\App\Http\Livewire\Director\Merchant\Index::getName(), 'updateList');
+        $this->emitTo(\App\Http\Livewire\Director\Store\Index::getName(), 'updateList');
         $this->emit('hideModal');
 
         $this->alert('success', __('bap.rejected'));
     }
 
-    public function mount(Merchant $merchant)
+    public function mount(Store $merchant)
     {
         $this->merchant = $merchant;
         $this->title = $this->merchant->title;

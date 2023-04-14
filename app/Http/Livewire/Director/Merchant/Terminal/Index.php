@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Livewire\Director\Merchant\Terminal;
+namespace App\Http\Livewire\Director\Store\Terminal;
 
-use App\Models\Merchant;
+use App\Models\Store;
 use App\Models\Terminal;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Component;
@@ -16,7 +16,7 @@ class Index extends Component
 
     public $selectedItems = [];
     public $selectAll = false;
-    public Merchant $merchant;
+    public Store $merchant;
     public Terminal $terminal;
     public $search;
     public $perPage = 15;
@@ -33,7 +33,7 @@ class Index extends Component
         'updateList' => 'render'
     ];
 
-    public function mount(Merchant $merchant)
+    public function mount(Store $merchant)
     {
         $this->merchant = $merchant;
         $this->search = request()->query('search', $this->search);

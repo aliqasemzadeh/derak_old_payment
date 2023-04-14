@@ -74,8 +74,8 @@ return [
     'director_user_ban' => 'Ban User',
     'director_user_verify' => 'Verify User',
 
-    'director_merchant_index' => 'Manage Merchant',
-    'director_merchant_create' => 'Create Merchant',
+    'director_merchant_index' => 'Manage Store',
+    'director_merchant_create' => 'Create Store',
 
     'director_invoice_index' => 'Manage Invoice',
     'director_invoice_create' => 'Create Invoice',

@@ -4,7 +4,7 @@ namespace App\View\Components;
 
 use Illuminate\View\Component;
 
-class MerchantLayout extends Component
+class StoreLayout extends Component
 {
     /**
      * Create a new component instance.
@@ -23,6 +23,6 @@ class MerchantLayout extends Component
      */
     public function render()
     {
-        return view('layouts.merchant');
+        return view('layouts.store');
     }
 }

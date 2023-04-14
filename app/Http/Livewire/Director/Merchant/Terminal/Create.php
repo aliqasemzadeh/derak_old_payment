@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Livewire\Director\Merchant\Terminal;
+namespace App\Http\Livewire\Director\Store\Terminal;
 
-use App\Models\Merchant;
+use App\Models\Store;
 use App\Models\Terminal;
 use Irfa\SerialNumber\Facades\SerialNumber;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
@@ -14,7 +14,7 @@ class Create extends Component
     use LivewireAlert;
     use WithFileUploads;
 
-    public Merchant $merchant;
+    public Store $merchant;
     public $merchant_id;
     public $type = 'crypto';
     public $title;
@@ -22,7 +22,7 @@ class Create extends Component
     public $callback_password;
     public $callback_url;
 
-    public function mount(Merchant $merchant)
+    public function mount(Store $merchant)
     {
         $this->merchant = $merchant;
     }
@@ -65,7 +65,7 @@ class Create extends Component
         }
 
 
-        $this->emitTo(\App\Http\Livewire\Director\Merchant\Terminal\Index::getName(), 'updateList');
+        $this->emitTo(\App\Http\Livewire\Director\Store\Terminal\Index::getName(), 'updateList');
         $this->emit('hideModal');
 
         $this->alert('success', __('bap.created'));

@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Merchant;
+use App\Models\Store;
 use Illuminate\Support\Facades\Storage;
 
 class FileController extends Controller
 {
-    public function merchantLogo(Merchant $merchant)
+    public function storeLogo(Store $store)
     {
-        return Storage::download($merchant->logo);
+        return Storage::download($store->logo);
     }
 }

@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Livewire\Panel\Merchant;
+namespace App\Http\Livewire\Panel\Store;
 
-use App\Models\Merchant;
+use App\Models\Store;
 use App\Models\Store;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Component;
@@ -50,7 +50,7 @@ class Index extends Component
     public function updatedSelectAll($value)
     {
         if($value) {
-            $this->selectedItems = Merchant::pluck('id')->where('user_id', auth()->user()->id)->toArray();
+            $this->selectedItems = Store::pluck('id')->where('user_id', auth()->user()->id)->toArray();
         } else {
             $this->selectedItems = [];
         }
@@ -63,7 +63,7 @@ class Index extends Component
             $this->selectAll = false;
         }
     }
-    public function delete(Merchant $merchant)
+    public function delete(Store $merchant)
     {
         if(auth()->user()->id != $merchant->user_id) {
             return abort(403);
@@ -115,7 +115,7 @@ class Index extends Component
 
     public function deleteSelectedQuery()
     {
-        Merchant::query()
+        Store::query()
             ->where('user_id', auth()->user()->id)
             ->whereIn('id', $this->selectedItems)
             ->delete();
@@ -140,7 +140,7 @@ class Index extends Component
 
     public function render()
     {
-        $merchants = Merchant::filter(['search' => $this->search])->where('user_id', auth()->user()->id)->paginate($this->perPage);
+        $merchants = Store::filter(['search' => $this->search])->where('user_id', auth()->user()->id)->paginate($this->perPage);
         return view('livewire.panel.merchant.index', compact('merchants'))->layout('layouts.panel');
     }
 }

@@ -1,15 +1,15 @@
 <?php
 
-namespace App\Http\Livewire\Panel\Merchant;
+namespace App\Http\Livewire\Panel\Store;
 
-use App\Models\Merchant;
+use App\Models\Store;
 use Livewire\Component;
 
 class Verify extends Component
 {
-    public Merchant $merchant;
+    public Store $merchant;
 
-    public function mount(Merchant $merchant)
+    public function mount(Store $merchant)
     {
         $this->merchant = $merchant;
     }

@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Livewire\Panel\Merchant;
+namespace App\Http\Livewire\Panel\Store;
 
-use App\Models\Merchant;
+use App\Models\Store;
 use Illuminate\Support\Facades\Log;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Component;
@@ -35,7 +35,7 @@ class Create extends Component
            'payment_type' => 'required|array',
         ]);
 
-        $merchant = new Merchant();
+        $merchant = new Store();
         $merchant->title = $this->title;
         $merchant->phone = $this->phone;
         $merchant->email = $this->email;
@@ -64,7 +64,7 @@ class Create extends Component
         }
         $merchant->save();
 
-        $this->emitTo(\App\Http\Livewire\Panel\Merchant\Index::getName(), 'updateList');
+        $this->emitTo(\App\Http\Livewire\Panel\Store\Index::getName(), 'updateList');
         $this->emit('hideModal');
 
         $this->alert('success', __('bap.created'));

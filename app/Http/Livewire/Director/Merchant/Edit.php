@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Livewire\Director\Merchant;
+namespace App\Http\Livewire\Director\Store;
 
-use App\Models\Merchant;
+use App\Models\Store;
 use Illuminate\Support\Facades\Storage;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Component;
@@ -23,7 +23,7 @@ class Edit extends Component
     public $description;
     public $payment_type = [];
 
-    public function mount(Merchant $merchant)
+    public function mount(Store $merchant)
     {
         $this->merchant = $merchant;
         $this->title = $this->merchant->title;
@@ -89,7 +89,7 @@ class Edit extends Component
         }
         $merchant->save();
 
-        $this->emitTo(\App\Http\Livewire\Director\Merchant\Index::getName(), 'updateList');
+        $this->emitTo(\App\Http\Livewire\Director\Store\Index::getName(), 'updateList');
         $this->emit('hideModal');
 
         $this->alert('success', __('bap.edited'));
