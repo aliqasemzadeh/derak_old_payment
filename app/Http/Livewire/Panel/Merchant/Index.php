@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\Panel\Store;
+namespace App\Http\Livewire\Panel\Merchant;
 
 use App\Models\Store;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
