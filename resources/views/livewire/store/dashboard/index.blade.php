@@ -185,55 +185,55 @@
                         </thead>
                         <tbody>
                         @for ($i = 1; $i < 20; $i++)
-                        <tr>
-                            <td><span class="text-muted">{{ $i }}</span></td>
-                            <td><a href="invoice.html" class="text-reset" tabindex="-1">Trading</a></td>
-                            <td>
-                                @php
+                            <tr>
+                                <td><span class="text-muted">{{ $i }}</span></td>
+                                <td><a href="invoice.html" class="text-reset" tabindex="-1">Trading</a></td>
+                                <td>
+                                    @php
 
-                                    $collection = collect(['BEP20', 'ERC20']);
+                                        $collection = collect(['BEP20', 'ERC20']);
 
-                                    $network = $collection->random();
-                                @endphp
-                                {{ $network }}
-                            </td>
-                            <td>
-                                @php
+                                        $network = $collection->random();
+                                    @endphp
+                                    {{ $network }}
+                                </td>
+                                <td>
+                                    @php
 
-                                    $collection = collect(['USDT', 'USDC', 'DAI', 'BUSD']);
+                                        $collection = collect(['USDT', 'USDC', 'DAI', 'BUSD']);
 
-                                    $symbol = $collection->random();
-                                @endphp
-                                {{ $symbol }}
-                            </td>
-                            <td>{{ $i + rand(0, 3) }} $</td>
+                                        $symbol = $collection->random();
+                                    @endphp
+                                    {{ $symbol }}
+                                </td>
+                                <td>{{ $i + rand(0, 3) }} $</td>
 
-                            <td>
-                                @php
+                                <td>
+                                    @php
 
-                                    $collection = collect(['Paid', 'Waiting', 'Expired']);
+                                        $collection = collect(['Paid', 'Waiting', 'Expired']);
 
-                                    $status = $collection->random();
-                                @endphp
-                                @if($status == 'Paid')
-                                <span class="badge bg-success me-1"></span>
-                                @endif
+                                        $status = $collection->random();
+                                    @endphp
+                                    @if($status == 'Paid')
+                                        <span class="badge bg-success me-1"></span>
+                                    @endif
 
-                                @if($status == 'Waiting')
-                                    <span class="badge bg-warning me-1"></span>
-                                @endif
+                                    @if($status == 'Waiting')
+                                        <span class="badge bg-warning me-1"></span>
+                                    @endif
 
 
-                                @if($status == 'Expired')
-                                    <span class="badge bg-danger me-1"></span>
-                                @endif
+                                    @if($status == 'Expired')
+                                        <span class="badge bg-danger me-1"></span>
+                                    @endif
 
-                                {{ $status }}
-                            </td>
-                            <td>
-                                {{ \Carbon\Carbon::now()->addMinutes(rand(0,190)) }}
-                            </td>
-                            <td class="text-end">
+                                    {{ $status }}
+                                </td>
+                                <td>
+                                    {{ \Carbon\Carbon::now()->addMinutes(rand(0,190)) }}
+                                </td>
+                                <td class="text-end">
                                     <button class="btn btn-sm btn-ghost-success" onclick="Livewire.emit('showModal', '')">
                                         <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-file-dollar" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                             <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
@@ -243,8 +243,8 @@
                                             <path d="M12 17v1m0 -8v1"></path>
                                         </svg>
                                         {{ __('bap.view') }}</button>
-                            </td>
-                        </tr>
+                                </td>
+                            </tr>
                         @endfor
                         </tbody>
                     </table>
