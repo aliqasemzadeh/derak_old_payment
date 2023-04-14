@@ -236,6 +236,7 @@ return [
     'user_verify' => 'User Verify',
     'linker_id' => 'Linker ID',
     'upload' => 'Upload',
+    'store_dashboard' => 'Store Dashboard',
     'category_types' => [
         'article' => 'Article',
         'ticket' => 'Ticket',

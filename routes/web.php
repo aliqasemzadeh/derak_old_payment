@@ -98,6 +98,10 @@ Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['re
             Route::get('/wallet/index', \App\Http\Livewire\Director\Wallet\Index::class)->name('director.wallet.index');
             Route::get('/level/index', \App\Http\Livewire\Director\Level\Index::class)->name('director.level.index');
         });
+
+        Route::group(['prefix' => config('bap.store-prefix-url'), 'middleware' => ['auth:sanctum', 'verified', 'store']], function () {
+            Route::get('/dashboard/index', \App\Http\Livewire\Store\Dashboard\Index::class)->name('store.dashboard.index');
+        });
     });
 
 });

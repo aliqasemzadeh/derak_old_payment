@@ -7,6 +7,7 @@ return [
     'admin-prefix-url' => 'admin',
     'panel-prefix-url' => 'panel',
     'director-prefix-url' => 'director',
+    'store-prefix-url' => 'store',
     'per-page' => 15,
     'verify_code_start' => 101010,
     'verify_code_finish' => 989898,
