@@ -9,40 +9,43 @@ use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 
-class Create extends Component
+class Edit extends Component
 {
     use LivewireAlert;
     use WithFileUploads;
-
-    public Store $merchant;
-    public $merchant_id;
+    public Terminal $Terminal;
     public $type = 'crypto';
     public $title;
     public $username;
     public $callback_password;
     public $callback_url;
 
-    public function mount(Store $merchant)
+    public function mount(Terminal $terminal)
     {
-        $this->merchant = $merchant;
+        $this->terminal = $terminal;
+        $this->type = $terminal->type;
+        $this->title = $terminal->title;
+        $this->username = $terminal->username;
+        $this->callback_password = $terminal->callback_password;
+        $this->callback_url = $terminal->callback_url;
     }
 
-    public function create()
+    public function edit()
     {
+
         if($this->type == 'crypto') {
             $this->validate([
                 'title' => 'required|string',
-                'username' => 'nullable|required|string|unique:terminals',
+                'username' => ['nullable','string', Rule::unique('terminals')->ignore($this->terminal->id)],
                 'callback_url' => 'required|url',
                 'callback_password' => 'required|string',
             ]);
 
-            $terminal = new Terminal();
+            $terminal = $this->terminal;
             $terminal->title = $this->title;
             $terminal->type = $this->type;
             $terminal->username = $this->username;
             $terminal->user_id = auth()->user()->id;
-            $terminal->merchant_id = $this->merchant->id;
             $terminal->callback_url = $this->callback_url;
             $terminal->callback_password = $this->callback_password;
             $terminal->api_key = SerialNumber::generate();
@@ -51,15 +54,14 @@ class Create extends Component
         } else {
             $this->validate([
                 'title' => 'required|string',
-                'username' => 'nullable|string|unique:terminals',
+                'username' => ['nullable','string', Rule::unique('terminals')->ignore($this->terminal->id)],
             ]);
 
-            $terminal = new Terminal();
+            $terminal = $this->terminal;
             $terminal->title = $this->title;
             $terminal->type = $this->type;
             $terminal->username = $this->username;
             $terminal->user_id = auth()->user()->id;
-            $terminal->merchant_id = $this->merchant->id;
             $terminal->api_key = SerialNumber::generate();
             $terminal->save();
         }
@@ -73,6 +75,6 @@ class Create extends Component
 
     public function render()
     {
-        return view('livewire.director.merchant.terminal.create');
+        return view('livewire.director.store.terminal.edit');
     }
 }

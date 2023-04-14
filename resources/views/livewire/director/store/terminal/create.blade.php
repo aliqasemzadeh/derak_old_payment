@@ -1,9 +1,9 @@
 <div class="modal-dialog modal-lg">
     <form wire:submit.prevent="create">
-        <input type="hidden" name="merchant_id" value="{{ $merchant->id }}" wire:model="merchant_id" />
+        <input type="hidden" name="merchant_id" value="{{ $store->id }}" wire:model="merchant_id" />
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">{{ __('bap.create_terminal') }}: {{ $merchant->title }}</h5>
+                <h5 class="modal-title">{{ __('bap.create_terminal') }}: {{ $store->title }}</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="{{ __('bap.close') }}"></button>
             </div>
             <div class="modal-body">

@@ -13,7 +13,7 @@ class Edit extends Component
     use LivewireAlert;
     use WithFileUploads;
 
-    public $merchant;
+    public $store;
     public $title;
     public $website;
     public $email;
@@ -23,9 +23,9 @@ class Edit extends Component
     public $description;
     public $payment_type = [];
 
-    public function mount(Store $merchant)
+    public function mount(Store $store)
     {
-        $this->merchant = $merchant;
+        $this->merchant = $store;
         $this->title = $this->merchant->title;
         $this->phone = $this->merchant->phone;
         $this->email = $this->merchant->email;
@@ -52,42 +52,42 @@ class Edit extends Component
             'payment_type' => 'required|array',
         ]);
 
-        $merchant = $this->merchant;
-        $merchant->title = $this->title;
-        $merchant->phone = $this->phone;
-        $merchant->email = $this->email;
-        $merchant->address = $this->address;
-        $merchant->description = $this->description;
-        $merchant->website = $this->website;
+        $store = $this->merchant;
+        $store->title = $this->title;
+        $store->phone = $this->phone;
+        $store->email = $this->email;
+        $store->address = $this->address;
+        $store->description = $this->description;
+        $store->website = $this->website;
         if($this->logo) {
-            Storage::delete($merchant->logo);
-            $merchant->logo = $this->logo->store('merchant_logos');
+            Storage::delete($store->logo);
+            $store->logo = $this->logo->store('merchant_logos');
         }
-        $merchant->user_id = auth()->user()->id;
+        $store->user_id = auth()->user()->id;
 
         foreach ($this->payment_type as $key => $payment_type) {
             if($key == 'crypto') {
                 if($payment_type) {
-                    $merchant->crypto = 'enable';
+                    $store->crypto = 'enable';
                 } else {
-                    $merchant->crypto = 'disable';
+                    $store->crypto = 'disable';
                 }
             }
 
             if($key == 'fiat') {
                 if($payment_type) {
                     if($this->merchant->fiat == 'enable')  {
-                        $merchant->fiat = 'enable';
+                        $store->fiat = 'enable';
                     } else {
-                        $merchant->fiat = 'verify';
+                        $store->fiat = 'verify';
                     }
                 } else {
-                    $merchant->fiat = 'disable';
+                    $store->fiat = 'disable';
                 }
             }
 
         }
-        $merchant->save();
+        $store->save();
 
         $this->emitTo(\App\Http\Livewire\Panel\Store\Index::getName(), 'updateList');
         $this->emit('hideModal');

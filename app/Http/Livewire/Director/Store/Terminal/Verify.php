@@ -8,6 +8,6 @@ class Verify extends Component
 {
     public function render()
     {
-        return view('livewire.director.merchant.terminal.verify');
+        return view('livewire.director.store.terminal.verify');
     }
 }

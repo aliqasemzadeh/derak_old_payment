@@ -2,22 +2,23 @@
 
 namespace App\Http\Livewire\Director\Store\Terminal;
 
-use App\Models\Store;
 use App\Models\Terminal;
+use App\Models\Transaction;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Component;
 use Livewire\WithPagination;
 
-class Index extends Component
+class Transactions extends Component
 {
-
     use WithPagination;
     use LivewireAlert;
 
+    public Terminal $terminal;
+    public Transaction $transaction;
     public $selectedItems = [];
     public $selectAll = false;
-    public Store $merchant;
-    public Terminal $terminal;
+
+    public $symbol;
     public $search;
     public $perPage = 15;
     public $sortColumn = 'updated_at';
@@ -33,10 +34,11 @@ class Index extends Component
         'updateList' => 'render'
     ];
 
-    public function mount(Store $merchant)
+
+    public function mount(Terminal $terminal)
     {
-        $this->merchant = $merchant;
         $this->search = request()->query('search', $this->search);
+        $this->terminal = $terminal;
     }
 
     public function clear()
@@ -52,7 +54,7 @@ class Index extends Component
     public function updatedSelectAll($value)
     {
         if($value) {
-            $this->selectedItems = Terminal::pluck('id')->where('user_id', auth()->user()->id)->toArray();
+            $this->selectedItems = Transaction::pluck('id')->where('type', 'Terminal')->where('linker_id', $this->terminal->id)->toArray();
         } else {
             $this->selectedItems = [];
         }
@@ -65,11 +67,8 @@ class Index extends Component
             $this->selectAll = false;
         }
     }
-    public function delete(Terminal $terminal)
+    public function delete(Transaction $transaction)
     {
-        if(auth()->user()->id != $terminal->user_id) {
-            return abort(403);
-        }
         $this->confirm(__('bap.are_you_sure'), [
             'toast' => false,
             'position' => 'center',
@@ -78,16 +77,16 @@ class Index extends Component
             'onConfirmed' => 'confirmedDeleteItem',
             'onCancelled' => 'cancelledDeleteItem'
         ]);
-        $this->terminal = $terminal;
+        $this->transaction = $transaction;
     }
 
     public function confirmedDeleteItem()
     {
-        if(auth()->user()->id != $this->terminal->user_id) {
+        if(auth()->user()->id != $this->transaction->user_id) {
             return abort(403);
         }
 
-        $this->terminal->delete();
+        $this->transaction->delete();
         $this->emit('updateList');
         $this->alert(
             'success',
@@ -117,8 +116,7 @@ class Index extends Component
 
     public function deleteSelectedQuery()
     {
-        Terminal::query()
-            ->where('user_id', auth()->user()->id)
+        Transaction::query()
             ->whereIn('id', $this->selectedItems)
             ->delete();
         $this->selectedItems = [];
@@ -142,7 +140,7 @@ class Index extends Component
 
     public function render()
     {
-        $terminals = Terminal::filter(['search' => $this->search])->where('merchant_id', $this->merchant->id)->where('user_id', auth()->user()->id)->paginate($this->perPage);
-        return view('livewire.director.merchant.terminal.index', compact('terminals'))->layout('layouts.director');
+        $transactions = Transaction::where('type', 'Terminal')->where('linker_id', $this->terminal->id)->orderBy($this->sortColumn, $this->sortDirection)->paginate($this->perPage);
+        return view('livewire.director.store.terminal.transactions', compact('transactions'))->layout('layouts.director');
     }
 }

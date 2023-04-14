@@ -7,11 +7,11 @@ use Livewire\Component;
 
 class Verify extends Component
 {
-    public Store $merchant;
+    public Store $store;
 
-    public function mount(Store $merchant)
+    public function mount(Store $store)
     {
-        $this->merchant = $merchant;
+        $this->merchant = $store;
     }
     public function render()
     {

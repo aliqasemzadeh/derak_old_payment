@@ -3,7 +3,6 @@
 namespace App\Http\Livewire\Panel\Store;
 
 use App\Models\Store;
-use App\Models\Store;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Component;
 use Livewire\WithPagination;
@@ -16,7 +15,7 @@ class Index extends Component
     public $selectedItems = [];
     public $selectAll = false;
 
-    public $merchant;
+    public $store;
     public $search;
     public $perPage = 15;
     public $sortColumn = 'updated_at';
@@ -63,9 +62,9 @@ class Index extends Component
             $this->selectAll = false;
         }
     }
-    public function delete(Store $merchant)
+    public function delete(Store $store)
     {
-        if(auth()->user()->id != $merchant->user_id) {
+        if(auth()->user()->id != $store->user_id) {
             return abort(403);
         }
         $this->confirm(__('bap.are_you_sure'), [
@@ -76,7 +75,7 @@ class Index extends Component
             'onConfirmed' => 'confirmedDeleteItem',
             'onCancelled' => 'cancelledDeleteItem'
         ]);
-        $this->merchant = $merchant;
+        $this->merchant = $store;
     }
 
     public function confirmedDeleteItem()
@@ -140,7 +139,7 @@ class Index extends Component
 
     public function render()
     {
-        $merchants = Store::filter(['search' => $this->search])->where('user_id', auth()->user()->id)->paginate($this->perPage);
+        $stores = Store::filter(['search' => $this->search])->where('user_id', auth()->user()->id)->paginate($this->perPage);
         return view('livewire.panel.merchant.index', compact('merchants'))->layout('layouts.panel');
     }
 }

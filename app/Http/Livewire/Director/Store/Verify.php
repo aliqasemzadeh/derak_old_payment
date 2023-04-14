@@ -12,7 +12,7 @@ class Verify extends Component
     use LivewireAlert;
     use WithFileUploads;
 
-    public Store $merchant;
+    public Store $store;
     public $title;
     public $website;
     public $email;
@@ -24,10 +24,10 @@ class Verify extends Component
     public $payment_type = [];
     public function verify()
     {
-        $merchant = $this->merchant;
-        $merchant->note = $this->note;
-        $merchant->status = 'enable';
-        $merchant->save();
+        $store = $this->merchant;
+        $store->note = $this->note;
+        $store->status = 'enable';
+        $store->save();
 
 
         $this->emitTo(\App\Http\Livewire\Director\Store\Index::getName(), 'updateList');
@@ -38,10 +38,10 @@ class Verify extends Component
 
     public function reject()
     {
-        $merchant = $this->merchant;
-        $merchant->note = $this->note;
-        $merchant->status = 'reject';
-        $merchant->save();
+        $store = $this->merchant;
+        $store->note = $this->note;
+        $store->status = 'reject';
+        $store->save();
 
         $this->emitTo(\App\Http\Livewire\Director\Store\Index::getName(), 'updateList');
         $this->emit('hideModal');
@@ -49,9 +49,9 @@ class Verify extends Component
         $this->alert('success', __('bap.rejected'));
     }
 
-    public function mount(Store $merchant)
+    public function mount(Store $store)
     {
-        $this->merchant = $merchant;
+        $this->merchant = $store;
         $this->title = $this->merchant->title;
         $this->phone = $this->merchant->phone;
         $this->email = $this->merchant->email;
@@ -67,6 +67,6 @@ class Verify extends Component
     }
     public function render()
     {
-        return view('livewire.director.merchant.verify');
+        return view('livewire.director.store.verify');
     }
 }

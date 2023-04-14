@@ -7,14 +7,14 @@ use Livewire\Component;
 
 class View extends Component
 {
-    public Store $merchant;
+    public Store $store;
 
-    public function mount(Store $merchant)
+    public function mount(Store $store)
     {
-        $this->merchant = $merchant;
+        $this->store = $store;
     }
     public function render()
     {
-        return view('livewire.director.merchant.view');
+        return view('livewire.director.store.view');
     }
 }

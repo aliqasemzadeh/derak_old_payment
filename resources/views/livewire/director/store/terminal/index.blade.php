@@ -1,30 +1,34 @@
 <div>
     <x-slot name="title">
-        {{ __('bap.merchants') }}
+    {{ $store->title }} - {{ __('bap.terminals') }}
     </x-slot>
     <x-slot name="actions">
-        <div class="col-auto ms-auto d-print-none">
-            <div class="btn-list">
-                <button onclick="Livewire.emit('showModal', 'director.merchant.create')" class="btn btn-primary d-none d-sm-inline-block">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
-                    {{ __('bap.create_merchant') }}
-                </button>
-                <button onclick="Livewire.emit('showModal', 'director.merchant.create')" class="btn btn-primary d-sm-none btn-icon" aria-label="{{ __('bap.create_store') }}">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
-                </button>
-            </div>
+    <div class="col-auto ms-auto d-print-none">
+        <div class="btn-list">
+            <button onclick="Livewire.emit('showModal', 'director.merchant.terminal.create', '{{ json_encode($store->id) }}')" class="btn btn-primary d-none d-sm-inline-block">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                {{ __('bap.create_terminal') }}
+            </button>
+            <button onclick="Livewire.emit('showModal', 'director.merchant.terminal.create', '{{ json_encode($store->id) }}')" class="btn btn-primary d-sm-none btn-icon" aria-label="{{ __('bap.create_terminal') }}">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+            </button>
         </div>
+    </div>
     </x-slot>
+
+
     <x-slot name="breadcrumb">
         <ol class="breadcrumb breadcrumb-arrows" aria-label="breadcrumbs">
             <li class="breadcrumb-item"><a href="{{ route('director.dashboard.index') }}">{{ __('bap.dashboard') }}</a></li>
-            <li class="breadcrumb-item active" aria-current="page"><a href="{{ route('director.merchant.index') }}">{{ __('bap.merchants') }}</a></li>
+            <li class="breadcrumb-item"><a href="{{ route('director.merchant.index') }}">{{ __('bap.merchants') }}</a></li>
+            <li class="breadcrumb-item active" aria-current="page"><a href="{{ route('director.merchant.terminal.index', [$store->id]) }}">{{ $store->title }} - {{ __('bap.terminals') }}</a></li>
         </ol>
     </x-slot>
 
+
     <div class="card">
         <div class="card-header">
-            <h3 class="card-title">{{ __('bap.merchants') }}</h3>
+            <h3 class="card-title">{{ $store->title }} - {{ __('bap.terminals') }}</h3>
         </div>
         <div class="card-body">
             <div class="d-flex">
@@ -85,6 +89,30 @@
                             @endif
                         @endif
                     </th>
+                    <th wire:click="sortByColumn('type')">{{ __('bap.type') }}
+                        @if ($sortColumn == 'type')
+                            @if($sortDirection == 'asc')
+                                <!-- Download SVG icon from http://tabler-icons.io/i/chevron-up -->
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-sm text-dark icon-thick" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><polyline points="6 15 12 9 18 15" /></svg>
+                            @else
+                                <!-- Download SVG icon from http://tabler-icons.io/i/chevron-down -->
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-sm text-dark icon-thick" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><polyline points="6 9 12 15 18 9" /></svg>
+
+                            @endif
+                        @endif
+                    </th>
+                    <th wire:click="sortByColumn('api_key')">{{ __('bap.api_key') }}
+                        @if ($sortColumn == 'api_key')
+                            @if($sortDirection == 'asc')
+                                <!-- Download SVG icon from http://tabler-icons.io/i/chevron-up -->
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-sm text-dark icon-thick" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><polyline points="6 15 12 9 18 15" /></svg>
+                            @else
+                                <!-- Download SVG icon from http://tabler-icons.io/i/chevron-down -->
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-sm text-dark icon-thick" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><polyline points="6 9 12 15 18 9" /></svg>
+
+                            @endif
+                        @endif
+                    </th>
                     <th wire:click="sortByColumn('created_at')">{{ __('bap.created_at') }}
                         @if ($sortColumn == 'created_at')
                             @if($sortDirection == 'asc')
@@ -101,15 +129,15 @@
                 </tr>
                 </thead>
                 <tbody>
-                @foreach($merchants as $merchant)
+                @foreach($terminals as $terminal)
                     <tr>
                         <td>
                             <div class="d-flex py-1 align-items-center">
-                                <span class="avatar me-2" style="background-image: url('{{ route('file.merchant.logo', [$merchant->id]) }}')"></span>
+                                <span class="avatar me-2" style="background-image: url('{{ route('file.merchant.logo', [$store->id]) }}')"></span>
                                 <div class="flex-fill">
-                                    <div class="font-weight-medium">{{ $merchant->title }}</div>
+                                    <div class="font-weight-medium">{{ $terminal->title }}</div>
                                     <div class="text-muted">
-                                        @if($merchant->crypto)
+                                        @if($terminal->type == 'crypto')
                                             <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-coin-bitcoin" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                                 <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                                                 <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"></path>
@@ -120,55 +148,68 @@
                                                 <path d="M13 16v1"></path>
                                             </svg>
                                             {{ __('bap.crypto') }}</span>
+                                        @else
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-wallet" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                                <path d="M17 8v-3a1 1 0 0 0 -1 -1h-10a2 2 0 0 0 0 4h12a1 1 0 0 1 1 1v3m0 4v3a1 1 0 0 1 -1 1h-12a2 2 0 0 1 -2 -2v-12"></path>
+                                                <path d="M20 12v4h-4a2 2 0 0 1 0 -4h4"></path>
+                                            </svg>
+                                            {{ __('bap.fiat') }}
                                         @endif
-
-                                            @if($merchant->fiat)
-
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-wallet" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                           <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                           <path d="M17 8v-3a1 1 0 0 0 -1 -1h-10a2 2 0 0 0 0 4h12a1 1 0 0 1 1 1v3m0 4v3a1 1 0 0 1 -1 1h-12a2 2 0 0 1 -2 -2v-12"></path>
-                                           <path d="M20 12v4h-4a2 2 0 0 1 0 -4h4"></path>
-                                        </svg>
-                                        {{ __('bap.fiat') }}
-                                            @endif
 
                                     </div>
                                 </div>
                             </div>
                         </td>
                         <td>
-                            {{ __('bap.'.$merchant->status) }}
+                            {{ __('bap.'.$terminal->status) }}
                         </td>
                         <td>
-                            {{ $merchant->created_at }}
+                            {{ __('bap.'.$terminal->type) }}
+                        </td>
+                        <td x-data="{ api_key: '{{ $terminal->api_key }}' }">
+                            {{ $terminal->api_key }}
+                            <button class="btn-action" x-clipboard="api_key">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copy" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                    <path d="M8 8m0 2a2 2 0 0 1 2 -2h8a2 2 0 0 1 2 2v8a2 2 0 0 1 -2 2h-8a2 2 0 0 1 -2 -2z"></path>
+                                    <path d="M16 8v-2a2 2 0 0 0 -2 -2h-8a2 2 0 0 0 -2 2v8a2 2 0 0 0 2 2h2"></path>
+                                </svg>
+                            </button>
+                        </td>
+                        <td>
+                            {{ $terminal->created_at }}
                         </td>
                         <td class="text-end">
-                            <button onclick="Livewire.emit('showModal', 'director.merchant.edit', '{{ json_encode($merchant->id) }}')" class="btn btn-primary btn-icon btn-sm">
+                            <button onclick="Livewire.emit('showModal', 'director.merchant.terminal.edit', '{{ json_encode($terminal->id) }}')" class="btn btn-primary btn-icon btn-sm">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 7h-3a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-3" /><path d="M9 15h3l8.5 -8.5a1.5 1.5 0 0 0 -3 -3l-8.5 8.5v3" /><line x1="16" y1="5" x2="19" y2="8" /></svg>
                             </button>
 
 
-                            @if($merchant->status != 'enable')
-                            <button onclick="Livewire.emit('showModal', 'director.merchant.verify', '{{ json_encode($merchant->id) }}')" class="btn btn-warning btn-icon btn-sm">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-zoom-check" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                    <path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0"></path>
-                                    <path d="M21 21l-6 -6"></path>
-                                    <path d="M7 10l2 2l4 -4"></path>
-                                </svg>
-                            </button>
+                            @if($store->status != 'enable')
+                                <button onclick="Livewire.emit('showModal', 'director.merchant.terminal.verify', '{{ json_encode($terminal->id) }}')" class="btn btn-warning btn-icon btn-sm">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-zoom-check" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                        <path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0"></path>
+                                        <path d="M21 21l-6 -6"></path>
+                                        <path d="M7 10l2 2l4 -4"></path>
+                                    </svg>
+                                </button>
                             @endif
 
-                            <a href="{{ route('director.merchant.terminal.index', [$merchant->id]) }}" class="btn btn-dark btn-icon btn-sm">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-terminal-2" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <a href="{{ route('director.merchant.terminal.transactions', [$terminal->id]) }}" class="btn btn-success btn-icon btn-sm">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-list" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                     <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                    <path d="M8 9l3 3l-3 3"></path>
-                                    <path d="M13 15l3 0"></path>
-                                    <path d="M3 4m0 2a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2z"></path>
+                                    <path d="M9 6l11 0"></path>
+                                    <path d="M9 12l11 0"></path>
+                                    <path d="M9 18l11 0"></path>
+                                    <path d="M5 6l0 .01"></path>
+                                    <path d="M5 12l0 .01"></path>
+                                    <path d="M5 18l0 .01"></path>
                                 </svg>
                             </a>
 
-                            <button wire:click="delete({{ $merchant->id }})" class="btn btn-danger btn-icon btn-sm">
+                            <button wire:click="delete({{ $terminal->id }})" class="btn btn-danger btn-icon btn-sm">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><line x1="4" y1="7" x2="20" y2="7" /><line x1="10" y1="11" x2="10" y2="17" /><line x1="14" y1="11" x2="14" y2="17" /><path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12" /><path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3" /></svg>
                             </button>
                         </td>
@@ -178,7 +219,7 @@
             </table>
         </div>
         <div class="card-footer d-flex justify-content-between">
-            {{ $merchants->links() }}
+            {{ $terminals->links() }}
         </div>
     </div>
 </div>

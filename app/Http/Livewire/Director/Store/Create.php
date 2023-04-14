@@ -35,34 +35,34 @@ class Create extends Component
            'payment_type' => 'required|array',
         ]);
 
-        $merchant = new Store();
-        $merchant->title = $this->title;
-        $merchant->phone = $this->phone;
-        $merchant->email = $this->email;
-        $merchant->address = $this->address;
-        $merchant->description = $this->description;
-        $merchant->website = $this->website;
-        $merchant->logo = $this->logo->store('merchant_logos');
-        $merchant->user_id = auth()->user()->id;
+        $store = new Store();
+        $store->title = $this->title;
+        $store->phone = $this->phone;
+        $store->email = $this->email;
+        $store->address = $this->address;
+        $store->description = $this->description;
+        $store->website = $this->website;
+        $store->logo = $this->logo->store('merchant_logos');
+        $store->user_id = auth()->user()->id;
 
         foreach ($this->payment_type as $key => $payment_type) {
             if($key == 'crypto') {
                 if($payment_type) {
-                    $merchant->crypto = 'enable';
+                    $store->crypto = 'enable';
                 } else {
-                    $merchant->crypto = 'disable';
+                    $store->crypto = 'disable';
                 }
             }
 
             if($key == 'fiat') {
                 if($payment_type) {
-                    $merchant->fiat = 'verify';
+                    $store->fiat = 'verify';
                 } else {
-                    $merchant->fiat = 'disable';
+                    $store->fiat = 'disable';
                 }
             }
         }
-        $merchant->save();
+        $store->save();
 
         $this->emitTo(\App\Http\Livewire\Director\Store\Index::getName(), 'updateList');
         $this->emit('hideModal');
@@ -71,6 +71,6 @@ class Create extends Component
     }
     public function render()
     {
-        return view('livewire.director.merchant.create');
+        return view('livewire.director.store.create');
     }
 }
