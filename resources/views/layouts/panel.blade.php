@@ -50,7 +50,7 @@
 
 
                     <li class="nav-item @if(\Illuminate\Support\Facades\Route::is('panel.merchant.index')) active @endif">
-                        <a class="nav-link" href="{{ route('panel.merchant.index') }}" >
+                        <a class="nav-link" href="{{ route('panel.store.index') }}" >
                             <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-building-store" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                 <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                                 <path d="M3 21l18 0"></path>
