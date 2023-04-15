@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\Panel\Terminal;
+namespace App\Http\Livewire\Panel\Store\Terminal;
 
 use Livewire\Component;
 

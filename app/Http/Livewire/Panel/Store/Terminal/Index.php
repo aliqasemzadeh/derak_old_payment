@@ -1,10 +1,8 @@
 <?php
 
-namespace App\Http\Livewire\Panel\Terminal;
+namespace App\Http\Livewire\Panel\Store\Terminal;
 
-use App\Models\Article;
 use App\Models\Terminal;
-use App\Models\Ticket;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Component;
 use Livewire\WithPagination;

@@ -44,16 +44,16 @@ Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['re
             Route::get('/support/ticket/create', \App\Http\Livewire\Panel\Support\Ticket\Create::class)->name('panel.support.ticket.create');
             Route::get('/support/ticket/view/{ticket}', \App\Http\Livewire\Panel\Support\Ticket\View::class)->name('panel.support.ticket.view');
 
-            Route::get('/terminal/index', \App\Http\Livewire\Panel\Terminal\Index::class)->name('panel.terminal.index');
-            Route::get('/terminal/view/{terminal}', \App\Http\Livewire\Panel\Terminal\View::class)->name('panel.terminal.view');
+            //Route::get('/terminal/index', \App\Http\Livewire\Panel\Store\Terminal\Index::class)->name('panel.terminal.index');
+            //Route::get('/terminal/view/{terminal}', \App\Http\Livewire\Panel\Store\Terminal\View::class)->name('panel.terminal.view');
 
             Route::get('/wallet/index', \App\Http\Livewire\Panel\Wallet\Index::class)->name('panel.wallet.index');
-            Route::get('/store/index', \App\Http\Livewire\Panel\Store\Index::class)->name('panel.store.index');
-            Route::get('/store/index', \App\Http\Livewire\Panel\Store\Index::class)->name('panel.store.index');
-            Route::get('/invoice/index', \App\Http\Livewire\Panel\Invoice\Index::class)->name('panel.invoice.index');
-            Route::get('/invoice/view/{invoice}', \App\Http\Livewire\Panel\Invoice\View::class)->name('panel.invoice.view');
-            Route::get('/store/view/{store}', \App\Http\Livewire\Panel\Store\View::class)->name('panel.store.view');
-            Route::get('/store/verify/{store}', \App\Http\Livewire\Panel\Store\Verify::class)->name('panel.store.verify');
+            //Route::get('/store/index', \App\Http\Livewire\Panel\Store\Index::class)->name('panel.store.index');
+            //Route::get('/store/index', \App\Http\Livewire\Panel\Store\Index::class)->name('panel.store.index');
+            //Route::get('/invoice/index', \App\Http\Livewire\Panel\Invoice\Index::class)->name('panel.invoice.index');
+            //Route::get('/invoice/view/{invoice}', \App\Http\Livewire\Panel\Invoice\View::class)->name('panel.invoice.view');
+            //Route::get('/store/view/{store}', \App\Http\Livewire\Panel\Store\View::class)->name('panel.store.view');
+            //Route::get('/store/verify/{store}', \App\Http\Livewire\Panel\Store\Verify::class)->name('panel.store.verify');
 
         });
 
@@ -101,6 +101,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['re
 
         Route::group(['prefix' => config('bap.store-prefix-url'), 'middleware' => ['auth:sanctum', 'verified', 'store']], function () {
             Route::get('/dashboard/index', \App\Http\Livewire\Store\Dashboard\Index::class)->name('store.dashboard.index');
+            Route::get('/index', \App\Http\Livewire\Store\Index::class)->name('store.index');
         });
     });
 

@@ -1,25 +1,32 @@
 <?php
 
-namespace App\Http\Livewire\Panel\Terminal;
+namespace App\Http\Livewire\Panel\Store\Terminal;
 
 use App\Models\Terminal;
-use Illuminate\Support\Str;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Component;
 
-class Create extends Component
+class Edit extends Component
 {
     use LivewireAlert;
     public $title;
     public $callback_url;
     public $password;
+    public $terminal;
 
     protected $listeners = [
         'updateList' => 'render'
     ];
 
+    public function mount(Terminal $terminal)
+    {
+        $this->terminal = $terminal;
+        $this->title = $terminal->title;
+        $this->callback_url = $terminal->callback_url;
+    }
 
-    public function create()
+
+    public function edit()
     {
         $this->validate([
             'title' => 'required|string',
@@ -27,23 +34,23 @@ class Create extends Component
             'password' => 'nullable',
         ]);
 
-        $terminal = new Terminal();
-        $terminal->user_id = auth()->user()->id;
-        $terminal->uuid = Str::uuid();
+        $terminal = $this->terminal;
         $terminal->title = $this->title;
         $terminal->callback_url = $this->callback_url;
-        $terminal->password = $this->password;
+        if($this->password) {
+            $terminal->password = $this->password;
+        }
         $terminal->save();
 
-        $this->emitTo(\App\Http\Livewire\Panel\Terminal\Index::getName(), 'updateList');
+        $this->emitTo(\App\Http\Livewire\Panel\Store\Terminal\Index::getName(), 'updateList');
         $this->emit('hideModal');
 
-        $this->alert('success', __('bap.created'));
+        $this->alert('success', __('bap.edited'));
 
     }
 
     public function render()
     {
-        return view('livewire.panel.terminal.create');
+        return view('livewire.panel.terminal.edit');
     }
 }

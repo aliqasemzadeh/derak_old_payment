@@ -11,10 +11,10 @@ class View extends Component
 
     public function mount(Store $store)
     {
-        $this->merchant = $store;
+        $this->store = $store;
     }
     public function render()
     {
-        return view('livewire.panel.merchant.view');
+        return view('livewire.panel.store.view');
     }
 }

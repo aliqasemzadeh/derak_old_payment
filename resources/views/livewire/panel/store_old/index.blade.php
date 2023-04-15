@@ -1,15 +1,15 @@
 <div>
     <x-slot name="title">
-        {{ __('bap.merchants') }}
+        {{ __('bap.stores') }}
     </x-slot>
     <x-slot name="actions">
         <div class="col-auto ms-auto d-print-none">
             <div class="btn-list">
-                <button onclick="Livewire.emit('showModal', 'director.merchant.create')" class="btn btn-primary d-none d-sm-inline-block">
+                <button onclick="Livewire.emit('showModal', 'panel.store.create')" class="btn btn-primary d-none d-sm-inline-block">
                     <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
-                    {{ __('bap.create_merchant') }}
+                    {{ __('bap.create_store') }}
                 </button>
-                <button onclick="Livewire.emit('showModal', 'director.merchant.create')" class="btn btn-primary d-sm-none btn-icon" aria-label="{{ __('bap.create_store') }}">
+                <button onclick="Livewire.emit('showModal', 'panel.store.create')" class="btn btn-primary d-sm-none btn-icon" aria-label="{{ __('bap.create_store') }}">
                     <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
                 </button>
             </div>
@@ -17,14 +17,14 @@
     </x-slot>
     <x-slot name="breadcrumb">
         <ol class="breadcrumb breadcrumb-arrows" aria-label="breadcrumbs">
-            <li class="breadcrumb-item"><a href="{{ route('director.dashboard.index') }}">{{ __('bap.dashboard') }}</a></li>
-            <li class="breadcrumb-item active" aria-current="page"><a href="{{ route('director.merchant.index') }}">{{ __('bap.merchants') }}</a></li>
+            <li class="breadcrumb-item"><a href="{{ route('panel.dashboard.index') }}">{{ __('bap.dashboard') }}</a></li>
+            <li class="breadcrumb-item active" aria-current="page"><a href="{{ route('panel.store.index') }}">{{ __('bap.stores') }}</a></li>
         </ol>
     </x-slot>
 
     <div class="card">
         <div class="card-header">
-            <h3 class="card-title">{{ __('bap.merchants') }}</h3>
+            <h3 class="card-title">{{ __('bap.stores') }}</h3>
         </div>
         <div class="card-body">
             <div class="d-flex">
@@ -73,7 +73,18 @@
                             @endif
                         @endif
                     </th>
+                    <th wire:click="sortByColumn('store_id')">{{ __('bap.store_id') }}
+                        @if ($sortColumn == 'total')
+                            @if($sortDirection == 'asc')
+                                <!-- Download SVG icon from http://tabler-icons.io/i/chevron-up -->
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-sm text-dark icon-thick" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><polyline points="6 15 12 9 18 15" /></svg>
+                            @else
+                                <!-- Download SVG icon from http://tabler-icons.io/i/chevron-down -->
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-sm text-dark icon-thick" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><polyline points="6 9 12 15 18 9" /></svg>
 
+                            @endif
+                        @endif
+                    </th>
                     <th></th>
                 </tr>
                 </thead>
@@ -82,29 +93,20 @@
                     <tr>
                         <td>
                             <div class="d-flex py-1 align-items-center">
-                                <span class="avatar me-2" style="background-image: url('{{ route('file.merchant.logo', [$store->id]) }}')"></span>
                                 <div class="flex-fill">
                                     <div class="font-weight-medium">{{ $store->title }}</div>
-                                    <div class="text-muted">{{ $store->description }}</div>
                                 </div>
                             </div>
                         </td>
+                        <td>
+                            {{ $store->store_id }}
+                        </td>
                         <td class="text-end">
-                            <button onclick="Livewire.emit('showModal', 'director.merchant.edit', '{{ json_encode($store->id) }}')" class="btn btn-primary btn-icon btn-sm">
+                            <button onclick="Livewire.emit('showModal', 'panel.store.edit', '{{ json_encode($store->id) }}')" class="btn btn-primary btn-icon btn-sm">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 7h-3a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-3" /><path d="M9 15h3l8.5 -8.5a1.5 1.5 0 0 0 -3 -3l-8.5 8.5v3" /><line x1="16" y1="5" x2="19" y2="8" /></svg>
                             </button>
 
-                            <a href="{{ route('director.merchant.verify', [$store->id]) }}" class="btn btn-secondary btn-icon btn-sm">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-zoom-check" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                    <path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0"></path>
-                                    <path d="M21 21l-6 -6"></path>
-                                    <path d="M7 10l2 2l4 -4"></path>
-                                </svg>
-                            </a>
-
-
-                            <a href="{{ route('director.merchant.view', [$store->id]) }}" class="btn btn-warning btn-icon btn-sm">
+                            <a href="{{ route('panel.store.view', [$store->id]) }}" class="btn btn-warning btn-icon btn-sm">
                                 <!-- Download SVG icon from http://tabler-icons.io/i/eye -->
                                 <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-list-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                     <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
@@ -116,6 +118,14 @@
                                 </svg>
                             </a>
 
+                            <a href="{{ route('store.view', [$store->id]) }}" class="btn btn-secondary btn-dark btn-icon btn-sm">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-external-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                    <path d="M11 7h-5a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-5"></path>
+                                    <path d="M10 14l10 -10"></path>
+                                    <path d="M15 4l5 0l0 5"></path>
+                                </svg>
+                            </a>
                             <button wire:click="delete({{ $store->id }})" class="btn btn-danger btn-icon btn-sm">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><line x1="4" y1="7" x2="20" y2="7" /><line x1="10" y1="11" x2="10" y2="17" /><line x1="14" y1="11" x2="14" y2="17" /><path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12" /><path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3" /></svg>
                             </button>

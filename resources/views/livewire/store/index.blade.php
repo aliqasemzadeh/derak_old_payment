@@ -1,15 +1,15 @@
 <div>
     <x-slot name="title">
-        {{ __('bap.merchants') }}
+        {{ __('bap.stores') }}
     </x-slot>
     <x-slot name="actions">
         <div class="col-auto ms-auto d-print-none">
             <div class="btn-list">
-                <button onclick="Livewire.emit('showModal', 'director.merchant.create')" class="btn btn-primary d-none d-sm-inline-block">
+                <button onclick="Livewire.emit('showModal', 'store.create')" class="btn btn-primary d-none d-sm-inline-block">
                     <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
                     {{ __('bap.create_merchant') }}
                 </button>
-                <button onclick="Livewire.emit('showModal', 'director.merchant.create')" class="btn btn-primary d-sm-none btn-icon" aria-label="{{ __('bap.create_store') }}">
+                <button onclick="Livewire.emit('showModal', 'store.create')" class="btn btn-primary d-sm-none btn-icon" aria-label="{{ __('bap.create_store') }}">
                     <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
                 </button>
             </div>
@@ -17,14 +17,14 @@
     </x-slot>
     <x-slot name="breadcrumb">
         <ol class="breadcrumb breadcrumb-arrows" aria-label="breadcrumbs">
-            <li class="breadcrumb-item"><a href="{{ route('director.dashboard.index') }}">{{ __('bap.dashboard') }}</a></li>
-            <li class="breadcrumb-item active" aria-current="page"><a href="{{ route('director.merchant.index') }}">{{ __('bap.merchants') }}</a></li>
+            <li class="breadcrumb-item"><a href="{{ route('store.dashboard.index') }}">{{ __('bap.dashboard') }}</a></li>
+            <li class="breadcrumb-item active" aria-current="page"><a href="{{ route('store.index') }}">{{ __('bap.stores') }}</a></li>
         </ol>
     </x-slot>
 
     <div class="card">
         <div class="card-header">
-            <h3 class="card-title">{{ __('bap.merchants') }}</h3>
+            <h3 class="card-title">{{ __('bap.stores') }}</h3>
         </div>
         <div class="card-body">
             <div class="d-flex">
@@ -73,7 +73,30 @@
                             @endif
                         @endif
                     </th>
+                    <th wire:click="sortByColumn('status')">{{ __('bap.status') }}
+                        @if ($sortColumn == 'status')
+                            @if($sortDirection == 'asc')
+                                <!-- Download SVG icon from http://tabler-icons.io/i/chevron-up -->
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-sm text-dark icon-thick" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><polyline points="6 15 12 9 18 15" /></svg>
+                            @else
+                                <!-- Download SVG icon from http://tabler-icons.io/i/chevron-down -->
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-sm text-dark icon-thick" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><polyline points="6 9 12 15 18 9" /></svg>
 
+                            @endif
+                        @endif
+                    </th>
+                    <th wire:click="sortByColumn('created_at')">{{ __('bap.created_at') }}
+                        @if ($sortColumn == 'created_at')
+                            @if($sortDirection == 'asc')
+                                <!-- Download SVG icon from http://tabler-icons.io/i/chevron-up -->
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-sm text-dark icon-thick" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><polyline points="6 15 12 9 18 15" /></svg>
+                            @else
+                                <!-- Download SVG icon from http://tabler-icons.io/i/chevron-down -->
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-sm text-dark icon-thick" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><polyline points="6 9 12 15 18 9" /></svg>
+
+                            @endif
+                        @endif
+                    </th>
                     <th></th>
                 </tr>
                 </thead>
@@ -85,34 +108,63 @@
                                 <span class="avatar me-2" style="background-image: url('{{ route('file.merchant.logo', [$store->id]) }}')"></span>
                                 <div class="flex-fill">
                                     <div class="font-weight-medium">{{ $store->title }}</div>
-                                    <div class="text-muted">{{ $store->description }}</div>
+                                    <div class="text-muted">
+                                        @if($store->crypto)
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-coin-bitcoin" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                                <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"></path>
+                                                <path d="M9 8h4.09c1.055 0 1.91 .895 1.91 2s-.855 2 -1.91 2c1.055 0 1.91 .895 1.91 2s-.855 2 -1.91 2h-4.09"></path>
+                                                <path d="M10 12h4"></path>
+                                                <path d="M10 7v10v-9"></path>
+                                                <path d="M13 7v1"></path>
+                                                <path d="M13 16v1"></path>
+                                            </svg>
+                                            {{ __('bap.crypto') }}</span>
+                                        @endif
+
+                                        @if($store->fiat)
+
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-wallet" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                                <path d="M17 8v-3a1 1 0 0 0 -1 -1h-10a2 2 0 0 0 0 4h12a1 1 0 0 1 1 1v3m0 4v3a1 1 0 0 1 -1 1h-12a2 2 0 0 1 -2 -2v-12"></path>
+                                                <path d="M20 12v4h-4a2 2 0 0 1 0 -4h4"></path>
+                                            </svg>
+                                            {{ __('bap.fiat') }}
+                                        @endif
+
+                                    </div>
                                 </div>
                             </div>
+                        </td>
+                        <td>
+                            {{ __('bap.'.$store->status) }}
+                        </td>
+                        <td>
+                            {{ $store->created_at }}
                         </td>
                         <td class="text-end">
                             <button onclick="Livewire.emit('showModal', 'director.merchant.edit', '{{ json_encode($store->id) }}')" class="btn btn-primary btn-icon btn-sm">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 7h-3a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-3" /><path d="M9 15h3l8.5 -8.5a1.5 1.5 0 0 0 -3 -3l-8.5 8.5v3" /><line x1="16" y1="5" x2="19" y2="8" /></svg>
                             </button>
 
-                            <a href="{{ route('director.merchant.verify', [$store->id]) }}" class="btn btn-secondary btn-icon btn-sm">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-zoom-check" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                    <path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0"></path>
-                                    <path d="M21 21l-6 -6"></path>
-                                    <path d="M7 10l2 2l4 -4"></path>
-                                </svg>
-                            </a>
 
+                            @if($store->status != 'enable')
+                                <button onclick="Livewire.emit('showModal', 'director.merchant.verify', '{{ json_encode($store->id) }}')" class="btn btn-warning btn-icon btn-sm">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-zoom-check" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                        <path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0"></path>
+                                        <path d="M21 21l-6 -6"></path>
+                                        <path d="M7 10l2 2l4 -4"></path>
+                                    </svg>
+                                </button>
+                            @endif
 
-                            <a href="{{ route('director.merchant.view', [$store->id]) }}" class="btn btn-warning btn-icon btn-sm">
-                                <!-- Download SVG icon from http://tabler-icons.io/i/eye -->
-                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-list-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <a href="{{ route('store.terminal.index', [$store->id]) }}" class="btn btn-dark btn-icon btn-sm">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-terminal-2" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                     <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                    <circle cx="15" cy="15" r="4"></circle>
-                                    <path d="M18.5 18.5l2.5 2.5"></path>
-                                    <path d="M4 6h16"></path>
-                                    <path d="M4 12h4"></path>
-                                    <path d="M4 18h4"></path>
+                                    <path d="M8 9l3 3l-3 3"></path>
+                                    <path d="M13 15l3 0"></path>
+                                    <path d="M3 4m0 2a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2z"></path>
                                 </svg>
                             </a>
 

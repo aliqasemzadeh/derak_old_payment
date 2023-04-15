@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\Panel\Store;
+namespace App\Http\Livewire\Store;
 
 use App\Models\Store;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
@@ -80,7 +80,7 @@ class Index extends Component
 
     public function confirmedDeleteItem()
     {
-        if(!auth()->user()->can('admin_user_delete')) {
+        if(auth()->user()->id != $this->store->user_id) {
             return abort(403);
         }
         $this->store->delete();
@@ -113,6 +113,9 @@ class Index extends Component
 
     public function deleteSelectedQuery()
     {
+        if(auth()->user()->id != $this->store->user_id) {
+            return abort(403);
+        }
         Store::query()
             ->where('user_id', auth()->user()->id)
             ->whereIn('id', $this->selectedItems)
@@ -138,6 +141,6 @@ class Index extends Component
     public function render()
     {
         $stores = Store::filter(['search' => $this->search])->where('user_id', auth()->user()->id)->paginate($this->perPage);
-        return view('livewire.panel.store.index', compact('stores'))->layout('layouts.panel');
+        return view('livewire.store.index', compact('stores'))->layout('layouts.store');
     }
 }
