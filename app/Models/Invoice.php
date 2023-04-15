@@ -19,11 +19,11 @@ class Invoice extends Model
 
     public function terminal(): BelongsTo
     {
-        return $this->belongsTo(Terminal::class);
+        return $this->belongsTo(Terminal::class)->withTrashed();
     }
 
     public function store(): BelongsTo
     {
-        return $this->belongsTo(Store::class);
+        return $this->belongsTo(Store::class)->withTrashed();
     }
 }
