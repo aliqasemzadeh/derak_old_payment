@@ -102,6 +102,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['re
         Route::group(['prefix' => config('bap.store-prefix-url'), 'middleware' => ['auth:sanctum', 'verified', 'store']], function () {
             Route::get('/dashboard/index', \App\Http\Livewire\Store\Dashboard\Index::class)->name('store.dashboard.index');
             Route::get('/index', \App\Http\Livewire\Store\Index::class)->name('store.index');
+            Route::get('/terminal/index/{store}', \App\Http\Livewire\Store\Terminal\Index::class)->name('store.terminal.index');
             Route::get('/wallet/index', \App\Http\Livewire\Store\Wallet\Index::class)->name('store.wallet.index');
         });
     });
