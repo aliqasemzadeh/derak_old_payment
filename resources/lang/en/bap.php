@@ -241,6 +241,7 @@ return [
     'list_coins' => 'List Coins',
     'document' => 'Documents',
     'history' => 'History',
+    'staff' => 'Staff',
     'category_types' => [
         'article' => 'Article',
         'ticket' => 'Ticket',

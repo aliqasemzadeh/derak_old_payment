@@ -49,6 +49,25 @@
 
 
 
+                    <li class="nav-item @if(\Illuminate\Support\Facades\Route::is('store.invoice.index')) active @endif">
+                        <a class="nav-link" href="{{ route('store.invoice.index') }}" >
+                            <span class="nav-link-icon d-md-none d-lg-inline-block">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-file-dollar"
+                                     width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
+                                     fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                    <path d="M14 3v4a1 1 0 0 0 1 1h4"></path>
+                                    <path d="M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2z"></path>
+                                    <path d="M14 11h-2.5a1.5 1.5 0 0 0 0 3h1a1.5 1.5 0 0 1 0 3h-2.5"></path>
+                                    <path d="M12 17v1m0 -8v1"></path>
+                                </svg>
+                            </span>
+                            <span class="nav-link-title">
+                                {{ __('bap.invoices') }}
+                            </span>
+                        </a>
+                    </li>
+
                     <li class="nav-item @if(\Illuminate\Support\Facades\Route::is('store.index')) active @endif">
                         <a class="nav-link" href="{{ route('store.index') }}" >
                             <span class="nav-link-icon d-md-none d-lg-inline-block">
@@ -99,6 +118,25 @@
                             </span>
                             <span class="nav-link-title">
                                 {{ __('bap.list_coins') }}
+                            </span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item @if(\Illuminate\Support\Facades\Route::is('store.staff.index')) active @endif">
+                        <a class="nav-link" href="{{ route('store.staff.index') }}">
+                            <span class="nav-link-icon d-md-none d-lg-inline-block">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-users-group" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                   <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                   <path d="M10 13a2 2 0 1 0 4 0a2 2 0 0 0 -4 0"></path>
+                                   <path d="M8 21v-1a2 2 0 0 1 2 -2h4a2 2 0 0 1 2 2v1"></path>
+                                   <path d="M15 5a2 2 0 1 0 4 0a2 2 0 0 0 -4 0"></path>
+                                   <path d="M17 10h2a2 2 0 0 1 2 2v1"></path>
+                                   <path d="M5 5a2 2 0 1 0 4 0a2 2 0 0 0 -4 0"></path>
+                                   <path d="M3 13v-1a2 2 0 0 1 2 -2h2"></path>
+                                </svg>
+                            </span>
+                            <span class="nav-link-title">
+                                {{ __('bap.staff') }}
                             </span>
                         </a>
                     </li>
