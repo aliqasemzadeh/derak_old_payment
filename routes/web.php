@@ -104,6 +104,8 @@ Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['re
             Route::get('/index', \App\Http\Livewire\Store\Index::class)->name('store.index');
             Route::get('/terminal/index/{store}', \App\Http\Livewire\Store\Terminal\Index::class)->name('store.terminal.index');
             Route::get('/wallet/index', \App\Http\Livewire\Store\Wallet\Index::class)->name('store.wallet.index');
+            Route::get('/coin/index', \App\Http\Livewire\Store\Coin\Index::class)->name('store.coin.index');
+            Route::get('/document/index', \App\Http\Livewire\Store\Document\Index::class)->name('store.document.index');
         });
     });
 

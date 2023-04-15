@@ -237,6 +237,10 @@ return [
     'linker_id' => 'Linker ID',
     'upload' => 'Upload',
     'store_dashboard' => 'Store Dashboard',
+    'withdraw' => 'Withdraw',
+    'list_coins' => 'List Coins',
+    'document' => 'Documents',
+    'history' => 'History',
     'category_types' => [
         'article' => 'Article',
         'ticket' => 'Ticket',
