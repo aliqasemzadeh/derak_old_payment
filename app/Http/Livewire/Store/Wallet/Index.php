@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\Panel\Wallet;
+namespace App\Http\Livewire\Store\Wallet;
 
 use App\Models\Wallet;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
@@ -27,11 +27,11 @@ class Index extends Component
     {
         $wallets = [];
         foreach (config('wallet') as $symbol => $config) {
-            $wallet = Wallet::firstOrCreate(['user_id' => $this->user->id, 'symbol' => $symbol]);
+            $wallet = Wallet::firstOrCreate(['user_id' => auth()->user()->id, 'symbol' => $symbol]);
             $wallets[] = $wallet;
         }
         $wallets = collect($wallets);
 
-        return view('livewire.panel.wallet.index', compact('wallets'))->layout('layouts.panel');
+        return view('livewire.store.wallet.index', compact('wallets'))->layout('layouts.store');
     }
 }
