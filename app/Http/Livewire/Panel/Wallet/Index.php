@@ -27,7 +27,7 @@ class Index extends Component
     {
         $wallets = [];
         foreach (config('wallet') as $symbol => $config) {
-            $wallet = Wallet::firstOrCreate(['user_id' => $this->user->id, 'symbol' => $symbol]);
+            $wallet = Wallet::firstOrCreate(['user_id' => auth()->user()->id, 'symbol' => $symbol]);
             $wallets[] = $wallet;
         }
         $wallets = collect($wallets);
