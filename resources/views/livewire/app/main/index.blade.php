@@ -4,18 +4,10 @@
     </x-slot>
 
     <div class="container">
-        <div class="hero pt-1 pb-0">
+        <div class="hero pt-1 pb-2">
             <h1 class="hero-title aos-init aos-animate" data-aos="zoom-y-out">{{ __('website.name') }}</h1>
             <p class="hero-description mt-4 aos-init aos-animate" data-aos="zoom-y-out"
                data-aos-delay="150">{{ __('website.description') }}</p>
-            <div class="mt-5 aos-init aos-animate" data-aos="zoom-y-out" data-aos-delay="300">
-                <div class="row g-3 justify-center">
-                    <div class="col-auto"><a href="https://gum.co/tabler?wanted=true" class="btn btn-lg btn-primary"
-                                             target="_blank" rel="noopener noreferrer">Download template</a></div>
-                    <div class="col-auto"><a href="/preview" class="btn btn-lg" target="_blank"
-                                             rel="noopener noreferrer">Preview template</a></div>
-                </div>
-            </div>
         </div>
     </div>
 

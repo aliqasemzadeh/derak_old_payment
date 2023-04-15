@@ -21,4 +21,9 @@ class Invoice extends Model
     {
         return $this->belongsTo(Terminal::class);
     }
+
+    public function store(): BelongsTo
+    {
+        return $this->belongsTo(Store::class);
+    }
 }

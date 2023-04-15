@@ -50,7 +50,7 @@ class Index extends Component
     public function updatedSelectAll($value)
     {
         if($value) {
-            $this->selectedItems = Invoice::pluck('id')->where('user_id', auth()->user()->id)->toArray();
+            $this->selectedItems = Invoice::pluck('id')->toArray();
         } else {
             $this->selectedItems = [];
         }
@@ -78,10 +78,6 @@ class Index extends Component
 
     public function confirmedDeleteItem()
     {
-        if(auth()->user()->id != $this->invoice->user_id) {
-            return abort(403);
-        }
-
         $this->invoice->delete();
         $this->emit('updateList');
         $this->alert(

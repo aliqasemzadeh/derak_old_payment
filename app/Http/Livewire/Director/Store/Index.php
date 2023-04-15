@@ -64,9 +64,6 @@ class Index extends Component
     }
     public function delete(Store $store)
     {
-        if(auth()->user()->id != $store->user_id) {
-            return abort(403);
-        }
         $this->confirm(__('bap.are_you_sure'), [
             'toast' => false,
             'position' => 'center',
@@ -75,16 +72,12 @@ class Index extends Component
             'onConfirmed' => 'confirmedDeleteItem',
             'onCancelled' => 'cancelledDeleteItem'
         ]);
-        $this->merchant = $store;
+        $this->store = $store;
     }
 
     public function confirmedDeleteItem()
     {
-        if(auth()->user()->id != $this->merchant->user_id) {
-            return abort(403);
-        }
-
-        $this->merchant->delete();
+        $this->store->delete();
         $this->emit('updateList');
         $this->alert(
             'success',
@@ -115,7 +108,6 @@ class Index extends Component
     public function deleteSelectedQuery()
     {
         Store::query()
-            ->where('user_id', auth()->user()->id)
             ->whereIn('id', $this->selectedItems)
             ->delete();
         $this->selectedItems = [];
@@ -139,7 +131,7 @@ class Index extends Component
 
     public function render()
     {
-        $stores = Store::filter(['search' => $this->search])->where('user_id', auth()->user()->id)->paginate($this->perPage);
+        $stores = Store::filter(['search' => $this->search])->paginate($this->perPage);
         return view('livewire.director.store.index', compact('stores'))->layout('layouts.director');
     }
 }
