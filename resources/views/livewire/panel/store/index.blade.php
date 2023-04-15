@@ -82,7 +82,7 @@
                     <tr>
                         <td>
                             <div class="d-flex py-1 align-items-center">
-                                <span class="avatar me-2" style="background-image: url('{{ route('file.merchant.logo', [$store->id]) }}')"></span>
+                                <span class="avatar me-2" style="background-image: url('{{ route('file.store.logo', [$store->id]) }}')"></span>
                                 <div class="flex-fill">
                                     <div class="font-weight-medium">{{ $store->title }}</div>
                                     <div class="text-muted">{{ $store->description }}</div>
