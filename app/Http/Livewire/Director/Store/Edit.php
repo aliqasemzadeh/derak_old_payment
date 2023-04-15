@@ -61,7 +61,7 @@ class Edit extends Component
         $store->website = $this->website;
         if($this->logo) {
             Storage::delete($store->logo);
-            $store->logo = $this->logo->store('merchant_logos');
+            $store->logo = $this->logo->store('store_logos');
         }
         $store->user_id = auth()->user()->id;
 

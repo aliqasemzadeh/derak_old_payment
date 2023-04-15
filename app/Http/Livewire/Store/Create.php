@@ -41,7 +41,7 @@ class Create extends Component
         $store->address = $this->address;
         $store->description = $this->description;
         $store->website = $this->website;
-        $store->logo = $this->logo->store('merchant_logos');
+        $store->logo = $this->logo->store('store_logos');
         $store->user_id = auth()->user()->id;
 
         foreach ($this->payment_type as $key => $payment_type) {
