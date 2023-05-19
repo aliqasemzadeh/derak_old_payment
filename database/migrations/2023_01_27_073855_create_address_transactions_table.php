@@ -22,6 +22,8 @@ return new class extends Migration
             $table->string('from')->index();
             $table->string('to')->index();
             $table->double('value')->default(0);
+            $table->double('fee')->default(0);
+            $table->string('status')->default('new')->index();
             $table->timestamps();
             $table->softDeletes();
         });
