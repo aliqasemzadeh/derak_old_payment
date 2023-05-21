@@ -66,7 +66,6 @@ class TransferToMainWalletJob implements ShouldQueue
 
 
                 }
-
             }
 
             if(!$response->successful()) {
