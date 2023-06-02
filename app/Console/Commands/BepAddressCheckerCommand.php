@@ -31,7 +31,7 @@ class BepAddressCheckerCommand extends Command
         $bnb = new \Binance\Bnb($api);
 
         $config = [
-            'contract_address' => '0x55d398326f99059fF775485246999027B3197955',// USDT BEP20
+            'contract_address' => '0x55d398326f99059ff775485246999027b3197955',// USDT BEP20
             'decimals' => 18,
         ];
         $bep20 = new \Binance\BEP20($api, $config);
