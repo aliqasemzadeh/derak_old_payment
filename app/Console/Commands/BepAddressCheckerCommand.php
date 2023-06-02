@@ -46,7 +46,7 @@ class BepAddressCheckerCommand extends Command
         //$blockID = $bep20->blockNumber();
 
         $txHash = '0x60c6ff9b16ddf2372cb7f8a1c02c990ae5c93162cf0bc8a866000a122dfba401';
-        var_dump($bep20->getTransactionReceipt($txHash));
+        var_dump($bep20->getTransactionByHash($txHash));
 
         //Log::info($bep20->getBlockByNumber(21609237));
     }
