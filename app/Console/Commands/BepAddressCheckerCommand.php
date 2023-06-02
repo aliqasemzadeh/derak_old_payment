@@ -38,15 +38,15 @@ class BepAddressCheckerCommand extends Command
 
 
         // *Check balances
-        $address = '0x450c4e9205c2ccd907ff6abddd63699168ff5749';
-        $bnb->bnbBalance($address);
-        echo $bep20->balance($address);
+        //$address = '0x450c4e9205c2ccd907ff6abddd63699168ff5749';
+        //$bnb->bnbBalance($address);
+        //echo $bep20->balance($address);
 
 
         //$blockID = $bep20->blockNumber();
 
-        //$txHash = '0x565a370d5558140f55b638236325ef3fa38755cde4624095c9e5fa2898343510';
-        //var_dump($bep20->getTransactionReceipt($txHash));
+        $txHash = '0x60c6ff9b16ddf2372cb7f8a1c02c990ae5c93162cf0bc8a866000a122dfba401';
+        var_dump($bep20->getTransactionReceipt($txHash));
 
         //Log::info($bep20->getBlockByNumber(21609237));
     }
