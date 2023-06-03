@@ -36,8 +36,6 @@ class BepAddressCheckerCommand extends Command
         ];
         $bep20 = new \Binance\BEP20($api, $config);
 
-
-        // *Check balances
         //$address = '0x450c4e9205c2ccd907ff6abddd63699168ff5749';
         //$bnb->bnbBalance($address);
         //echo $bep20->balance($address);
